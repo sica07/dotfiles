@@ -1,1 +1,36 @@
-/mnt/work/.gitconfig
+[user]
+	email = mariusmatei31@gmail.com
+	name = Marius Matei
+[core]
+	excludesfile = .git/gitignore_global
+    pager = less -FRSX
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    editor = /usr/bin/vim
+[diff]
+    external = vimdiff
+	tool = vimdiff
+[alias]
+    co = checkout
+    df =  diff --staged
+    st = status -sb
+    pu = git fetch hub && git rebase -p hub/master
+	hist = log --graph --pretty=format:'[%C(red)%h%Creset]%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    week = log --since='2 sunday ago' --until='1 sunday ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com
+    standup = log --since='2 days ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com
+    rm = "!git rm $(git ls-files --deleted)"
+    what = whatchanged -p --abbrev-commit --pretty=medium
+    rollback = reset --hard HEAD@{1}
+	d = difftool
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+[difftool]
+	prompt = false
