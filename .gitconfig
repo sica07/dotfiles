@@ -7,20 +7,33 @@
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = /usr/bin/vim
 [diff]
-    external = vimdiff
-	tool = vimdiff
+    external = gvimdiff
+	tool = gvimdiff
 [alias]
-    co = checkout
-    df =  diff --staged
-    st = status -sb
-    pu = git fetch hub && git rebase -p hub/master
-	hist = log --graph --pretty=format:'[%C(red)%h%Creset]%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    week = log --since='2 sunday ago' --until='1 sunday ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com
-    standup = log --since='2 days ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com
-    rm = "!git rm $(git ls-files --deleted)"
-    what = whatchanged -p --abbrev-commit --pretty=medium
-    rollback = reset --hard HEAD@{1}
+    co = "checkout"
+    df =  "diff"
+    st = "status -sb"
+    pu = "!git fetch hub && !git rebase -p hub/master"
+	hist = "log --graph --pretty=format:'[%C(red)%h%Creset]%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+    week = "log --since='2 sunday ago' --until='1 sunday ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com"
+    rp = "log --since='2 days ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com"
+    rm = "rm $(git ls-files --deleted)"
+    w = "whatchanged -p --abbrev-commit --pretty=medium"
+    undo = "reset --hard HEAD@{1}"
 	d = difftool
+    c = "commit -avm"
+    cm = "commit -v --amend"
+    rb = "rebase"
+    rbi = "rebase -i"
+    rbm = "rebase -i master"
+    rba = "rebase --abort"
+    rbc = "rebase --continue"
+    m = "merge"
+    mm = "merge master"
+    a = "add"
+    b = "branch"
+    bc = "checkout -b"
+    com = "checkout master"
 [color]
     diff = auto
     status = auto
