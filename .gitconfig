@@ -7,8 +7,8 @@
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = /usr/bin/vim
 [diff]
-    external = gvimdiff
-	tool = gvimdiff
+    external = vimdiff
+	tool = vimdiff
 [alias]
     co = "checkout"
     df =  "diff"
@@ -29,6 +29,7 @@
     rba = "rebase --abort"
     rbc = "rebase --continue"
     m = "merge"
+    merge = "merge --no-ff"
     mm = "merge master"
     a = "add"
     b = "branch"
@@ -47,3 +48,6 @@
     untracked = red
 [difftool]
 	prompt = false
+[commit]
+    template = ~/.commit-template.txt
+

@@ -47,8 +47,9 @@ Xcursor.size:   22
 !urxvt*boldFont: xft:Monospace:pixelsize=14
 
 !for normal X11 fonts:
-urxvt*font:      -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-urxvt*boldFont:  -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*font:      -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+!urxvt*boldFont:  -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt.font: xft:Inconsolata:pixelsize=14:antialias:true:hinting:true
 urxvt*geometry:           120x35
 urxvt*internalBorder:     5
 urxvt*fading:             20
