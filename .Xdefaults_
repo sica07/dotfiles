@@ -43,21 +43,21 @@ Xcursor.size:   22
 
 ! rxvt-unicode ---------------------------------------------------------
 !for antialiased fonts (using Xft)
-!urxvt*font:     xft:Monospace:pixelsize=14
-!urxvt*boldFont: xft:Monospace:pixelsize=14
+urxvt*font:     xft:Monospace:pixelsize=14
+urxvt*boldFont: xft:Monospace:pixelsize=14
 
 !for normal X11 fonts:
 !urxvt*font:      -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 !urxvt*boldFont:  -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
-urxvt.font: xft:Inconsolata:pixelsize=14:antialias:true:hinting:true
+!urxvt.font: xft:Inconsolata:pixelsize=14:antialias:true:hinting:true
 urxvt*geometry:           120x35
 urxvt*internalBorder:     5
 urxvt*fading:             20
 urxvt*shading:            30
 urxvt*tintColor:          black
 urxvt*inheritPixmap:      true
-!urxvt*depth:             24
-urxvt*depth:              32
+urxvt*depth:             24
+!urxvt*depth:              32
 urxvt*saveLines:          32767
 urxvt*visualBell:         true
 urxvt*scrollTtyKeypress:  true
@@ -86,16 +86,17 @@ urxvt*background: rgba:1111/1111/1111/dddd
 ! xterm ----------------------------------------------------------------
 
 xterm*geometry:           80x25
-xterm*faceName:           terminus:pixelsize=10
+xterm*faceName:           monospace:pixelsize=13;
+xterm*charClass:          33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*termName:           xterm-color
 xterm*dynamicColors:      true
 xterm*utf8:               2
-xterm*eightBitInput:      true
+xterm*eightBitInput:      false
 xterm*saveLines:          32767
 xterm*scrollTtyKeypress:  true
 xterm*scrollTtyOutput:    false
-xterm*scrollBar:          true
+xterm*scrollBar:          false
 xterm*loginShell:         true
 xterm*jumpScroll:         false
 xterm*multiScroll:        true
-xterm*toolBar:            true
-
+xterm*toolBar:            false
