@@ -117,7 +117,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #shutdown
-bindsym $mod+Shift+q exec "urxvt -e shutdown now"
+bindsym $mod+Shift+q exec "xterm -e /sbin/shutdown -h now"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -171,17 +171,19 @@ workspace 8 output VGA-0
 workspace 6 output HDMI-0
 workspace 7 output VGA-0
 #assign
-assign [class="^(?i)google-chrome-stable$"] 1
+assign [class="^(?i)chromium$"] 1
 assign [class="^(?i)google-chrome$"] 6
-assign [class="^(?i)firefox$"] 2
+assign [class="^(?i)iceweasel$"] 2
 assign [class="^(?i)gvim$"] 3
 assign [class="^(?i)skype$"] 9
 bindsym $mod+e exec xterm -e ranger
 #run at startup
 exec --no-startup-id /usr/bin/xrandr --output VGA-0 --rotate left --left-of HDMI-0
 exec /usr/bin/skype 
-exec /usr/bin/google-chrome-stable 
+exec /usr/bin/chromium
 exec /usr/bin/gvim
 exec /usr/bin/firefox
-exec /bin/systemctl start mysqld.service
-exec /usr/bin/rescuetime
+exec alsactl init
+#exec /usr/local/bin/xflux -l 47.4 -g 23.3 
+# $i3-theme-window
+# $i3-theme-bar
