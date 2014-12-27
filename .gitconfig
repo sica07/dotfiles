@@ -6,9 +6,7 @@
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = /usr/bin/vim
-[diff]
-    external = vimdiff
-	tool = vimdiff
+	autocrlf = input
 [alias]
     co = "checkout"
     df =  "diff"
@@ -50,4 +48,5 @@
 	prompt = false
 [commit]
     template = ~/.commit-template.txt
-
+[diff]
+	tool = vimdiff
