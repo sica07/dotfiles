@@ -1,6 +1,7 @@
 #!/bin/sh
-sudo apt-get update && sudo apt-get upgrade 
-sudo apt-get install rxvt-unicode-256color zsh mc htop -y
+cd 
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install rxvt-unicode-256color zsh mc htop tmux -y
 
 #VIM configuration
 git clone https://github.com/sica07/.vim.git
