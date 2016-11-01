@@ -29,11 +29,15 @@ ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
 rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
 
-#Powerline fonts
+#Powerline Nerd fonts
 mkdir ~/.fonts/
 mkdir ~/.config/ && mkdir ~/.config/fontconfig/ 
 mkdir ~/.config/fontconfig/conf.d/
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf 
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
 mv Menlo* ~/.fonts/
+mv Meslo* ~/.fonts/
+mv Fira* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
