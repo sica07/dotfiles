@@ -1,7 +1,15 @@
 #!/bin/sh
 cd 
+#install infinality fonts ppa
+sudo add-apt-repository ppa:no1wantdthisname/ppa
+
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install rxvt-unicode-256color zsh mc htop tmux -y
+sudo apt-get install rxvt-unicode-256color zsh mc htop tmux -y &&
+sudo apt-get install fontconfig-infinality -y
+
+#set infinality fonts to Linux
+sudo bash /etc/fonts/infinality/infctl.sh setstyle
+sudo sed -i 's/USE_STYLE="DEFAULT"/USE_STYLE="LINUX"/g' /etc/profile.d/infinality-settings.sh
 
 #VIM configuration
 git clone https://github.com/sica07/.vim.git
