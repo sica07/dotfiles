@@ -17,10 +17,10 @@ URxvt.perl-ext-common: default,clipboard,matcher
 ! URxvt.perl-ext-common: default,clipboard,matcher,tabbed
 URxvt.url-launcher:		/usr/bin/chromium
 URxvt.matcher.button:   1
-URxvt*font:     xft:Menlo for Powerline:regular:size=14
-URxvt*boldFont: xft:Menlo for Powerline Bold:bold:size=14
+URxvt*font:     xft:FuraCode Nerd Font:regular:size=10
+!URxvt*boldFont: xft:Menlo for Powerline Bold:bold:size=14
 URxvt.termName: rxvt-256color
-URxvt.lineSpace: 10
+!URxvt.lineSpace: 8
 
 urxvt*background:       #0c0d0e
 urxvt*foreground:       #7f8f9f

@@ -1,4 +1,4 @@
-#If this commit is applied, it will... (50 chars title)
+#TYPE If this commit is applied, it will... (50 chars title)
 
 #Short summary
 
@@ -7,3 +7,12 @@
     +What side effects does this change have? What are the results?
 
 #Any references to tickets, articles, etc?
+#TYPE:
+    #FIX 
+    #FEAT 
+    #UI 
+    #TEST
+    #PERF
+    #REF
+    #SECURE
+    #DOCS
