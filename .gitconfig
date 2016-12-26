@@ -19,8 +19,9 @@
     w = "whatchanged -p --abbrev-commit --pretty=medium"
     undo = "reset --hard HEAD@{1}"
 	d = difftool
-    c = "commit -avm"
-    cm = "commit -v --amend"
+    c = "commit -a"
+    cm = "commit -avm"
+    ca = "commit -v --amend"
     rb = "rebase"
     rbi = "rebase -i"
     rbm = "rebase -i master"
@@ -33,6 +34,7 @@
     b = "branch"
     bc = "checkout -b"
     com = "checkout master"
+    p = "push origin master"
 [color]
     diff = auto
     status = auto

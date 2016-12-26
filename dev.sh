@@ -85,6 +85,17 @@ echo '*************'
 #xdebug.remote_port=9000' >> xdebug.ini
 #sudo mv -f xdebug.ini /etc/php/7.0/apache2/conf.d/xdebug.ini &&
 
+#Workflow
+#tmuxp stuff 
+pip install tmuxp
+#pomodoro stuff
+cd ~
+wget https://raw.githubusercontent.com/yogsototh/get-shit-done/master/get-shit-done -O /usr/local/bin/get-work-done &&
+sudo chmod +x /usr/local/bin/get-work-done
+git clone https://github.com/yogsototh/pomodoro.git
+
+
+
 
 #sudo service apache2 restart
 

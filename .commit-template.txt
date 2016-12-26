@@ -2,17 +2,17 @@
 
 #Short summary
 
-    +Why is this changge necessary? What was the original problem?
-    +How does this change address the issue? How was the problem solved?
-    +What side effects does this change have? What are the results?
+#   +Why is this change necessary? What was the original problem?
+#   +How does this change address the issue? How was the problem solved?
+#   +What side effects does this change have? What are the results?
 
 #Any references to tickets, articles, etc?
-#TYPE:
-    #FIX 
-    #FEAT 
-    #UI 
-    #TEST
-    #PERF
-    #REF
-    #SECURE
-    #DOCS
+###TYPE:###
+#FIX 
+#FEAT 
+#UI 
+#TEST
+#PERF
+#REF
+#SECURE
+#DOCS

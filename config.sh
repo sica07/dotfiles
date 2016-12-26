@@ -18,8 +18,25 @@ vim +PluginInstall +qall
 cp .vim/_vimrc .vimrc
 
 #ZSH configuration
-git clone https://github.com/sica07/.oh-my-zsh.git
-chsh -s /bin/zsh
+#git clone https://github.com/sica07/.oh-my-zsh.git
+git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+&& chsh -s /bin/zsh
+
+#base16 colors for both VIM and shell
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+echo 'BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
+
+#install ranger
+sudo apt-get install ranger caca-utils w3m-image highlight bsdtar mediainfo poppler-utils
+&& ranger --copy-config=all
+&& sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf
+
+
 
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git

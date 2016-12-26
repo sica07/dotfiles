@@ -1,4 +1,4 @@
- #Constants
+ # Constants
   set $mod Mod4
 
   set $base00 #101218
@@ -31,9 +31,11 @@
 
   set $monitor1 "HDMI1"
   set $monitor2 "eDP1"
+  exec xrandr --output HDMI1 --auto --left-of eDP1
 
 # General Configuration
   #font pango:System San Francisco Display 10
+  font pango:Terminus 11px
   floating_modifier $mod
   hide_edge_borders both
   new_window none
@@ -42,7 +44,7 @@
   #gaps outer 0
 
 # Window-Related Bindings
-  bindsym $mod+Shift+q kill
+  bindsym $mod+x kill
   bindsym $mod+h focus left
   bindsym $mod+j focus down
   bindsym $mod+k focus up
@@ -55,7 +57,7 @@
   bindsym $mod+f fullscreen toggl
   bindsym $mod+v layout toggle split
   #bindsym $mod+h split h
-  bindsym $mod+space focus mode_toggle
+  #bindsym $mod+space focus mode_toggle
   bindsym $mod+r mode "  "
   mode "  " {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -71,8 +73,11 @@
 
 # Program-Related Bindings
   bindsym $mod+Shift+f exec firefox
-  bindsym $mod+Return exec i3-sensible-terminal
-  bindsym $mod+d exec rofi -show run
+  bindsym $mod+Return exec urxvt
+  bindsym $mod+space exec "rofi -modi drun,run,window,ssh -show drun -fuzzy"
+  bindsym $mod+e exec thunar
+  bindsym $mod+s exec subl
+  bindsym $mod+g exec google-chrome
   # bindsym --release Print exec imgur-screenshot
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -112,15 +117,16 @@
   workspace $workspace1 output $monitor1
   workspace $workspace2 output $monitor1
   workspace $workspace3 output $monitor1
-  workspace $workspace4 output $monitor1
+  workspace $workspace4 output $monitor2
   workspace $workspace5 output $monitor1
-  workspace $workspace6 output $monitor1
+  workspace $workspace6 output $monitor2
+  workspace $workspace7 output $monitor1
   workspace $workspace9 output $monitor1
-  workspace $workspace10 output $monitor1
+  workspace $workspace10 output $monitor2
 
 # Program Workspaces
   assign [class="Firefox"] $workspace1
-  assign [class="Spotify"] $workspace10
+  assign [class="Sublime Text"] $workspace3
 
 # Floating
   for_window [class="Lxappearance"] floating enable
@@ -136,7 +142,7 @@
 
 # Bar
   bar {
-    font pango: System San Francisco Display, FontAwesome 11
+    font pango: Terminus 11, FontAwesome 11
     status_command i3blocks
     position bottom
     # strip_workspace_numbers yes
@@ -154,3 +160,7 @@
       urgent_workspace   $base01 $base01    $base08
     }
   }
+# Autostart
+exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
+exec dunst
+exec "feh --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/1275776724085-2016-06-21-1553.jpg' 2> /dev/null"
