@@ -4,8 +4,9 @@ cd
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install rxvt-unicode-256color zsh mc htop tmux -y &&
+sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux -y &&
 sudo apt-get install fontconfig-infinality -y
+sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
 sudo bash /etc/fonts/infinality/infctl.sh setstyle
@@ -32,7 +33,7 @@ echo 'BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
 
 #install ranger
-sudo apt-get install ranger caca-utils w3m-image highlight bsdtar mediainfo poppler-utils
+sudo apt-get install ranger caca-utils w3m-image bsdtar mediainfo poppler-utils highlight
 && ranger --copy-config=all
 && sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf
 

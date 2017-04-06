@@ -1,6 +1,6 @@
-#sudo apt-get install npm libapache2-mod-php 
+sudo apt-get install npm 
 #PHP extensions
-#sudo apt-get install php-xml
+#sudo apt-get install php-xml libapache2-mod-php 
 
 #composer
 

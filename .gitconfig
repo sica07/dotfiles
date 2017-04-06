@@ -3,7 +3,7 @@
 	name = Marius Matei
 [core]
 	excludesfile = .git/gitignore_global
-    pager = less -FRSX
+    pager = diff-so-fancy | less --tabs=4 -RFX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = /usr/bin/vim
 	autocrlf = input
@@ -50,5 +50,8 @@
 	prompt = false
 [commit]
     template = ~/.commit-template.txt
-[diff]
-	tool = vimdiff
+;[diff]
+	;tool = vimdiff
+[status]
+    showUntrackedFiles = all
+
