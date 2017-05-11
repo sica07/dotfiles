@@ -48,6 +48,9 @@ echo '*************'
 echo 'Do not forget to add the bash alias to start this service. See https://hub.docker.com/r/eko3alpha/docker-phpqa/'
 echo '*************'
 
+#docker orchestration interface
+docker run -d -v "/var/run/docker.sock:/var/run/docker.sock" -p 9000:9000 portainer/portainer
+
 #export PATH=$PATH:/home/vagrant/.composer/vendor/bin
 #Adminer
 #sudo mkdir /usr/share/adminer

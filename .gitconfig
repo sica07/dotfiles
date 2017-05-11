@@ -18,6 +18,7 @@
     rm = "rm $(git ls-files --deleted)"
     w = "whatchanged -p --abbrev-commit --pretty=medium"
     undo = "reset --hard HEAD@{1}"
+    pl = "pull --rebase"
 	d = difftool
     c = "commit -a"
     cm = "commit -avm"
