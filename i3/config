@@ -1,7 +1,7 @@
  # Constants
   set $mod Mod4
 
-  set $base00 #101218
+  set $base00 #10n1218
   set $base01 #1f222d
   set $base02 #252936
   set $base03 #7780a1
@@ -165,5 +165,6 @@
 # Autostart
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
 exec dunst
-exec "feh --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/a562ZEFKW8I.jpg' 2> /dev/null"
-#exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/*' &"
+exec fluxgui
+#exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
+exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"

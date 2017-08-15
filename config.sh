@@ -59,3 +59,11 @@ mv Meslo* ~/.fonts/
 mv Fira* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
+#FLUX
+sudo apt-get install git python-appindicator python-xdg python-pexpect python-gconf python-gtk2 python-glade2 libxxf86vm1
+cd /tmp
+git clone "https://github.com/xflux-gui/xflux-gui.git"
+cd xflux-gui
+python download-xflux.py
+sudo python setup.py install
+

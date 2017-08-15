@@ -9,14 +9,15 @@
 	autocrlf = input
 [alias]
     co = "checkout"
-    df =  "diff"
+    df =  "diff --word-diff"
     st = "status -sb"
     pu = "!git fetch hub && !git rebase -p hub/master"
 	hist = "log --graph --pretty=format:'[%C(red)%h%Creset]%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
     week = "log --since='2 sunday ago' --until='1 sunday ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com"
+    graph = "git log --graph --all --decorate --stat --date=iso"
     rp = "log --since='2 days ago' --format='%Cgreen%ci%Creset %s%Creset' --no-merges --author mariusmatei31@gmail.com"
     rm = "rm $(git ls-files --deleted)"
-    w = "whatchanged -p --abbrev-commit --pretty=medium"
+    w = "whatchanged -p --abbrev-commit --pretty=medium --word-diff -w"
     undo = "reset --hard HEAD@{1}"
     pl = "pull --rebase"
 	d = difftool
@@ -56,3 +57,5 @@
 [status]
     showUntrackedFiles = all
 
+[push]
+	default = matching
