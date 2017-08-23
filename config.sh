@@ -4,7 +4,7 @@ cd
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux -y &&
+sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton -y &&
 sudo apt-get install fontconfig-infinality -y
 sudo npm install -g diff-so-fancy
 

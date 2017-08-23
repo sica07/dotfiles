@@ -43,8 +43,10 @@
 # Gaps
   smart_gaps on
   smart_borders on
-  gaps inner 0
-  gaps outer 0
+  #gaps inner 0
+  #gaps outer 0
+  gaps inner 5
+  gaps outer 5 
 
 # Window-Related Bindings
   bindsym $mod+x kill
