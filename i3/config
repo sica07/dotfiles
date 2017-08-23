@@ -39,9 +39,12 @@
   floating_modifier $mod
   hide_edge_borders both
   new_window none
-  #smart_borders on
-  #gaps inner 0
-  #gaps outer 0
+
+# Gaps
+  smart_gaps on
+  smart_borders on
+  gaps inner 0
+  gaps outer 0
 
 # Window-Related Bindings
   bindsym $mod+x kill
@@ -135,6 +138,10 @@
   for_window [class="Seahorse"] floating enable
   for_window [class="Pavucontrol"] floating enable
 
+# No titlebars
+for_window [class="^.*"] border pixel 0
+
+
 # Widow Colours
 #                         border  background text    indicator
   client.focused          $base01 $base01    $base07 $base0F
@@ -168,3 +175,4 @@ exec dunst
 exec fluxgui
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
+exec compton -bcCf
