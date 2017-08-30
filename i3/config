@@ -45,7 +45,7 @@
   smart_borders on
   #gaps inner 0
   #gaps outer 0
-  gaps inner 5
+  gaps inner 5 
   gaps outer 5 
 
 # Window-Related Bindings
@@ -80,12 +80,13 @@
 
 # Program-Related Bindings
   bindsym $mod+Shift+f exec firefox
-  bindsym $mod+Return exec urxvt
+  #bindsym $mod+Return exec urxvt
+  bindsym $mod+Return exec xfce4-terminal
   bindsym $mod+space exec "rofi -modi drun,run,window,ssh -show drun -fuzzy"
   bindsym $mod+e exec thunar
-  bindsym $mod+s exec subl
-  bindsym $mod+g exec google-chrome
-  # bindsym --release Print exec imgur-screenshot
+  bindsym $mod+g exec gvim 
+  bindsym $mod+c exec google-chrome
+  bindsym --release Print exec xfce4-screenshot
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Volume & Media Bindings
@@ -173,8 +174,8 @@ for_window [class="^.*"] border pixel 0
   }
 # Autostart
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
-exec dunst
+exec dunst -config ~/.dunstrc
 exec fluxgui
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
-exec compton -bcCf
+exec compton --config ~/compton.conf

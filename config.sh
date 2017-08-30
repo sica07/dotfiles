@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton -y &&
-sudo apt-get install fontconfig-infinality -y
+sudo apt-get install fontconfig-infinality dunst -y
 sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
@@ -42,6 +42,9 @@ sudo apt-get install ranger caca-utils w3m-image bsdtar mediainfo poppler-utils 
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
+mkdir ~/.config/dunst
+ln -s dotfiles/dunstrc ~/.config/dunst/dunstrc
+ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
@@ -54,6 +57,8 @@ mkdir ~/.config/fontconfig/conf.d/
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf 
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fira* ~/.fonts/

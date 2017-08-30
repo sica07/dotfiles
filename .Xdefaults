@@ -18,21 +18,17 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 !------------------------------------------------------------------------------
 ! URXVT - Settings
 
-#URxvt.depth: 32
+!URxvt.depth: 32
 URxvt.scrollBar: false
 URxvt.perl-ext-common: default,clipboard,matcher
 ! URxvt.perl-ext-common: default,clipboard,matcher,tabbed
 URxvt.url-launcher:		/usr/bin/chromium
 URxvt.matcher.button:   1
-URxvt*font:     xft:FuraCode Nerd Font:regular:size=14
+URxvt*font:     xft:FuraCode Nerd Font:regular:size=11
 !URxvt*boldFont: xft:Menlo for Powerline Bold:bold:size=14
 URxvt.termName: rxvt-256color
 !URxvt.lineSpace: 8
 
-URxvt*foreground     : base4
-URxvt*background     : [90]base1
-URxvt*borderColor    : [90]base1
-URxvt.color0 : [90]base1
 !urxvt*background:       #0c0d0e
 !urxvt*foreground:       #7f8f9f
 urxvt*scrollBar:        false
@@ -40,7 +36,7 @@ urxvt*matcher.button:   1
 urxvt*allow_bold:    true
 
 
-URxvt*geometry: 85x16
+!URxvt*geometry: 85x16
 URxvt*fading:        0
 URxvt*tintColor:     #ffffff
 URxvt*shading:        0
