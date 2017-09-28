@@ -1,6 +1,4 @@
-#TYPE If this commit is applied, it will... (50 chars title)
-
-#Short summary
+#TYPE(scope): If this commit is applied, it will... (50 chars title)
 
 #   +Why is this change necessary? What was the original problem?
 #   +How does this change address the issue? How was the problem solved?
@@ -10,9 +8,8 @@
 ###TYPE:###
 #FIX 
 #FEAT 
-#UI 
+#STYLE 
 #TEST
-#PERF
-#REF
-#SECURE
+#REFACTOR
+#CHORE
 #DOCS

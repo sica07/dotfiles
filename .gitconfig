@@ -34,6 +34,7 @@
     mm = "merge master"
     a = "add"
     b = "branch"
+    bd = "branch -D"
     bc = "checkout -b"
     com = "checkout master"
     p = "push origin master"
