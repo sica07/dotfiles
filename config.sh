@@ -4,8 +4,8 @@ cd
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y
+sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip -y &&
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu
 sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
@@ -37,6 +37,9 @@ sudo apt-get install ranger caca-utils w3m-image bsdtar mediainfo poppler-utils 
 && ranger --copy-config=all
 && sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf
 
+#install fzf and ripgrip
+cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+cd ~ && wget https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz && tar -xzf ripgrep* && rm ripgrep*.tar.gz && sudo mv ripgrep* /usr/share/rip && sudo ln -s /usr/share/rip/rg /usr/bin/rg
 
 
 #Other configurations
@@ -72,3 +75,9 @@ cd xflux-gui
 python download-xflux.py
 sudo python setup.py install
 
+#TOOLS
+sudo pip install glances mycli mackup
+echo '******REMINDER*******'
+echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
+echo 'This will restore all your environment settings'
+echo '******END******'
