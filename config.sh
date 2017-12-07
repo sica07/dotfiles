@@ -21,7 +21,10 @@ cp .vim/_vimrc .vimrc
 #ZSH configuration
 #git clone https://github.com/sica07/.oh-my-zsh.git
 git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
-sudo chsh -s /bin/zsh 
+sudo chsh -s /bin/zsh &&
+cp zshrc ~/.zprezto/runcoms/zshrc &&
+cp zpreztorc ~/.zprezto/runcoms/zpreztorc
+
 
 echo ' ========================='
 echo 'this should be run in zsh:;'
@@ -34,8 +37,8 @@ echo '============END==========='
 
 #base16 colors for both VIM and shell
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-echo 'BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
+#echo 'BASE16_SHELL=$HOME/.config/base16-shell/
+#[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
 
 #install ranger
 sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils highlight \
