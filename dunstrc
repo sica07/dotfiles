@@ -1,5 +1,5 @@
 [global]
-    #font = Hack 10
+    font = Hack 10
     
     allow_markup = yes
     
@@ -49,17 +49,20 @@
     close_all = ctrl+shift+space
 
 [urgency_low]
-    background = "#fff3cd"
+    background = "#000000"
+    #background = "#fff3cd"
     foreground = "#85640o"
     timeout = 5 
 
 [urgency_normal]
-    background = "#cce5ff"
+    background = "#000000"
+    #background = "#cce5ff"
     foreground = "#004085"
     timeout = 5 
 
 [urgency_critical]
-    background = "#f8d7da"
+    background = "#000000"
+    #background = "#f8d7da"
     foreground = "#721c24"
     timeout = 0 
 
@@ -80,6 +83,21 @@
 # NOTE: if you don't want a notification to be displayed, set the format to ""
 # NOTE: It might be helpful to run dunst -print in a terminal in order to find
 # fitting options for rules.
+[google-chrome]
+    appname = Google Chrome
+    script = say.sh "%a"
+
+[firefox]
+    appname = Firefox
+    script = /home/marius/.config/dunst/say.sh
+
+[facebook]
+    appname = Facebook
+    script = /home/marius/.config/dunst/say.sh
+
+[slack]
+    appname = Slack
+    script = /home/marius/.config/dunst/say.sh
 
 [signed_on]
     appname = Pidgin
