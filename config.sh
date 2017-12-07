@@ -13,19 +13,24 @@ sudo bash /etc/fonts/infinality/infctl.sh setstyle
 sudo sed -i 's/USE_STYLE="DEFAULT"/USE_STYLE="LINUX"/g' /etc/profile.d/infinality-settings.sh
 
 #VIM configuration
-git clone https://github.com/sica07/.vim.git
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
-vim +PluginInstall +qall
+git clone https://github.com/sica07/.vim.git &&
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle &&
+vim +PluginInstall +qall &&
 cp .vim/_vimrc .vimrc
 
 #ZSH configuration
 #git clone https://github.com/sica07/.oh-my-zsh.git
 git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-&& chsh -s /bin/zsh
+sudo chsh -s /bin/zsh 
+
+echo ' ========================='
+echo 'this should be run in zsh:;'
+echo '=========================='
+echo 'setopt EXTENDED_GLOB'
+echo 'for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do'
+echo '  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"'
+echo 'done'
+echo '============END==========='
 
 #base16 colors for both VIM and shell
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -33,8 +38,8 @@ echo 'BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
 
 #install ranger
-sudo apt-get install ranger caca-utils w3m-image bsdtar mediainfo poppler-utils highlight
-&& ranger --copy-config=all
+sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils highlight \
+&& ranger --copy-config=all \
 && sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf
 
 #install fzf and ripgrip
@@ -64,7 +69,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
-mv Fira* ~/.fonts/
+mv Fura* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
@@ -74,6 +79,8 @@ git clone "https://github.com/xflux-gui/xflux-gui.git"
 cd xflux-gui
 python download-xflux.py
 sudo python setup.py install
+#Dropbox
+wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 
 #TOOLS
 sudo pip install glances mycli mackup

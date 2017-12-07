@@ -22,9 +22,9 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 URxvt.scrollBar: false
 URxvt.perl-ext-common: default,clipboard,matcher
 ! URxvt.perl-ext-common: default,clipboard,matcher,tabbed
-URxvt.url-launcher:		/usr/bin/chromium
+URxvt.url-launcher:		/usr/bin/firefox
 URxvt.matcher.button:   1
-URxvt*font:     xft:FuraCode Nerd Font:regular:size=11
+URxvt*font:     xft:FuraCode Nerd Font Mono:regular:size=12
 !URxvt*boldFont: xft:Menlo for Powerline Bold:bold:size=14
 URxvt.termName: rxvt-256color
 !URxvt.lineSpace: 8
