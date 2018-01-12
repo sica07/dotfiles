@@ -176,6 +176,8 @@ for_window [class="^.*"] border pixel 0
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
 exec dunst -config ~/.dunstrc
 exec fluxgui
+exec nm-applet
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
 exec compton --config ~/compton.conf
+exec dropbox start &

@@ -1,0 +1,39 @@
+{
+    "windows": [
+        {
+            "panes": [
+                { "shell_command":  "cd ~/Homestead && vagrant up && vagrant ssh" } 
+            ], 
+            "layout": "main-horizontal",
+            "window_name": "vagrant"
+        },
+        {
+            "panes": [
+                { "shell_command": "git pull origin master & git week" }
+            ],
+            "layout": "main-vertical",
+            "window_name": "git"
+        },
+        {
+            "panes": [
+                {"shell_command": "tail storage/logs/laravel.log"}
+            ], 
+            "window_name": "logs"
+        },
+        {
+            "panes": [
+                {"shell_command": "ranger"},
+                {"shell_command": "npm run watch"}
+            ],
+            "window_name": "stuff"
+        },
+        {
+            "panes": [
+                {"shell_command": "mysql -h192.168.10.10 -uhomestead -psecret --auto-vertical-output -Dfsplaza"}
+            ], 
+            "window_name": "mysql"
+        }
+            ], 
+    "session_name": "fsplaza",
+    "start_directory": "~/Templates/fsplaza"
+}
