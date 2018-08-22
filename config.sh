@@ -5,7 +5,8 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks
+sudo apt-get install vim vim-gui-common vim-runtime
 sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
@@ -23,7 +24,8 @@ cp .vim/_vimrc .vimrc
 git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
 sudo chsh -s /bin/zsh &&
 cp zshrc ~/.zprezto/runcoms/zshrc &&
-cp zpreztorc ~/.zprezto/runcoms/zpreztorc
+cp zpreztorc ~/.zprezto/runcoms/zpreztorc &&
+cp prompt* ~/.zprezto/modules/prompt/functions/
 
 
 echo ' ========================='
@@ -73,7 +75,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
-wget https://github.com/be5invis/Iosevka/releases/download/v1.14.3/02-iosevka-term-1.14.3.zip && unzip 02-iosevka-term-1.14.3.zip -d ~/.fonts/
+wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/iosevka-term-ss02-2.0.0.zip && unzip iosevka-term-ss02-2.0.0.zip -d ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
