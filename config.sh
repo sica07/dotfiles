@@ -5,8 +5,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks
-sudo apt-get install vim vim-gui-common vim-runtime
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit gvim
 sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
@@ -24,8 +23,13 @@ cp .vim/_vimrc .vimrc
 git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
 sudo chsh -s /bin/zsh &&
 cp zshrc ~/.zprezto/runcoms/zshrc &&
+<<<<<<< HEAD
 cp zpreztorc ~/.zprezto/runcoms/zpreztorc &&
 cp prompt* ~/.zprezto/modules/prompt/functions/
+=======
+cp zpreztorc ~/.zprezto/runcoms/zpreztorc
+cp zshrc ~/.zprezto/runcoms/zshrc &&
+>>>>>>> ad982a9224b714c098cee8ff9a9152d4d443d2fc
 
 
 echo ' ========================='
