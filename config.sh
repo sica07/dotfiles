@@ -23,13 +23,9 @@ cp .vim/_vimrc .vimrc
 git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
 sudo chsh -s /bin/zsh &&
 cp zshrc ~/.zprezto/runcoms/zshrc &&
-<<<<<<< HEAD
 cp zpreztorc ~/.zprezto/runcoms/zpreztorc &&
 cp prompt* ~/.zprezto/modules/prompt/functions/
-=======
-cp zpreztorc ~/.zprezto/runcoms/zpreztorc
 cp zshrc ~/.zprezto/runcoms/zshrc &&
->>>>>>> ad982a9224b714c098cee8ff9a9152d4d443d2fc
 
 
 echo ' ========================='
