@@ -59,6 +59,8 @@ mkdir ~/.config/dunst
 ln -s dotfiles/dunstrc ~/.config/dunst/dunstrc
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
+ln -s dotfiles/.i3blocks.conf .i3blocks.conf
+ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
 rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
@@ -75,7 +77,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
-wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/iosevka-term-ss02-2.0.0.zip && unzip iosevka-term-ss02-2.0.0.zip -d ~/.fonts/
+wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
@@ -94,6 +96,7 @@ sudo cp -R icons /usr/local/bin
 
 #Dropbox
 wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
+
 
 #TOOLS
 sudo pip install glances mycli mackup
