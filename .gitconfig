@@ -1,5 +1,5 @@
 [user]
-	email = mariusmatei31@gmail.com
+	email = marius.matei@tremend.com
 	name = Marius Matei
 [core]
 	excludesfile = .git/gitignore_global
@@ -8,6 +8,8 @@
     editor = /usr/bin/vim
 	autocrlf = input
 [alias]
+    a = "add --patch"
+    c = "commit"
     co = "checkout"
     df =  "diff --word-diff"
     st = "status -sb"
@@ -21,7 +23,7 @@
     undo = "reset --hard HEAD@{1}"
     pl = "pull --rebase"
 	d = difftool
-    c = "commit -a"
+    ;c = "commit -a"
     cm = "commit -avm"
     ca = "commit -v --amend"
     rb = "rebase"

@@ -1,24 +1,24 @@
 sudo apt-get install npm 
 #PHP extensions
-#sudo apt-get install php-xml libapache2-mod-php 
+sudo apt-get install php-xml libapache2-mod-php 
 
 #composer
 
-#EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
-#php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-#ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
-#if [ "$EXPECTED_SIGNATURE" = "$ACTUAL_SIGNATURE" ]
-#then
-    #php composer-setup.php 
-    #RESULT=$?
-    #rm composer-setup.php
-    #sudo mv composer.phar /usr/local/bin/composer
-#else
-    #>&2 echo 'ERROR: Invalid installer signature'
-    #rm composer-setup.php
-    #exit 1
-#fi
+if [ "$EXPECTED_SIGNATURE" = "$ACTUAL_SIGNATURE" ]
+then
+    php composer-setup.php 
+    RESULT=$?
+    rm composer-setup.php
+    sudo mv composer.phar /usr/local/bin/composer
+else
+    >&2 echo 'ERROR: Invalid installer signature'
+    rm composer-setup.php
+    exit 1
+fi
 
 
 #PHP specific
@@ -32,24 +32,24 @@ composer global require 'phpmetrics/phpmetrics'
 composer global require friendsofphp/php-cs-fixer
 
 #padwan server
-composer global require mkusher/padawan
+#composer global require mkusher/padawan
 
 #GEM packages
 #gem install scss-lint
 #gem install compass
 
 #NPM packages
-#sudo npm install -g jshint
-#sudo npm install -g csslint
+sudo npm install -g jshint
+sudo npm install -g csslint
 
 
-docker pull eko3alpha/docker-phpqa
+#docker pull eko3alpha/docker-phpqa
 echo '*************'
 echo 'Do not forget to add the bash alias to start this service. See https://hub.docker.com/r/eko3alpha/docker-phpqa/'
 echo '*************'
 
 #docker orchestration interface
-docker run -d -v "/var/run/docker.sock:/var/run/docker.sock" -p 9000:9000 portainer/portainer
+#docker run -d -v "/var/run/docker.sock:/var/run/docker.sock" -p 9000:9000 portainer/portainer
 
 #export PATH=$PATH:/home/vagrant/.composer/vendor/bin
 #Adminer

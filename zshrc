@@ -11,6 +11,47 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
+#Use grc colorizer
+if [[ "$TERM" != dumb ]] && (( $+commands[grc] )) ; then
+
+  # Supported commands
+  cmds=(
+    cc \
+    configure \
+    cvs \
+    df \
+    diff \
+    dig \
+    gcc \
+    gmake \
+    ifconfig \
+    last \
+    ldap \
+    ls \
+    make \
+    mount \
+    mtr \
+    netstat \
+    ping \
+    ping6 \
+    ps \
+    traceroute \
+    traceroute6 \
+    wdiff \
+    whois \
+    iwconfig \
+  );
+
+  # Set alias for available commands.
+  for cmd in $cmds ; do
+    if (( $+commands[$cmd] )) ; then
+      alias $cmd="grc --colour=auto $(whence $cmd)"
+    fi
+  done
+
+  # Clean up variables
+  unset cmds cmd
+fi
 ######################
 ### Custom Aliases ###
 ######################

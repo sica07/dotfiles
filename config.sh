@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc
 sudo npm install -g diff-so-fancy
 
 #set infinality fonts to Linux
@@ -73,6 +73,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
+wget https://github.com/be5invis/Iosevka/releases/download/v1.14.3/02-iosevka-term-1.14.3.zip && unzip 02-iosevka-term-1.14.3.zip -d ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
@@ -82,6 +83,13 @@ git clone "https://github.com/xflux-gui/xflux-gui.git"
 cd xflux-gui
 python download-xflux.py
 sudo python setup.py install
+
+#i3lock-fancy
+cd && git clone https://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.git
+cd i3lock-fancy/
+sudo cp lock /usr/local/bin 
+sudo cp -R icons /usr/local/bin
+
 #Dropbox
 wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 

@@ -80,8 +80,8 @@
 
 # Program-Related Bindings
   bindsym $mod+Shift+f exec firefox
-  #bindsym $mod+Return exec urxvt
-  bindsym $mod+Return exec xfce4-terminal
+  bindsym $mod+Return exec urxvt
+  #bindsym $mod+Return exec xfce4-terminal
   bindsym $mod+space exec "rofi -modi drun,run,window,ssh -show drun -fuzzy"
   bindsym $mod+e exec thunar
   bindsym $mod+g exec gvim 
