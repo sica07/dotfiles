@@ -11,7 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
-#Use grc colorizer
 if [[ "$TERM" != dumb ]] && (( $+commands[grc] )) ; then
 
   # Supported commands
@@ -65,6 +64,9 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/tmuxp && tmuxp load'
 alias v='vim'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias find='/usr/bin/fd'
 
 #DOCKER
 alias dclc='docker rm $(docker ps -a -q)'
@@ -99,29 +101,36 @@ alias meteo='curl wttr.in/Brasov'
 alias alias-edit='vim ~/.zprezto/runcoms/zshrc'
 alias r='ranger'
 alias fm='vifm'
-alias space='ncdu'
+alias help='tldr'
+alias space='ncdu --color dark -rr -x'
+alias du='ncdu --color dark -rr -x'
 alias hotnews='w3m -num http://www.hotnews.ro/Ultima_ora'
 alias hnews='w3m -num https://news.ycombinator.com/'
 alias bbc='w3m -num http://www.bbc.com/news/world'
 alias jw='w3m -num https://jw.org/en/whats-new'
 alias wol='w3m -num https://wol.jw.org/ro'
-alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
+alias wallpaper="feh --recursive --randomize --bg-fill '/home/mariusm/Dropbox/Apps/Desktoppr/' &"
 alias pig='ping google.ro'
 alias fboff="sudo -- sh -c -e 'echo '127.0.0.1' facebook.com >> /etc/hosts'"
 alias fbon="sudo -- sh -c -e 'sed --in-place '/facebook/d' /etc/hosts'"
 alias phpqa="phpqa --report --tools phpmetrics,phploc,phpmd,pdepend,phpcpd,parallel-lint --analyzedDirs"
 alias imginfo="identify  -format 'Name: %f Dimensions: %P Type: %m'"
+alias rg='rg --color always'
+alias rgi='rg --no-ignore'
+alias rgc='rg -C 5'
+alias rgci='rg -C 5 --no-ignore'
 #SSH
 alias marius='ssh -X marius@192.168.1.120'
 alias neuron='ssh -p2222 rovis999@neuronsolutions.ro'
-alias ayop='ssh -i ~/.ssh/air-ec2.pem ubuntu@ec2-52-8-184-200.us-west-1.compute.amazonaws.com'
-alias ayod='ssh -i ~/.ssh/ayo-prod-api.pem ubuntu@ec2-54-183-203-118.us-west-1.compute.amazonaws.com'
-alias airdb='mysql -hayo-db.cs9no2s1zd0i.us-west-1.rds.amazonaws.com -uayo_admin -pWeak-Uuuu-nose-Slop'
-alias airdd='mysql -hair-dev-db.cs9no2s1zd0i.us-west-1.rds.amazonaws.com -uayo_admin -pWeak-Uuuu-nose-Slop'
+#alias ayop='ssh -i ~/.ssh/air-ec2.pem ubuntu@ec2-52-8-184-200.us-west-1.compute.amazonaws.com'
+#alias ayod='ssh -i ~/.ssh/ayo-prod-api.pem ubuntu@ec2-54-183-203-118.us-west-1.compute.amazonaws.com'
+#alias airdb='mysql -hayo-db.cs9no2s1zd0i.us-west-1.rds.amazonaws.com -uayo_admin -pWeak-Uuuu-nose-Slop'
+#alias airdd='mysql -hair-dev-db.cs9no2s1zd0i.us-west-1.rds.amazonaws.com -uayo_admin -pWeak-Uuuu-nose-Slop'
 
 alias openSockets='lsof -i' # netCons:      Show all open TCP/IP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list' # showBlocked:  All ipfw rules inc/ blocked IPs
+
 
 #PROCESS MANAGEMENT
 alias memTop='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
@@ -132,9 +141,13 @@ alias cpuTop='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-#Temporary 
+#Temporary
 alias myrouter='ssh root@192.168.1.22 -p1981'
 alias td='python3 ~/Templates/lpy/td.py'
 alias tgl='python ~/Templates/toggle/tgl.py'
 alias zp='source ~/.zshrc'
 alias lake="feh --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/lake-2016-06-21-1549.jpg'"
+alias roots='ssh -i ~/.ssh/mariusmtremend_rsa rr_roots_marius@roots.rainbowriders.dk'
+alias shopogen='ssh -i ~/.ssh/mariusmtremend_rsa root@tremend-shopogen.vanilla.newportal-prod.2161.bigstep.io'
+alias mysql_prod='ssh -L localhost:3306:vm-prod-mysql_ro1:3306 bigstep'
+alias mysql_stage='ssh -L localhost:3306:vm-prod-mysql_ro1:3306 bigstep_stage'
