@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y &&
 sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit gvim
-sudo npm install -g diff-so-fancy
+sudo npm install -g diff-so-fancy tldr
 
 #set infinality fonts to Linux
 sudo bash /etc/fonts/infinality/infctl.sh setstyle
@@ -50,6 +50,16 @@ sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils hi
 #install fzf and ripgrip
 cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 cd ~ && wget https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz && tar -xzf ripgrep* && rm ripgrep*.tar.gz && sudo mv ripgrep* /usr/share/rip && sudo ln -s /usr/share/rip/rg /usr/bin/rg
+
+#install bat
+wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat*.deb
+
+#install prettyping
+curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+chmod +x prettyping && sudo cp prettyping /usr/sbin/
+
+#install fd (find on steroids)
+wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb 
 
 
 #Other configurations
