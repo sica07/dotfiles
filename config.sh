@@ -66,10 +66,12 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb &
 #git clone https://github.com/sica07/dotfiles.git
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
 mkdir ~/.config/dunst
+mkdir ~/.config/i3blocks
 ln -s dotfiles/dunstrc ~/.config/dunst/dunstrc
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.i3blocks.conf .i3blocks.conf
+cp  dotfiles/i3blocks/* .config/i3blocks/*
 ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
