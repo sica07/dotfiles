@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y &&
 sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit gvim
-sudo npm install -g diff-so-fancy tldr
+sudo npm install -g diff-so-fancy tldr how-2
 
 #set infinality fonts to Linux
 sudo bash /etc/fonts/infinality/infctl.sh setstyle
