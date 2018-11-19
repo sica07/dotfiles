@@ -88,7 +88,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
-wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
+wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
