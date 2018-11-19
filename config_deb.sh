@@ -2,15 +2,14 @@
 cd 
 #install infinality fonts ppa
 sudo add-apt-repository ppa:no1wantdthisname/ppa
-
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit gvim
+#install node
+sudo apt-get install curl software-properties-common -y 
+curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
+sudo apt-get install  rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y hj
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox
 sudo npm install -g diff-so-fancy tldr how-2
 
-#set infinality fonts to Linux
-sudo bash /etc/fonts/infinality/infctl.sh setstyle
-sudo sed -i 's/USE_STYLE="DEFAULT"/USE_STYLE="LINUX"/g' /etc/profile.d/infinality-settings.sh
+#TODO install infinlaity fonts in debian
 
 #VIM configuration
 git clone https://github.com/sica07/.vim.git &&
@@ -24,8 +23,7 @@ git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.z
 sudo chsh -s /bin/zsh &&
 cp ~/dotfiles/zshrc ~/.zprezto/runcoms/zshrc &&
 cp ~/dotfiles/zpreztorc ~/.zprezto/runcoms/zpreztorc &&
-cp prompt* ~/.zprezto/modules/prompt/functions/
-
+cp ~/dotfiles/prompt* ~/.zprezto/modules/prompt/functions/
 
 echo ' ========================='
 echo 'this should be run in zsh:;'
@@ -111,7 +109,7 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 #TOOLS
 sudo pip install glances mycli mackup
-echo '******REMINDER*******'
-echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
-echo 'This will restore all your environment settings'
-echo '******END******'
+#echo '******REMINDER*******'
+#echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
+#echo 'This will restore all your environment settings'
+#echo '******END******'
