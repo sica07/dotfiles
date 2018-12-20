@@ -15,27 +15,27 @@ sudo pip3 install neovim pynvim
 sudo pip install pynvim
 
 #VIM configuration
-git clone https://github.com/sica07/.vim.git &&
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle &&
-vim +PluginInstall +qall &&
-cp .vim/_vimrc .vimrc
+#git clone https://github.com/sica07/.vim.git &&
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle &&
+#vim +PluginInstall +qall &&
+#cp .vim/_vimrc .vimrc
 
 #ZSH configuration
 #git clone https://github.com/sica07/.oh-my-zsh.git
-git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
-sudo chsh -s /bin/zsh &&
-cp ~/dotfiles/zshrc ~/.zprezto/runcoms/zshrc &&
-cp ~/dotfiles/zpreztorc ~/.zprezto/runcoms/zpreztorc &&
-cp prompt* ~/.zprezto/modules/prompt/functions/
+#git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
+#sudo chsh -s /bin/zsh &&
+#cp ~/dotfiles/zshrc ~/.zprezto/runcoms/zshrc &&
+#cp ~/dotfiles/zpreztorc ~/.zprezto/runcoms/zpreztorc &&
+#cp prompt* ~/.zprezto/modules/prompt/functions/
 
 
-echo ' ========================='
-echo 'this should be run in zsh:;'
-echo '=========================='
-echo 'setopt EXTENDED_GLOB'
-echo 'for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do'
-echo '  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"'
-echo 'done'
+#echo ' ========================='
+#echo 'this should be run in zsh:;'
+#echo '=========================='
+#echo 'setopt EXTENDED_GLOB'
+#echo 'for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do'
+#echo '  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"'
+#echo 'done'
 echo '============END==========='
 
 #base16 colors for both VIM and shell
