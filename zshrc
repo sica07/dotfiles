@@ -4,13 +4,14 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
+export PATH=$PWD/.local/bin:$PATH
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
+
 if [[ "$TERM" != dumb ]] && (( $+commands[grc] )) ; then
 
   # Supported commands

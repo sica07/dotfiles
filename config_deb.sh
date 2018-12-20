@@ -5,8 +5,8 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
 sudo apt-get install curl software-properties-common -y 
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
-sudo apt-get install  rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y hj
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox
+sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-pip python3-pip sysstat git-extras -y &&
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox googler -y 
 sudo npm install -g diff-so-fancy tldr how-2
 
 #TODO install infinlaity fonts in debian
@@ -86,7 +86,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* ~/.fonts/
 mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
-wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
+wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
 fc-cache -vf ~/.fonts/
 
 #FLUX
@@ -108,8 +108,4 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 
 #TOOLS
-sudo pip install glances mycli mackup
-#echo '******REMINDER*******'
-#echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
-#echo 'This will restore all your environment settings'
-#echo '******END******'
+pip install setuptools mycli glances haxor-news
