@@ -4,13 +4,15 @@ cd
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip sysstat -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit gvim
+sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip python3-pip sysstat git-extras -y &&
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit vim-nox gvim googler -y
 sudo npm install -g diff-so-fancy tldr how-2
 
 #set infinality fonts to Linux
 sudo bash /etc/fonts/infinality/infctl.sh setstyle
 sudo sed -i 's/USE_STYLE="DEFAULT"/USE_STYLE="LINUX"/g' /etc/profile.d/infinality-settings.sh
+sudo pip3 install neovim pynvim
+sudo pip install pynvim
 
 #VIM configuration
 git clone https://github.com/sica07/.vim.git &&
@@ -55,7 +57,7 @@ wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
 
 #install prettyping
 curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
-chmod +x prettyping && sudo cp prettyping /usr/sbin/
+chmod +x prettyping && sudo cp prettyping /usr/local/bin/
 
 #install fd (find on steroids)
 wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb 
@@ -110,7 +112,7 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 
 #TOOLS
-sudo pip install glances mycli mackup
+sudo pip install glances mycli haxor-news
 echo '******REMINDER*******'
 echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
 echo 'This will restore all your environment settings'

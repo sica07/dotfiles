@@ -119,13 +119,13 @@ vv() {
 }
 
 # fd - including hidden directories
-fd() {
+fdh() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
   zle redisplay
 }
-zle     -N   fd 
-bindkey '^j' fd 
+zle     -N   fdh
+bindkey '^j' fdh
 
 # fk - kill process
 fk() {
