@@ -5,11 +5,25 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
 sudo apt-get install curl software-properties-common -y 
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
-sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-pip python3-pip sysstat git-extras -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox googler -y 
+sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
+sudo apt-get install ctags dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y 
 sudo npm install -g diff-so-fancy tldr how-2
-sudo pip3 install neovim pynvim
-sudo pip install pynvim
+
+#PHP
+sudo apt install php7.2 php7.2-cli php7.2-common php7.2-xml php7.2-mbstring &&
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php --install-dir=/usr/bin --filename=composer
+composer global require phpmd/phpmd &&
+composer global require vimeo/psalm &&
+composer global require friendsofphp/php-cs-fixer
+
+
+#NEOVIM
+wgett://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage  &&
+chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim
+
+pip3 install wheel neovim pynvim
+pip install wheel pynvim
 
 #VIM configuration
 git clone https://github.com/sica07/.vim.git &&
@@ -24,7 +38,9 @@ nvim +PlugInstall
 
 
 #ZSH configuration
-curl -L git.io/antigen > ~/.local/bin/antigen.zsh
+curl -L git.io/antigen > ~/.local/bin/antigen.zsh && chmod +x ~/.local/bin/antigen.zsh
+ln -s  ~/dotfiles/zshrc ~/.zshrc
+chsh -s $(which zsh)
 #git clone https://github.com/sica07/.oh-my-zsh.git
 #git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
 #sudo chsh -s /bin/zsh &&
@@ -53,7 +69,7 @@ sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils hi
 
 #install fzf and ripgrip
 cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-cd ~ && wget https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz && tar -xzf ripgrep* && rm ripgrep*.tar.gz && sudo mv ripgrep* /usr/share/rip && sudo ln -s /usr/share/rip/rg /usr/bin/rg
+cd ~ && curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb && sudo dpkg -i ripgrep_0.10.0_amd64.deb
 
 #install bat
 wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat*.deb
@@ -71,11 +87,12 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb &
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
 mkdir ~/.config/dunst
 mkdir ~/.config/i3blocks
-ln -s dotfiles/dunstrc ~/.config/dunst/dunstrc
+cp dotfiles/dunstrc ~/.config/dunst/dunstrc
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.i3blocks.conf .i3blocks.conf
 cp  dotfiles/i3blocks/* .config/i3blocks/*
+cp  dotfiles/i3/* .config/i3/*
 ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
@@ -115,4 +132,4 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 
 #TOOLS
-pip install setuptools mycli glances haxor-news
+pip install tmuxp litecli pgcli mycli glances haxor-news

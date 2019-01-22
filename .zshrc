@@ -35,9 +35,11 @@ antigen theme gnzh
 
 antigen apply
 
-export PATH=$PWD/.local/bin:$PATH
+export PATH="$PATH:$HOME/.local/bin"
 export PATH=/user/sbin:$PATH
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+export PYTHONPATH="$HOME/osm2city"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
@@ -94,7 +96,7 @@ alias k='clear'
 alias bc='bc -l'
 alias h='history'
 alias myip="curl ipinfo.io/ip"
-alias tm='cd ~/tmuxp && tmuxp load'
+alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='vim'
 alias cat='bat'
 alias ping='prettyping --nolegend'
@@ -133,3 +135,6 @@ alias rgc='rg -C 5'
 alias rgci='rg -C 5 --no-ignore'
 alias memTop='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 alias cpuTop='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+alias tetris='bastet'
+alias snake='nsnake'
+alias tron='ssh sshtron.zachlatta.com'

@@ -4,15 +4,15 @@ cd
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip python3-pip sysstat git-extras -y &&
-sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit vim-nox gvim googler -y
+sudo apt-get install npm rxvt-unicode-256color zsh mc htop tmux compton python-pip python3-pip pyhton-setuptools python3-setuptools sysstat git-extras -y &&
+sudo apt-get install fontconfig-infinality dunst html-xml-utils-y tig ncdu grc rofi i3 i3blocks clipit meld vim-nox gvim googler -y
 sudo npm install -g diff-so-fancy tldr how-2
 
 #set infinality fonts to Linux
 sudo bash /etc/fonts/infinality/infctl.sh setstyle
 sudo sed -i 's/USE_STYLE="DEFAULT"/USE_STYLE="LINUX"/g' /etc/profile.d/infinality-settings.sh
-sudo pip3 install neovim pynvim
-sudo pip install pynvim
+pip3 install wheel neovim pynvim
+pip install wheel pynvim
 
 #VIM configuration
 #git clone https://github.com/sica07/.vim.git &&
@@ -112,7 +112,7 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 
 #TOOLS
-sudo pip install glances mycli haxor-news
+sudo pip install glances mycli pgcli litecli haxor-news
 echo '******REMINDER*******'
 echo 'Dont forget to run mackup restore after the Dropbox folder is fully sync'
 echo 'This will restore all your environment settings'
