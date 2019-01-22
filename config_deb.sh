@@ -87,9 +87,8 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb &
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
-mkdir ~/.config/dunst
 mkdir ~/.config/i3blocks
-cp dotfiles/dunstrc ~/.config/dunst/dunstrc
+cp dotfiles/dunstrc ~/.dunstrc
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.i3blocks.conf .i3blocks.conf
