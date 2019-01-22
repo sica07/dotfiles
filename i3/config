@@ -90,7 +90,9 @@
   bindsym $mod+g exec nvim 
   bindsym $mod+Shift+g exec google-chrome
   #bindsym  $mod+Shift+s exec xfce4-screenshot
-  bindsym  $mod+Shift+s exec "gnome-screenshot -i"
+  #bindsym  $mod+Shift+s exec "gnome-screenshot -i"
+  bindsym  Print exec scrot -e 'mv $f ~/Pictures/'
+  bindsym  --release Shift+Print exec scrot -s 'mv $f ~/Pictures/'
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Volume & Media Bindings
