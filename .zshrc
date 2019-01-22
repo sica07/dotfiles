@@ -36,8 +36,13 @@ antigen theme gnzh
 antigen apply
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH=/user/sbin:$PATH
+export PATH=/usr/sbin:$PATH
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export TERMINAL="xfce4-terminal"
+export BROWSER="firefox"
+export READER="zathura"
+export EDITOR="nvim"
+export FILE="ranger"
 
 export PYTHONPATH="$HOME/osm2city"
 
@@ -124,7 +129,7 @@ alias r='ranger'
 alias space='ncdu --color dark -rr -x'
 alias du='ncdu --color dark -rr -x'
 alias help='tldr'
-alias wallpaper="feh --recursive --randomize --bg-fill '/home/mariusm/Dropbox/Apps/Desktoppr/' &"
+alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 alias pig='ping google.ro'
 alias fboff="sudo -- sh -c -e 'echo '127.0.0.1' facebook.com >> /etc/hosts'"
 alias fbon="sudo -- sh -c -e 'sed --in-place '/facebook/d' /etc/hosts'"
