@@ -65,7 +65,9 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 #install ranger
 sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils highlight \
 && ranger --copy-config=all \
-&& sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf
+&& sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf \
+&& git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
+&& cd ranger_devicons && make install
 
 #install fzf and ripgrip
 cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
