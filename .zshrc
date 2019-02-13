@@ -143,3 +143,6 @@ alias cpuTop='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 alias tetris='bastet'
 alias snake='nsnake'
 alias tron='ssh sshtron.zachlatta.com'
+url="https://wol.jw.org/ro/wol/dt/r34/lp-m/"
+today=$(date "+%Y/%m/%d")
+alias dt='w3m $url$today'

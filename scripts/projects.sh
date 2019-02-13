@@ -11,6 +11,6 @@ elif [ $ACTION == "cancel" ]; then
     exit
 fi
 
-cd ~/Dropbox/Apps/tmuxp && tmuxp load $FILE
+$TERMINAL -e "cd ~/Dropbox/Apps/tmuxp && tmuxp load $FILE"
 
 
