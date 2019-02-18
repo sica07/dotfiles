@@ -9,6 +9,13 @@ sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-
 sudo apt-get install ctags dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y 
 sudo npm install -g diff-so-fancy tldr how-2
 
+#install gaps
+sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
+git clone https://www.github.com/Airblader/i3 i3-gaps && cd i3-gaps
+autoreconf --force --install
+mkdir -p build && cd build/
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
+
 #PHP
 sudo apt install php7.2 php7.2-cli php7.2-common php7.2-xml php7.2-mbstring &&
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"

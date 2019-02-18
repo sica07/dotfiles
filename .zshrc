@@ -43,6 +43,7 @@ export BROWSER="firefox"
 export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
+export PAGER=most man ls
 
 export PYTHONPATH="$HOME/osm2city"
 
