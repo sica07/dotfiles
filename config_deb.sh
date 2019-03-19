@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 sudo apt-get install curl software-properties-common -y 
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
 sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
-sudo apt-get install ctags dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y 
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y 
 sudo npm install -g diff-so-fancy tldr how-2
 
 #install gaps
@@ -15,6 +15,11 @@ git clone https://www.github.com/Airblader/i3 i3-gaps && cd i3-gaps
 autoreconf --force --install
 mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
+
+#install universal-ctags
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh && ./configure && make && sudo make install
 
 #PHP
 sudo apt install php7.2 php7.2-cli php7.2-common php7.2-xml php7.2-mbstring &&

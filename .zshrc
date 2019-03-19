@@ -102,15 +102,15 @@ alias k='clear'
 alias bc='bc -l'
 alias h='history'
 alias myip="curl ipinfo.io/ip"
-alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
-alias v='vim'
+alias tm='cd ~/pCloudDrive/Apps/tmuxp && tmuxp load'
+alias v='nvim'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 
 # privileged access
 if [ $UID -ne 0 ]; then
-    alias svim='sudo vim'
+    alias svim='sudo nvim'
     alias reboot='sudo reboot'
     alias shutdown='sudo shutdown -h now'
     alias off='sudo shutdown -h now'
@@ -124,13 +124,14 @@ fi
 
 #OTHERS
 alias mysql='mysql --auto-rehash --auto-vertical-output'
-alias meteo='curl wttr.in/Brasov'
-alias alias-edit='vim ~/.zsh/aliases.zsh'
+alias meteo='curl wttr.in/Ghimbav'
+alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias space='ncdu --color dark -rr -x'
 alias du='ncdu --color dark -rr -x'
 alias help='tldr'
-alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
+alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/' &"
+alias moon="feh --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/moon50k.png'"
 alias pig='ping google.ro'
 alias fboff="sudo -- sh -c -e 'echo '127.0.0.1' facebook.com >> /etc/hosts'"
 alias fbon="sudo -- sh -c -e 'sed --in-place '/facebook/d' /etc/hosts'"

@@ -12,6 +12,6 @@ elif [ $ACTION == "cancel" ]; then
     exit
 fi
 
-xfce4-terminal --working-directory=/home/marius/Dropbox/Apps/tmuxp/ -e "/home/marius/.local/bin/tmuxp load $FILE"
+xfce4-terminal --working-directory=/home/marius/pCloudDrive/Apps/tmuxp/ -e "/home/marius/.local/bin/tmuxp load $FILE"
 
 
