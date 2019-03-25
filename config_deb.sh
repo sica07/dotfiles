@@ -104,6 +104,7 @@ cp dotfiles/dunstrc ~/.dunstrc
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.i3blocks.conf .i3blocks.conf
+ln -s dotfiles/.xmodmaprc .xmodmaprc
 cp  dotfiles/i3blocks/* .config/i3blocks/*
 cp  dotfiles/i3/* .config/i3/*
 ln -s dotfiles/.i3status.conf .i3status.conf

@@ -44,6 +44,7 @@ export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
 export PAGER=most man ls
+export ONI_NEOVIM_PATH="/home/marius/.local/bin/nvim"
 
 export PYTHONPATH="$HOME/osm2city"
 
