@@ -1,12 +1,12 @@
 #!/bin/sh
-cd 
+cd
 #install infinality fonts ppa
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
-sudo apt-get install curl software-properties-common -y 
+sudo apt-get install curl software-properties-common -y
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
 sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y 
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura -y
 sudo npm install -g diff-so-fancy tldr how-2
 
 #install gaps
@@ -44,8 +44,8 @@ vim +PluginInstall +qall &&
 cp .vim/_vimrc .vimrc
 
 #nvim configuration
-cd ~/.config && clone https://github.com/sica07/nvim.git 
-nvim +PlugInstall 
+cd ~/.config && clone https://github.com/sica07/nvim.git
+nvim +PlugInstall
 
 
 
@@ -78,6 +78,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils highlight \
 && ranger --copy-config=all \
 && sed -i 's/preview_images false/preview_images true/g' ~/.config/ranger/rc.conf \
+&& cp ranger/rifle.conf ~/.config/ranger/rifle.conf \
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
 
@@ -93,7 +94,7 @@ curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettypin
 chmod +x prettyping && sudo cp prettyping /usr/sbin/
 
 #install fd (find on steroids)
-wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb 
+wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb
 
 
 #Other configurations
@@ -114,9 +115,9 @@ rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
 
 #Powerline Nerd fonts
 mkdir ~/.fonts/
-mkdir ~/.config/ && mkdir ~/.config/fontconfig/ 
+mkdir ~/.config/ && mkdir ~/.config/fontconfig/
 mkdir ~/.config/fontconfig/conf.d/
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf 
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
@@ -138,7 +139,7 @@ sudo python setup.py install
 #i3lock-fancy
 cd && git clone https://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.git
 cd i3lock-fancy/
-sudo cp lock /usr/local/bin 
+sudo cp lock /usr/local/bin
 sudo cp -R icons /usr/local/bin
 
 #Dropbox
