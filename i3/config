@@ -41,12 +41,12 @@
   new_window none
 
 # Gaps
-  #smart_gaps on
-  #smart_borders on
-  #gaps inner 0
-  #gaps outer 0
-  #gaps inner 5 
-  #gaps outer 5 
+  smart_gaps on
+  smart_borders on
+  gaps inner 0
+  gaps outer 0
+  gaps inner 5
+  gaps outer 5
 
 # Window-Related Bindings
   bindsym $mod+x kill
@@ -87,8 +87,9 @@
   bindsym $mod+Return exec xfce4-terminal
   bindsym $mod+space exec "rofi -modi drun,run,window,ssh,script -show drun -fuzzy"
   bindsym $mod+e exec thunar
-  bindsym $mod+g exec nvim 
-  bindsym $mod+Shift+g exec google-chrome
+  bindsym $mod+g exec nvim
+  #bindsym $mod+Shift+g exec google-chrome
+  bindsym $mod+Shift+g exec flashpeak-slimjet
   #bindsym  $mod+Shift+s exec xfce4-screenshot
   #bindsym  $mod+Shift+s exec "gnome-screenshot -i"
   bindsym  Print exec scrot -e 'mv $f ~/Pictures/'
@@ -163,16 +164,16 @@ for_window [class="^.*"] border pixel 0
   client.unfocused        $base02 $base02    $base03 $base0F
   client.urgent           $base02 $base08    $base00 $base0F
 # rofi bindings
-bindsym $mod+Shift+o exec --no-startup-id "firefox -new-tab -url $(rofi -dmenu -i -p Url: )"
-bindsym $mod+Shift+? exec --no-startup-id "firefox -new-tab -url https://duckduckgo.com/?q=$(rofi -dmenu -i -p duckduckgo: )"
-bindsym $mod+Ctrl+s exec --no-startup-id "firefox -new-tab -url https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
-bindsym $mod+Ctrl+w exec --no-startup-id "firefox -new-tab -url https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
-bindsym $mod+Ctrl+j exec --no-startup-id "firefox -new-tab -url https://wol.jw.org/ro/wol/s/r34/lp-m?q=$(rofi -dmenu -i -p wikipedia: )"
-bindsym $mod+Ctrl+t exec --no-startup-id "firefox -new-tab -url about:reader?url=https://wol.jw.org/ro/wol/h/r34/lp-m"
-bindsym $mod+Ctrl+a exec --no-startup-id "firefox -new-tab -url https://apps.jw.org/M_LOGIN1"
-bindsym $mod+Ctrl+n exec --no-startup-id "firefox -new-tab -url https://www.jw.org/en/whats-new/"
-bindsym $mod+Ctrl+g exec --no-startup-id "firefox -new-tab -url https://mail.google.com/mail/u/0/h/1c8u8em5k6dh6/?zy=e&f=1"
-bindsym $mod+Ctrl+h exec --no-startup-id "firefox -new-tab -url https://news.ycombinator.com/best"
+bindsym $mod+Shift+o exec --no-startup-id "qutebrowser $(rofi -dmenu -i -p Url: )"
+bindsym $mod+Ctrl+d exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=$(rofi -dmenu -i -p duckduckgo: )"
+bindsym $mod+Ctrl+s exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
+bindsym $mod+Ctrl+w exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
+
+## rofi scripts
+bindsym $mod+Shift+x exec --no-startup-id ~/dotfiles/scripts/shutdown.sh
+bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/projects.sh
+bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
+bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 #bindsym $mod+Ctrl+w exec --no-startup-id "firefox -new-tab -url https://wol.jw.org/ro/wol/h/r34/lp-m"
 # Bar
   bar {
@@ -195,12 +196,14 @@ bindsym $mod+Ctrl+h exec --no-startup-id "firefox -new-tab -url https://news.yco
     }
   }
 # Autostart
+#exec dropbox start &
+exec pcloudcc -u nongeekboy@gmail.com -d
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
 exec dunst -config ~/.dunstrc
 exec fluxgui
 exec nm-applet
 exec clipit
+#exec "feh --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/moon50k.png' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
-#exec "feh --recursive --randomize --bg-fill '/home/mariusm/Dropbox/Apps/Desktoppr/i3/' &"
+#exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
 #exec compton --config ~/compton.conf
-exec dropbox start &
