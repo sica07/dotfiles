@@ -88,6 +88,7 @@ bindsym $mod+Return exec st -f "Iosevka Term:size=17"
 bindsym $mod+space exec "rofi -modi drun,run,window,ssh,script -show drun -fuzzy"
 bindsym $mod+e exec thunar
 bindsym $mod+g exec nvim
+bindsym $mod+c exec "tty-clock -cr -C 4"
 #bindsym $mod+Shift+g exec google-chrome
 bindsym $mod+Shift+g exec flashpeak-slimjet
 #bindsym  $mod+Shift+s exec xfce4-screenshot
@@ -183,8 +184,9 @@ bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 #bindsym $mod+Ctrl+w exec --no-startup-id "firefox -new-tab -url https://wol.jw.org/ro/wol/h/r34/lp-m"
 # Bar
 bar {
-    font pango: Terminus 11, FontAwesome 11
-        status_command i3blocks
+    font pango: Iosevka Term 11
+        #status_command i3blocks
+        status_command i3status
         position top
 # strip_workspace_numbers yes
 #height 25
@@ -212,7 +214,7 @@ bar {
 exec pcloudcc -u nongeekboy@gmail.com -d
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
 exec dunst -config ~/.dunstrc
-exec fluxgui
+exec redshift
 exec nm-applet
 exec clipit
 #exec "feh --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/moon50k.png' &"

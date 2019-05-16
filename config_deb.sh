@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 sudo apt-get install curl software-properties-common -y
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
 sudo apt-get install  npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura surf -y
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura surf redshift -y
 sudo npm install -g diff-so-fancy tldr how-2
 
 #install gaps
@@ -133,14 +133,6 @@ mv Meslo* ~/.fonts/
 mv Fura* ~/.fonts/
 wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
 fc-cache -vf ~/.fonts/
-
-#FLUX
-sudo apt-get install git python-appindicator python-xdg python-pexpect python-gconf python-gtk2 python-glade2 libxxf86vm1
-cd /tmp
-git clone "https://github.com/xflux-gui/xflux-gui.git"
-cd xflux-gui
-python download-xflux.py
-sudo python setup.py install
 
 #i3lock-fancy
 cd && git clone https://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.git
