@@ -2,7 +2,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="--height 70% --reverse --extended --no-inline-info
---prompt '➥ ' 
+--prompt '➥ '
 --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
 --color info:150,prompt:168,spinner:150,pointer:167,marker:174"
 #Jellyx
@@ -40,7 +40,7 @@ fzf-down() {
 
 FZF_PREFIX="fzf-git-"
 
-function "${FZF_PREFIX}gf" () {
+function "${FZF_PREFIX}gs" () {
   is_in_git_repo || return
   git -c color.status=always status --short |
   fzf-down -m --ansi --nth 2..,.. \
@@ -138,8 +138,8 @@ fk() {
   fi
   zle redisplay
 }
-zle     -N   fk 
-bindkey '^k' fk 
+zle     -N   fk
+bindkey '^k' fk
 
 # ALT-I - Paste the selected entry from locate output into the command line
 fzf-locate-widget() {
@@ -161,5 +161,5 @@ fv() {
           done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
   zle redisplay
 }
-zle     -N   fv 
-bindkey '^e' fv 
+zle     -N   fv
+bindkey '^e' fv

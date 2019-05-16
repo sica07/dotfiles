@@ -164,10 +164,10 @@ for_window [class="^.*"] border pixel 0
   client.unfocused        $base02 $base02    $base03 $base0F
   client.urgent           $base02 $base08    $base00 $base0F
 # rofi bindings
-bindsym $mod+Shift+o exec --no-startup-id "qutebrowser $(rofi -dmenu -i -p Url: )"
-bindsym $mod+Ctrl+d exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=$(rofi -dmenu -i -p duckduckgo: )"
-bindsym $mod+Ctrl+s exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
-bindsym $mod+Ctrl+w exec --no-startup-id "qutebrowser https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
+bindsym $mod+Shift+o exec --no-startup-id "surf $(rofi -dmenu -i -p Url: )"
+bindsym $mod+Ctrl+d exec --no-startup-id "surf https://duckduckgo.com/?q=$(rofi -dmenu -i -p duckduckgo: )"
+bindsym $mod+Ctrl+s exec --no-startup-id "surf https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
+bindsym $mod+Ctrl+w exec --no-startup-id "surf https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
 
 ## rofi scripts
 bindsym $mod+Shift+x exec --no-startup-id ~/dotfiles/scripts/shutdown.sh
