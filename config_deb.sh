@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
 sudo apt-get install curl software-properties-common -y
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
-sudo apt-get install  npm rxvt-unicode-256color zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
+sudo apt-get install  npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3blocks clipit vim-nox meld googler zatura surf -y
 sudo npm install -g diff-so-fancy tldr how-2
 
