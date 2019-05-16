@@ -16,6 +16,11 @@ autoreconf --force --install
 mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
 
+#install st terminal
+sudo rm /usr/bin/stterm
+git clone https://git.suckless.org/st && cp ~/dotfiles/config.def.h st/
+cd st/ && make && sudo make install
+
 #install universal-ctags
 git clone https://github.com/universal-ctags/ctags.git
 cd ctags

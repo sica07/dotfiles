@@ -49,7 +49,7 @@ if ($cpu_usage >= $t_crit) {
     print "#FF0000\n";
     exit 33;
 } elsif ($cpu_usage >= $t_warn) {
-    print "#FFFC00\n";
+    print "#685742\n";
 }
 
 exit 0;
