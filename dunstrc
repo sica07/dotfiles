@@ -1,8 +1,8 @@
 [global]
     font = Hack 10
-    
+
     allow_markup = yes
-    
+
     # The format of the message.  Possible variables are:
     #   %a  appname
     #   %s  summary
@@ -12,7 +12,7 @@
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
     format = "<b>%s</b>\n%b"
-    
+
     sort = yes
     indicate_hidden = yes
     alignment = left
@@ -35,9 +35,12 @@
     horizontal_padding = 20
     separator_color = frame
     startup_notification = false
+    frame_width = 2
+    frame_color = "#c9a554"
+    separator_color = frame
     # dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox
-    icon_position = left 
+    browser = /usr/bin/surf
+    icon_position = left
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
@@ -49,22 +52,22 @@
     close_all = ctrl+shift+space
 
 [urgency_low]
-    background = "#000000"
-    #background = "#fff3cd"
-    foreground = "#85640o"
-    timeout = 5 
+    background = "#1e272b"
+    foreground = "#ead49b"
+    frame_color = "#ead49b"
+    timeout = 5
 
 [urgency_normal]
-    background = "#000000"
-    #background = "#cce5ff"
-    foreground = "#0e82ff"
-    timeout = 5 
+    background = "#1e272b"
+    foreground = "#c9a554"
+    frame_color = "#c9a554"
+    timeout = 5
 
 [urgency_critical]
-    background = "#000000"
-    #background = "#f8d7da"
-    foreground = "#721c24"
-    timeout = 0 
+    background = "#78824b"
+    foreground = "#1e272b"
+    frame_color = "#1e2727b"
+    timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules
 # to override settings for certain messages.

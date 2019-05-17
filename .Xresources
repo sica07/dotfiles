@@ -11,11 +11,11 @@ Xft.lcdfilter: lcddefault
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #222222, #222222, #1e2529
-rofi.color-window: #222222, #222222, #b1b4b3
-rofi.color-normal: #222222, #c1c1c1, #222222, #394249, #ffffff
-rofi.color-active: #222222, #80cbc4, #222222, #394249, #80cbc4
-rofi.color-urgent: #222222, #ff1844, #222222, #394249, #ff1844
+!rofi.color-window: #222222, #222222, #1e2529
+!rofi.color-window: #222222, #222222, #b1b4b3
+!rofi.color-normal: #222222, #c1c1c1, #222222, #394249, #ffffff
+!rofi.color-active: #222222, #80cbc4, #222222, #394249, #80cbc4
+!rofi.color-urgent: #222222, #ff1844, #222222, #394249, #ff1844
 rofi.font: Iosevka Term Light 13
 !------------------------------------------------------------------------------
 ! URXVT - Settings
