@@ -1,5 +1,7 @@
-! font settings --------------------------------------------------------------
+! transparency ---------------------------------------------------------------
+st.alpha: 0.92
 
+! font settings --------------------------------------------------------------
 Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: full
@@ -20,56 +22,56 @@ rofi.font: Iosevka Term Light 13
 ! URXVT - Settings
 
 !URxvt.depth: 32
-URxvt.scrollBar: false
-URxvt.perl-ext-common: default,clipboard,matcher
+!URxvt.scrollBar: false
+!URxvt.perl-ext-common: default,clipboard,matcher
 ! URxvt.perl-ext-common: default,clipboard,matcher,tabbed
-URxvt.url-launcher:		/usr/bin/firefox
-URxvt.matcher.button:   1
-URxvt*font:     xft:Iosevka Term Light:size=13
+!URxvt.url-launcher:		/usr/bin/firefox
+!URxvt.matcher.button:   1
+!URxvt*font:     xft:Iosevka Term Light:size=13
 !URxvt*boldFont: xft:Iosevka Term Bold
 
 !URxvt*font:     xft:FuraCode Nerd Font Mono:regular:size=13
 !URxvt*boldFont: xft:Menlo for Powerline Bold:bold:size=14
-URxvt.termName: rxvt-256color
+!URxvt.termName: rxvt-256color
 !URxvt.lineSpace: 8
 
-urxvt*background:       #0c0d0e
-urxvt*foreground:       #7f8f9f
-urxvt*scrollBar:        false
-urxvt*matcher.button:   1
-urxvt*allow_bold:    true
+!urxvt*background:       #0c0d0e
+!urxvt*foreground:       #7f8f9f
+!urxvt*scrollBar:        false
+!urxvt*matcher.button:   1
+!urxvt*allow_bold:    true
 
 
-!URxvt*geometry: 85x16
-URxvt*fading:        0
-URxvt*tintColor:     #ffffff
-URxvt*shading:        0
-URxvt*inheritPixmap:     False
+!!URxvt*geometry: 85x16
+!URxvt*fading:        0
+!URxvt*tintColor:     #ffffff
+!URxvt*shading:        0
+!URxvt*inheritPixmap:     False
 
-! black + red
-urxvt*color0:     #3f3f3f
-!urxvt*color0:      #101010
-urxvt*color1:      #705050
-!! green + yellow
-urxvt*color2:      #60b48a
-urxvt*color3:      #f0dfaf
-!! blue + purple
-urxvt*color4:      #506070
-urxvt*color5:      #dc8cc3
-!! cyan + white
-urxvt*color6:      #8cd0d3
-urxvt*color7:      #dcdccc
-!! bright-black + bright-red
-urxvt*color8:      #000000
-urxvt*color9:      #dca3a3
-!! bright-green + bright-yellow
-urxvt*color10:     #c3bf9f
-urxvt*color11:     #f0dfaf
-!! bright-blue + bright-purple
-urxvt*color12:     #94bff3
-urxvt*color13:     #ec93d3
-!! bright-cyan + bright-white
-urxvt*color14:     #93e0e3
-urxvt*color15:     #ffffff
+!! black + red
+!urxvt*color0:     #3f3f3f
+!!urxvt*color0:      #101010
+!urxvt*color1:      #705050
+!!! green + yellow
+!urxvt*color2:      #60b48a
+!urxvt*color3:      #f0dfaf
+!!! blue + purple
+!urxvt*color4:      #506070
+!urxvt*color5:      #dc8cc3
+!!! cyan + white
+!urxvt*color6:      #8cd0d3
+!urxvt*color7:      #dcdccc
+!!! bright-black + bright-red
+!urxvt*color8:      #000000
+!urxvt*color9:      #dca3a3
+!!! bright-green + bright-yellow
+!urxvt*color10:     #c3bf9f
+!urxvt*color11:     #f0dfaf
+!!! bright-blue + bright-purple
+!urxvt*color12:     #94bff3
+!urxvt*color13:     #ec93d3
+!!! bright-cyan + bright-white
+!urxvt*color14:     #93e0e3
+!urxvt*color15:     #ffffff
 !!}}}
 

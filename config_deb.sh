@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:no1wantdthisname/ppa
 sudo apt-get install curl software-properties-common -y
 curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
 sudo apt-get install  npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift -y
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass -y
 sudo npm install -g diff-so-fancy tldr how-2
 
 #install gaps
@@ -18,8 +18,17 @@ mkdir -p build && cd build/
 
 #install st terminal
 sudo rm /usr/bin/stterm
-git clone https://git.suckless.org/st && cp ~/dotfiles/config.def.h st/
-cd st/ && make && sudo make install
+git clone https://git.suckless.org/st
+cd st
+wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff
+git apply st-vertcenter-20180320-6ac8c8a.diff
+wget https://st.suckless.org/patches/alpha/st-alpha-0.8.2.dif://st.suckless.org/patches/alpha/st-alpha-0.8.2.diff
+git apply st-alpha-0.8.2.diff
+echo "don't forget to apply colorscheme from: cp ~/dotfiles/config.def.h st/"
+make && sudo make install
+
+#install rclone
+curl https://rclone.org/install.sh | sudo bash
 
 #install universal-ctags
 git clone https://github.com/universal-ctags/ctags.git
@@ -51,6 +60,9 @@ cp .vim/_vimrc .vimrc
 #nvim configuration
 cd ~/.config && clone https://github.com/sica07/nvim.git
 nvim +PlugInstall
+
+# qutebrowser
+cp qutebrowser ~/.local/bin/qutebrowser
 
 
 
@@ -145,4 +157,4 @@ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd6
 
 
 #TOOLS
-pip install tmuxp litecli pgcli mycli glances haxor-news
+pip install grip tmuxp litecli pgcli mycli glances haxor-news
