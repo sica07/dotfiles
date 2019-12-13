@@ -1,5 +1,5 @@
 #!/bin/sh
-cd 
+cd
 #install infinality fonts ppa
 sudo add-apt-repository ppa:no1wantdthisname/ppa
 
@@ -60,8 +60,10 @@ curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettypin
 chmod +x prettyping && sudo cp prettyping /usr/local/bin/
 
 #install fd (find on steroids)
-wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb 
+wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb
 
+#install tmux-ressurect
+cd  && git clone https://github.com/tmux-plugins/tmux-resurrect
 
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git
@@ -80,9 +82,9 @@ rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
 
 #Powerline Nerd fonts
 mkdir ~/.fonts/
-mkdir ~/.config/ && mkdir ~/.config/fontconfig/ 
+mkdir ~/.config/ && mkdir ~/.config/fontconfig/
 mkdir ~/.config/fontconfig/conf.d/
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf 
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
@@ -104,7 +106,7 @@ sudo python setup.py install
 #i3lock-fancy
 cd && git clone https://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.git
 cd i3lock-fancy/
-sudo cp lock /usr/local/bin 
+sudo cp lock /usr/local/bin
 sudo cp -R icons /usr/local/bin
 
 #Dropbox
