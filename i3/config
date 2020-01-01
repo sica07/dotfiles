@@ -83,15 +83,17 @@ bindsym $mod+Shift+z exec "lock -g -f Menlo-Regular-for-Powerline"
 
 # Program-Related Bindings
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+Return exec st -f "Iosevka Term:size=17"
+bindsym $mod+q exec qutebrowser
+#bindsym $mod+Return exec st -f "Iosevka Term:size=12" -e tmux
+bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
 #bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+space exec "rofi -modi drun,run,window,ssh,script -show drun -fuzzy"
-bindsym $mod+e exec thunar
+bindsym $mod+space exec "rofi -mode drun,run,window,ssh,script -show drun -fuzzy"
+bindsym $mod+e exec pcmanfm
 bindsym $mod+g exec nvim
 bindsym $mod+c exec "tty-clock -cr -C 4"
 #bindsym $mod+Shift+g exec google-chrome
 bindsym $mod+Shift+g exec flashpeak-slimjet
-#bindsym  $mod+Shift+s exec xfce4-screenshot
+bindsym  $mod+Shift+s exec xfce4-screenshoter
 #bindsym  $mod+Shift+s exec "gnome-screenshot -i"
 bindsym  Print exec scrot -e 'mv $f ~/Pictures/'
 bindsym  --release Shift+Print exec scrot -s 'mv $f ~/Pictures/'
@@ -171,17 +173,25 @@ client.focused_inactive $transparent  $blue      $white   $darkblue    $darkblac
 client.urgent           $darkred      $darkred      $black     $darkred $darkred
 client.background       $black
 # rofi bindings
-bindsym $mod+Shift+o exec --no-startup-id "surf $(rofi -dmenu -i -p Url: )"
-bindsym $mod+Ctrl+d exec --no-startup-id "surf https://duckduckgo.com/?q=$(rofi -dmenu -i -p duckduckgo: )"
+bindsym $mod+Shift+o exec --no-startup-id "surf $( rofi -dmenu -p Url: )"
+bindsym $mod+Ctrl+g exec --no-startup-id "surf https://duckduckgo.com/?q=!g+$(rofi -dmenu -i -p duckduckgo: )"
 bindsym $mod+Ctrl+s exec --no-startup-id "surf https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
 bindsym $mod+Ctrl+w exec --no-startup-id "surf https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
+bindsym $mod+Ctrl+t exec --no-startup-id "surf https://duckduckgo.com/?q=!watchtower+$(rofi -dmenu -i -p wol: )"
+bindsym $mod+Ctrl+d exec --no-startup-id "surf https://wol.jw.org/ro/wol/h/r34/lp-m"
+
 
 ## rofi scripts
 bindsym $mod+Shift+x exec --no-startup-id ~/dotfiles/scripts/shutdown.sh
 bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/projects.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
-#bindsym $mod+Ctrl+w exec --no-startup-id "firefox -new-tab -url https://wol.jw.org/ro/wol/h/r34/lp-m"
+
+## scratchpad
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+slash scratchpad show
+bindsym $mod+BackSpace [class="st"] scratchpad show
+bindsym $mod+equal [class="surf"] scratchpad show
 # Bar
 bar {
     font pango: Iosevka Term 11
@@ -211,9 +221,9 @@ bar {
 }
 # Autostart
 #exec dropbox start &
-exec pcloudcc -u nongeekboy@gmail.com -d
+#exec pcloudcc -u nongeekboy@gmail.com -d
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
-exec dunst -config ~/.dunstrc
+exec dunst
 exec redshift
 exec nm-applet
 exec clipit
