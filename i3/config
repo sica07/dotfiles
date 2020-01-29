@@ -87,17 +87,15 @@ bindsym $mod+q exec qutebrowser
 #bindsym $mod+Return exec st -f "Iosevka Term:size=12" -e tmux
 bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
 #bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+space exec "rofi -mode drun,run,window,ssh,script -show drun -fuzzy"
+bindsym $mod+space exec "rofi -mode drun,run,window,ssh,script -show drun -fuzzy -show-icons -icon-theme Faenza"
 bindsym $mod+e exec pcmanfm
 bindsym $mod+g exec nvim
 bindsym $mod+c exec "tty-clock -cr -C 4"
 #bindsym $mod+Shift+g exec google-chrome
 bindsym $mod+Shift+g exec flashpeak-slimjet
-bindsym  $mod+Shift+s exec xfce4-screenshoter
-#bindsym  $mod+Shift+s exec "gnome-screenshot -i"
-bindsym  Print exec scrot -e 'mv $f ~/Pictures/'
-bindsym  --release Shift+Print exec scrot -s 'mv $f ~/Pictures/'
+bindsym  --release Print exec scrot -s -e 'mv $f ~/Pictures/'
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+s exec recoll
 
 # Volume & Media Bindings
 bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
@@ -186,6 +184,7 @@ bindsym $mod+Shift+x exec --no-startup-id ~/dotfiles/scripts/shutdown.sh
 bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/projects.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
+#bindsym $mod+Shift+s exec --no-startup-id "rofi -show drun -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 ## scratchpad
 bindsym $mod+Shift+BackSpace move scratchpad
