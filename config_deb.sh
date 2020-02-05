@@ -1,10 +1,15 @@
 #!/bin/sh
+echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+echo "Don't forget to update the PHP, node and nvim versions"
+echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 cd
 #install infinality fonts ppa
-sudo add-apt-repository ppa:no1wantdthisname/ppa
+#sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
 sudo apt-get install curl software-properties-common -y
-curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
+#curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+sudo apt install nodejs -y
 sudo apt-get install  pcmanfm npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift -y
 sudo npm install -g diff-so-fancy tldr how-2
@@ -36,7 +41,7 @@ cd ctags
 ./autogen.sh && ./configure && make && sudo make install
 
 #PHP
-sudo apt install php7.2 php7.2-cli php7.2-common php7.2-xml php7.2-mbstring &&
+sudo apt install php7.3 php7.3-cli php7.3-common php7.3-xml php7.3-mbstring &&
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/bin --filename=composer
 composer global require phpmd/phpmd &&
@@ -45,7 +50,7 @@ composer global require friendsofphp/php-cs-fixer
 
 
 #NEOVIM
-wgett://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage  &&
+wget http://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage  &&
 chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim
 
 pip3 install wheel neovim pynvim
@@ -153,8 +158,9 @@ sudo cp lock /usr/local/bin
 sudo cp -R icons /usr/local/bin
 
 #Dropbox
-wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 
 
 #TOOLS
 pip install grip tmuxp litecli pgcli mycli glances haxor-news
+
+wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
