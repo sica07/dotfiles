@@ -13,6 +13,8 @@ sudo apt install nodejs -y
 sudo apt-get install  pcmanfm npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift -y
 sudo npm install -g diff-so-fancy tldr how-2
+#install yarn
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 #install gaps
 sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
@@ -123,7 +125,8 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb &
 #git clone https://github.com/sica07/dotfiles.git
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
 mkdir ~/.config/i3blocks
-cp dotfiles/dunstrc ~/.dunstrc
+mkdir ~/.config/dunst
+cp dotfiles/dunstrc ~/.config/dunst/dunstrc
 cp dotfiles/_surf ~/.surf
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
