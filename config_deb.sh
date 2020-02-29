@@ -25,14 +25,17 @@ mkdir -p build && cd build/
 
 #install st terminal
 sudo rm /usr/bin/stterm
-git clone https://git.suckless.org/st
-cd st
-wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff
-git apply st-vertcenter-20180320-6ac8c8a.diff
-wget https://st.suckless.org/patches/alpha/st-alpha-0.8.2.dif://st.suckless.org/patches/alpha/st-alpha-0.8.2.diff
-git apply st-alpha-0.8.2.diff
-echo "don't forget to apply colorscheme from: cp ~/dotfiles/config.def.h st/"
-make && sudo make install
+#git clone https://git.suckless.org/st
+#cd st
+#wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff
+#git apply st-vertcenter-20180320-6ac8c8a.diff
+#wget https://st.suckless.org/patches/alpha/st-alpha-0.8.2.dif://st.suckless.org/patches/alpha/st-alpha-0.8.2.diff
+#git apply st-alpha-0.8.2.diff
+#echo "don't forget to apply colorscheme from: cp ~/dotfiles/config.def.h st/"
+cp -r ~/dotfiles/st ~/st
+cd ~/st
+make && sudo make clean install
+cd
 
 #install rclone
 curl https://rclone.org/install.sh | sudo bash
