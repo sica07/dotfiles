@@ -11,8 +11,6 @@ antigen bundle cp
 #alias cp='cpv'
 #completion for composer, as well as aliases
 antigen bundle composer
-#google translate
-antigen bundle soimort/translate-shell
 # provides completion for docker-compose as well as some aliases
 antigen bundle docker-compose
 antigen bundle fzf
@@ -28,6 +26,7 @@ antigen bundle git-extras
 antigen bundle battery
 # a series of aliases and functions which make a System Administrator's life easier
 antigen bundle systemadmin
+
 
 antigen theme cloud
 #antigen theme gnzh
@@ -162,9 +161,18 @@ url="https://wol.jw.org/ro/wol/dt/r34/lp-m/"
 today=$(date "+%Y/%m/%d")
 alias dt='w3m $url$today'
 alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
+alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
+alias mobi='kindlegen'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
+alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
+alias mm="mr&mh"
+#alias ruga="feh --auto-zoom --full-screen ~/Videos/program/rugaciune.jpg"
+alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
+alias show="feh --auto-zoom --fullscreen "
+alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
