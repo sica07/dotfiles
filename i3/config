@@ -179,6 +179,7 @@ bindsym $mod+Ctrl+w exec --no-startup-id "surf https://duckduckgo.com/?q=!w+$(ro
 bindsym $mod+Ctrl+a exec --no-startup-id "surf https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
 bindsym $mod+Ctrl+p exec --no-startup-id "surf https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
 bindsym $mod+Ctrl+i exec --no-startup-id "surf https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
+bindsym $mod+Ctrl+d exec --no-startup-id "surf https://wol.jw.org/en/wol/p/r34/lp-m"
 
 
 ## rofi scripts

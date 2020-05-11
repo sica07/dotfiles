@@ -593,7 +593,7 @@ function simplyread(nostyle, nolinks)
 		doc.styleSheets[i].disabled = true;
 
 	srstyle =
-        "p{font-family:Arial,sans-serif; margin:0ex auto; line-height: 1.6} h1,h2,h3,h4{font-family:Arial,sans-serif; font-weight:normal}" +
+        "p{font-family:Arial,sans-serif; margin:0ex auto; line-height: 1.6; padding-top: 1em;} h1,h2,h3,h4{font-family:Arial,sans-serif; font-weight:normal}" +
 		"p+p{text-indent:2em;} body{background:#f2f1ef none;font-size:1.5em;}" +
 		"img{display:block; max-width: 32em; padding:1em; margin: auto}" +
 		"h1{text-align:center;text-transform:uppercase}" +
