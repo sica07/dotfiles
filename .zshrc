@@ -52,6 +52,7 @@ export FILE="ranger"
 export PAGER=most man ls
 export ONI_NEOVIM_PATH="/home/marius/.local/bin/nvim"
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
 export PYTHONPATH="$HOME/osm2city"
 
@@ -112,7 +113,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
-alias cat='bat'
+#alias cat='bat'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 #alias st='stterm -f "Iosevka Term:size=18"'
@@ -176,3 +177,5 @@ alias mm="mr&mh"
 alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+alias mntg="sudo mount /dev/sda5 /mnt"
+alias gog="cd /mnt/home/marius/ryuuma"

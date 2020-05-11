@@ -85,8 +85,8 @@ bindsym $mod+Shift+z exec "lock -g -f Menlo-Regular-for-Powerline"
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+q exec qutebrowser
 #bindsym $mod+Return exec st -f "Iosevka Term:size=12" -e tmux
-bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
-#bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
+bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+space exec "rofi -mode drun,run,window,ssh,script -show drun -fuzzy -show-icons -icon-theme Faenza"
 bindsym $mod+e exec pcmanfm
 bindsym $mod+g exec nvim
@@ -148,6 +148,7 @@ bindsym $mod+less move workspace to output left
 assign [class="Firefox"] $workspace1
 assign [class="Google Chrome"] $workspace9
 assign [class="Skype"] $workspace10
+assign [class="mpv"] $workspace5
 
 # Floating
 for_window [class="Lxappearance"] floating enable
@@ -171,12 +172,13 @@ client.focused_inactive $transparent  $blue      $white   $darkblue    $darkblac
 client.urgent           $darkred      $darkred      $black     $darkred $darkred
 client.background       $black
 # rofi bindings
-bindsym $mod+Shift+o exec --no-startup-id "surf $( rofi -dmenu -p Url: )"
-bindsym $mod+Ctrl+g exec --no-startup-id "surf https://duckduckgo.com/?q=!g+$(rofi -dmenu -i -p duckduckgo: )"
-bindsym $mod+Ctrl+s exec --no-startup-id "surf https://duckduckgo.com/?q=!stackoverflow+$(rofi -dmenu -i -p stackoverflow: )"
+bindsym $mod+Shift+o exec --no-startup-id "surf https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+g exec --no-startup-id "surf https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+s exec --no-startup-id "surf https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+w exec --no-startup-id "surf https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
-bindsym $mod+Ctrl+t exec --no-startup-id "surf https://duckduckgo.com/?q=!watchtower+$(rofi -dmenu -i -p wol: )"
-bindsym $mod+Ctrl+d exec --no-startup-id "surf https://wol.jw.org/ro/wol/h/r34/lp-m"
+bindsym $mod+Ctrl+a exec --no-startup-id "surf https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
+bindsym $mod+Ctrl+p exec --no-startup-id "surf https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
+bindsym $mod+Ctrl+i exec --no-startup-id "surf https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
 
 
 ## rofi scripts
@@ -191,6 +193,7 @@ bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+slash scratchpad show
 bindsym $mod+BackSpace [class="st"] scratchpad show
 bindsym $mod+equal [class="surf"] scratchpad show
+
 # Bar
 bar {
     font pango: Iosevka Term 11
@@ -222,11 +225,11 @@ bar {
 #exec dropbox start &
 #exec pcloudcc -u nongeekboy@gmail.com -d
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
-exec dunst
+exec dunst -config /home/marius/.config/dunst/dunstrc
 exec redshift
 exec nm-applet
 exec clipit
 #exec "feh --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/moon50k.png' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
-#exec compton --config ~/compton.conf
+exec compton --config ~/compton.conf
