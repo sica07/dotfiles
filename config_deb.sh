@@ -10,11 +10,17 @@ cd
 sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt install nodejs -y
-sudo apt-get install  pcmanfm npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell -y
+sudo apt-get install  pcmanfm npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom -y &&
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell webext-browserpass -y
 sudo npm install -g diff-so-fancy tldr how-2
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
+#enable earlyoom
+sudo systemctl enable earlyoom
+
+#enable fstrim (clean up ssd)
+sudo cp fstrim /etc/cron.weekly/fstrim
 
 #install gaps
 sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
