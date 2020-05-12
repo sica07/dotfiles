@@ -184,7 +184,7 @@ bindsym $mod+Ctrl+d exec --no-startup-id "surf https://wol.jw.org/en/wol/p/r34/l
 
 ## rofi scripts
 bindsym $mod+Shift+x exec --no-startup-id ~/dotfiles/scripts/shutdown.sh
-bindsym $mod+Shift+t exec --no-startup-id ~/dotfiles/scripts/projects.sh
+bindsym $mod+Shift+d exec --no-startup-id ~/dotfiles/scripts/projects.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh

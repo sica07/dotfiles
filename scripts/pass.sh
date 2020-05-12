@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
- shopt -s nullglob globstar
+shopt -s nullglob globstar
 
 typeit=0
 if [[ $1 == "--type" ]]; then
@@ -12,7 +12,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
+password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p 'passwords' "$@")
 
 [[ -n $password ]] || exit
 
