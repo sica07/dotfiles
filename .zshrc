@@ -125,10 +125,10 @@ if [ $UID -ne 0 ]; then
     alias reboot='sudo reboot'
     alias shutdown='sudo shutdown -h now'
     alias off='sudo shutdown -h now'
-    alias update='sudo apt-get update'
-    alias upgrade='sudo apt-get upgrade'
-    alias purge='sudo apt-get purge'
-    alias install='sudo apt-get install'
+    alias update='sudo apt update'
+    alias upgrade='sudo apt upgrade'
+    alias purge='sudo apt purge'
+    alias install='sudo apt install'
     alias root='sudo su'
     alias _='sudo'
 fi
@@ -165,6 +165,7 @@ alias dt='w3m $url$today'
 alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
 alias mobi='kindlegen'
+alias random='shuf -n 1 -i'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -180,3 +181,26 @@ alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
+
+
+# FUNCTIONS
+## JUMP functionality
+export MARKPATH=$HOME/.marks
+function j {
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+	mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+	rm -i "$MARKPATH/$1"
+}
+function marks {
+	ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+function _completemarks {
+  reply=($(ls $MARKPATH))
+}
+
+compctl -K _completemarks jump
+compctl -K _completemarks unmark
