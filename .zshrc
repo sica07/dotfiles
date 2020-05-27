@@ -45,7 +45,7 @@ export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export TERMINAL="stterm"
-export BROWSER="firefox"
+export BROWSER="surf"
 export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
@@ -55,7 +55,7 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
-export PYTHONPATH="$HOME/osm2city"
+#export PYTHONPATH="$HOME/osm2city"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
@@ -166,6 +166,11 @@ alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker
 alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
+#NF will always point to the newest file/directory in that current folder
+#e.g. tar xf NF //untar the newest file
+alias -g NF='./*(oc[1])'
+alias -s git='git clone'
+alias -s {jpg,jpeg,png}='feh -x -. -d --draw-exif --draw-tinted -B "black"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -184,6 +189,9 @@ alias gog="cd /mnt/home/marius/ryuuma"
 
 
 # FUNCTIONS
+function kil {
+    kill -SIGTERM $(pidof $1)
+}
 ## JUMP functionality
 export MARKPATH=$HOME/.marks
 function j {
@@ -204,3 +212,4 @@ function _completemarks {
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
+

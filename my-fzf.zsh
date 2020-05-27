@@ -117,6 +117,8 @@ vv() {
      print -l $files[1]
   fi
 }
+zle     -N   fdh
+bindkey '^v' fdh
 
 # fd - including hidden directories
 fdh() {
