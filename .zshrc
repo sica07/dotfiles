@@ -1,7 +1,7 @@
 source ~/.local/bin/antigen.zsh
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#        source /etc/profile.d/vte.sh
+#fi
 antigen use oh-my-zsh
 
 #support for awscli and a few utilities to manage AWS profiles
@@ -166,6 +166,7 @@ alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker
 alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
+alias phpr='psysh'
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
 alias -g NF='./*(oc[1])'
