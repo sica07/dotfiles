@@ -28,7 +28,15 @@ git clone https://www.github.com/Airblader/i3 i3-gaps && cd i3-gaps
 autoreconf --force --install
 mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
-
+#install docker
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce
+#install docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 #install st terminal
 sudo rm /usr/bin/stterm
 #git clone https://git.suckless.org/st
