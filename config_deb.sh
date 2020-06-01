@@ -11,7 +11,7 @@ sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt install nodejs -y
 sudo apt-get install  pcmanfm npm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell webext-browserpass -y
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass -y
 sudo npm install -g diff-so-fancy tldr how-2
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
