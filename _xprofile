@@ -1,0 +1,6 @@
+dunst -config /home/marius/.config/dunst/dunstrc &
+redshift &
+nm-applet &
+feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &
+compton --config ~/compton.conf &
+sxhkd &
