@@ -133,7 +133,7 @@ cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf
 cd ~ && curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb && sudo dpkg -i ripgrep_0.10.0_amd64.deb
 
 #install bat
-wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat*.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.15.4.0/bat_0.15.4.0_amd64.deb && sudo dpkg -i bat*.deb
 
 #install prettyping
 curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
