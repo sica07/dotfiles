@@ -115,7 +115,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
-#alias cat='bat'
+alias cat='bat'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 #alias st='stterm -f "Iosevka Term:size=18"'
