@@ -50,6 +50,7 @@ export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
 export PAGER=most man ls
+export BAT_PAGER=less
 export ONI_NEOVIM_PATH="/home/marius/.local/bin/nvim"
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
@@ -114,7 +115,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
-#alias cat='bat'
+alias cat='bat'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 #alias st='stterm -f "Iosevka Term:size=18"'
@@ -140,6 +141,7 @@ alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
+alias today='bat --theme GitHub --language .env -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 alias td='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
 alias space='ncdu -rr -x'
 alias du='ncdu -rr -x'
