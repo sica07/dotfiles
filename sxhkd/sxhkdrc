@@ -1,5 +1,5 @@
 @Print
-	scrot -s -e 'mv $f ~/Pictures & feh ~/Pictures/$f'
+    scrot -s -e 'mv $f ~/Pictures & feh ~/Pictures/$f'
 
 super+Return
     st -f "Iosevka Term:size=13:autohint:false"
