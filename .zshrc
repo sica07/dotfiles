@@ -115,7 +115,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
-alias cat='bat'
+alias cat='bat --theme GitHub'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 #alias st='stterm -f "Iosevka Term:size=18"'
@@ -140,7 +140,7 @@ alias meteo='curl wttr.in/Ghimbav'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
-alias today='bat --theme GitHub --language .env -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
+alias today='bat --theme GitHub --language elixir -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 alias td='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
 alias space='ncdu -rr -x'
 alias du='ncdu -rr -x'
@@ -194,6 +194,9 @@ alias gog="cd /mnt/home/marius/ryuuma"
 # FUNCTIONS
 function kil {
     kill -SIGTERM $(pidof $1)
+}
+function d {
+    w3m 'https://duckduckgo.com/?q='$1
 }
 ## JUMP functionality
 export MARKPATH=$HOME/.marks
