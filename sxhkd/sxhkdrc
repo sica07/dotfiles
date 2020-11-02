@@ -2,7 +2,7 @@
     scrot -s -e 'mv $f ~/Pictures & feh ~/Pictures/$f'
 
 super+Return
-    st -f "Iosevka Term:size=13:autohint:false"
+    st -f "JetBrainsMonoRegular :size=13:autohint:false"
 super+space
     rofi -mode drun,run,window,ssh,script -show drun -fuzzy -show-icons -icon-theme Faenza
 
