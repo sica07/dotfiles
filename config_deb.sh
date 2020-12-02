@@ -74,8 +74,8 @@ composer global require friendsofphp/php-cs-fixer
 
 
 #NEOVIM
-wget http://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage  &&
-chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim
+wget http://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage  &&
+chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim && sudo ln -s ~/.local/bin/nvim /usr/bin/nvim
 
 pip3 install wheel neovim pynvim
 pip install wheel pynvim
@@ -87,11 +87,10 @@ vim +PluginInstall +qall &&
 cp .vim/_vimrc .vimrc
 
 #nvim configuration
-cd ~/.config && clone https://github.com/sica07/nvim.git
-nvim +PlugInstall
+cd ~/.config && clone https://github.com/sica07/nvim.git && nvim +PlugInstall
 
 # qutebrowser
-cp qutebrowser ~/.local/bin/qutebrowser
+#cp qutebrowser ~/.local/bin/qutebrowser
 
 
 
@@ -150,6 +149,8 @@ mkdir ~/.config/i3blocks
 mkdir ~/.config/dunst
 cp dotfiles/dunstrc ~/.config/dunst/dunstrc
 cp dotfiles/_surf ~/.surf
+ln -s dotfiles/_xprofile ~/.xprofile
+ln -s dotfiles/sxkhd ~/.config/sxhkd
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 ln -s dotfiles/.i3blocks.conf .i3blocks.conf

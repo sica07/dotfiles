@@ -1,0 +1,59 @@
+@Print
+    scrot -s -e 'mv $f ~/Pictures & feh ~/Pictures/$f'
+
+super+Return
+    st -f "JetBrainsMonoRegular :size=13:autohint:false"
+super+space
+    rofi -mode drun,run,window,ssh,script -show drun -fuzzy -show-icons -icon-theme Faenza
+
+super+shift+o
+    surf "https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: ) | sed 's/ /%20/g')"
+super+ctrl+g
+    surf "https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: ) | sed 's/ /%20/g')"
+super+ctrl+s
+    surf "https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: ) | sed 's/ /%20/g')"
+super+ctrl+w
+    surf "https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
+super+ctrl+a
+    surf "https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
+super+ctrl+p
+    surf "https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
+super+ctrl+i
+    surf "https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
+
+super+shift+x
+    bash ~/dotfiles/scripts/shutdown.sh
+super+shift+d
+    bash ~/dotfiles/scripts/projects.sh
+super+shift+b
+    bash ~/dotfiles/scripts/bookmarks.sh
+super+shift+m
+    bash ~/dotfiles/scripts/pomodoro.sh
+super+shift+p
+    bash ~/dotfiles/scripts/pass.sh
+
+super+shift+g
+    flashpeak-slimjet
+super+shift+f
+    firefox
+super+e
+    pcmanfm
+super+c
+    tty-clock -cf -C 4
+
+XF86AudioLowerVolume
+    amixer set Master 10%-
+XF86AudioRaiseVolume
+    amixer set Master 10%+
+XF86AudioMute
+    amixer set Master toggle
+XF86AudioPlay
+    playerctl play-pause
+XF86AudioPause
+    playerctl pause
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+
+

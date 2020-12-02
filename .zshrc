@@ -32,7 +32,7 @@ antigen theme cloud
 #antigen theme gnzh
 #antigen theme miloshadzic
 #antigen theme xiong-chiamiov-plus
-antigen theme geometry-zsh/geometry
+#antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
 
 
@@ -138,6 +138,7 @@ fi
 #OTHERS
 alias mysql='mysql --auto-rehash --auto-vertical-output'
 alias meteo='curl wttr.in/Ghimbav'
+alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
@@ -170,11 +171,14 @@ alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnai
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
 alias phpr='psysh'
+alias dropboxu="rclone sync ~/Dropbox/Apps/vimwiki dropbox:Apps/vimwiki"
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
 alias -g NF='./*(oc[1])'
 alias -s git='git clone'
 alias -s {jpg,jpeg,png}='feh -x -. -d --draw-exif --draw-tinted -B "black"'
+alias -s pdf='zathura'
+alias -s {mp4,mp3,flac,ogg,wav}='mpv'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -184,13 +188,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
 alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
 alias mm="mr&mh"
-#alias ruga="feh --auto-zoom --full-screen ~/Videos/program/rugaciune.jpg"
 alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
-alias vneuron="sudo rovis999@neuronsolutions.ro:/home/rovis999 /mnt"
+
 
 
 # FUNCTIONS
@@ -218,6 +222,7 @@ function _completemarks {
   reply=($(ls $MARKPATH))
 }
 
+## clockify scripts
 function clk {
     curl --data "{\"start\": \"$(date -u +"%Y-%m-%dT%TZ")\", \"description\":\"$1\"}" -H "content-type: application/json" -H "X-Api-Key: " -X POST https://api.clockify.me/api/v1/workspaces//time-entries | jq
 }
@@ -229,6 +234,10 @@ function clks {
 function report {
     curl --data "start=$(date -u +"%Y-%m-%dT00:00:00Z")&hydrated=true" --get -H "content-type: application/json" -H "X-Api-Key: " -X GET https://api.clockify.me/api/v1/workspaces//user//time-entries | jq '.[] | {project: .project.name, title: .description, duration: .timeInterval.duration} '
 }
+
+## Use transfer.sh to transfer files
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
