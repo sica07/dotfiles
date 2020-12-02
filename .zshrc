@@ -55,6 +55,7 @@ export ONI_NEOVIM_PATH="/home/marius/.local/bin/nvim"
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export GIT_SSH_VARIANT=ssh
 
 #export PYTHONPATH="$HOME/osm2city"
 
@@ -189,6 +190,7 @@ alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
+alias vneuron="sudo rovis999@neuronsolutions.ro:/home/rovis999 /mnt"
 
 
 # FUNCTIONS
@@ -214,6 +216,18 @@ function marks {
 }
 function _completemarks {
   reply=($(ls $MARKPATH))
+}
+
+function clk {
+    curl --data "{\"start\": \"$(date -u +"%Y-%m-%dT%TZ")\", \"description\":\"$1\"}" -H "content-type: application/json" -H "X-Api-Key: " -X POST https://api.clockify.me/api/v1/workspaces//time-entries | jq
+}
+
+function clks {
+    curl --data "{\"end\": \"$(date -u +"%Y-%m-%dT%TZ")\"}" -H "content-type: application/json" -H "X-Api-Key: " -X PATCH https://api.clockify.me/api/v1/workspaces//user//time-entries | jq
+}
+
+function report {
+    curl --data "start=$(date -u +"%Y-%m-%dT00:00:00Z")&hydrated=true" --get -H "content-type: application/json" -H "X-Api-Key: " -X GET https://api.clockify.me/api/v1/workspaces//user//time-entries | jq '.[] | {project: .project.name, title: .description, duration: .timeInterval.duration} '
 }
 
 compctl -K _completemarks jump
