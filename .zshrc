@@ -223,21 +223,51 @@ function _completemarks {
 }
 
 ## clockify scripts
+
 function clk {
-    curl --data "{\"start\": \"$(date -u +"%Y-%m-%dT%TZ")\", \"description\":\"$1\"}" -H "content-type: application/json" -H "X-Api-Key: " -X POST https://api.clockify.me/api/v1/workspaces//time-entries | jq
+    curl --data "{\"start\": \"$(date -u +"%Y-%m-%dT%TZ")\", \"description\":\"$1\"}" -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X POST https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/time-entries | jq
 }
 
 function clks {
-    curl --data "{\"end\": \"$(date -u +"%Y-%m-%dT%TZ")\"}" -H "content-type: application/json" -H "X-Api-Key: " -X PATCH https://api.clockify.me/api/v1/workspaces//user//time-entries | jq
+    curl --data "{\"end\": \"$(date -u +"%Y-%m-%dT%TZ")\"}" -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X PATCH https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/user/5ec9089187cbcc1ab7f15b3a/time-entries | jq
 }
 
 function report {
-    curl --data "start=$(date -u +"%Y-%m-%dT00:00:00Z")&hydrated=true" --get -H "content-type: application/json" -H "X-Api-Key: " -X GET https://api.clockify.me/api/v1/workspaces//user//time-entries | jq '.[] | {project: .project.name, title: .description, duration: .timeInterval.duration} '
+    curl --data "start=$(date -u +"%Y-%m-%dT00:00:00Z")&hydrated=true" --get -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X GET https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/user/5ec9089187cbcc1ab7f15b3a/time-entries | jq '.[] | {project: .project.name, title: .description, duration: .timeInterval.duration} '
+}
+
+# Start a PHP server from a directory, optionally specifying the port
+# (Requires PHP 5.4.0+.)
+function phpserver() {
+	local port="${1:-4000}"
+	local ip=$(ipconfig getifaddr en0)
+	sleep 2 && open "http://${ip}:${port}/" &
+	php -S "${ip}:${port}"
+}
+
+
+# Docker
+function dssh() {
+   docker exec -it "$@" bash
+}
+
+# Create a new directory and enter it
+function mkd() {
+   mkdir -p "$@" && cd "$@"
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+	local port="${1:-9000}"
+	sleep 2 && open "http://localhost:${port}/" &
+	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
 ## Use transfer.sh to transfer files
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://free.keep.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://free.keep.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
