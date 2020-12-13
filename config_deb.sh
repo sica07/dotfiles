@@ -10,10 +10,10 @@ cd
 sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt-get install  pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom -y &&
+sudo apt-get install pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom locate -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass nmon -y
 #install nodejs
-curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install nodejs npm
 
@@ -87,7 +87,7 @@ vim +PluginInstall +qall &&
 cp .vim/_vimrc .vimrc
 
 #nvim configuration
-cd ~/.config && clone https://github.com/sica07/nvim.git && nvim +PlugInstall
+cd ~/.config && git clone https://github.com/sica07/nvim.git && nvim +PlugInstall
 
 # qutebrowser
 #cp qutebrowser ~/.local/bin/qutebrowser
@@ -189,4 +189,4 @@ sudo cp -R icons /usr/local/bin
 #TOOLS
 pip install grip tmuxp litecli pgcli mycli glances haxor-news
 
-wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
+wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i

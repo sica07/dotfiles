@@ -56,6 +56,8 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
+export NVIM_COC_LOG_FILE=coc.log
+export XDG_RUNTIME_DIR=/tmp/psalmls
 
 #export PYTHONPATH="$HOME/osm2city"
 
