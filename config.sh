@@ -19,7 +19,7 @@ sudo apt install nodejs
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn add -g diff-so-fancy tldr how-2 intelephense
+yarn global add  diff-so-fancy tldr how-2 intelephense
 
 #install docker
 echo """"""""""""""""""""""""""""""""""""""""""""
@@ -99,5 +99,14 @@ pip3 install --upgrade grip tmuxp litecli pgcli mycli glances
 
 #Dropbox
 wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
+
+#PHP
+sudo apt install php7.4 php7.4-cli php7.4-common php7.4-xml php7.4-mbstring -y &&
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+composer global require phpmd/phpmd &&
+composer global require vimeo/psalm &&
+composer global require friendsofphp/php-cs-fixer
+
 
 sudo apt autoremove
