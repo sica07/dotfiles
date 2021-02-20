@@ -5,9 +5,9 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf &&
+sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass&&
 sudo apt install jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras -y &&
-sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv -y
+sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find -y
 
 #install nodejs
 echo """"""""""""""""""""""""""""""""""""""""""""
@@ -75,6 +75,7 @@ chmod +x prettyping && sudo cp prettyping /usr/sbin/
 #Other configurations
 cp -r dotfiles/_surf /home/marius/.surf
 ln -s dotfiles/.gitconfig .gitconfig
+sudo ln -s /usr/bin/fdfind /usr/bin/fd
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && cp dotfiles/.zshrc .zshrc
 rm -f .tmux.conf && cp dotfiles/.tmux.conf .tmux.conf
