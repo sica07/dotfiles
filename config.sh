@@ -42,7 +42,11 @@ cd /home/marius/.config && git clone https://github.com/sica07/nvim.git && nvim 
 
 #base16 colors for both VIM and shell
 git clone https://github.com/chriskempson/base16-shell.git /home/marius/.config/base16-shell
-
+#FISH configuration
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+cp config.fish ~/.config/fish/config.fish
+cp fish_plugins ~/.config/fish/fish_plugins
+fisher update
 #ZSH configuration
 mkdir /home/marius/.local/bin &&
 curl -L git.io/antigen > /home/marius/.local/bin/antigen.zsh && chmod +x /home/marius/.local/bin/antigen.zsh
