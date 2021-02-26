@@ -1,0 +1,2 @@
+reload-threads 100
+player "/usr/bin/mpv"
