@@ -6,8 +6,8 @@ echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass&&
-sudo apt install jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras -y &&
-sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty fish -y
+sudo apt install jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict -y &&
+sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty fish newsboat -y
 
 #install nodejs
 echo """"""""""""""""""""""""""""""""""""""""""""
