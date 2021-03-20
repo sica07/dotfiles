@@ -37,7 +37,8 @@ abbr cutremur 'curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&s
 abbr abbr-edit 'nvim ~/.config/fish/config.fish'
 abbr r 'ranger'
 abbr todo 'nvim ~/Dropbox/Apps/vimwiki/todo.txt';
-abbr today 'bat --theme GitHub --language elixir -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
+abbr n 'nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
+abbr today 'bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 abbr td 'nvim ~/Dropbox/Apps/vimwiki/todo.txt';
 abbr space 'ncdu -rr -x'
 abbr du 'ncdu -rr -x'
@@ -52,6 +53,8 @@ abbr rg 'rg --color always'
 abbr rgi 'rg --no-ignore'
 abbr rgc 'rg -C 5'
 abbr rgci 'rg -C 5 --no-ignore'
+abbr rss 'newsboat'
+abbr podcast 'podboat'
 abbr memTop 'ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 abbr cpuTop 'ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 abbr tetris 'bastet'
@@ -74,6 +77,7 @@ abbr gp 'git push'
 abbr gpm 'git push origin master'
 abbr gbc 'git checkout -b'
 abbr gu 'git reset HEAD~'
+abbr grbi 'git rebase -i'
 # clean up untracked files
 abbr gcl 'git clean -f -d'
 
@@ -94,7 +98,7 @@ function mkd
 end
 
 function gg
-    command elinks 'https://duckduckgo.com/?q='$argv
+    command w3m 'https://duckduckgo.com/?q='$argv
 end
 
 function kil

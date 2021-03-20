@@ -1,7 +1,7 @@
 source ~/.local/bin/antigen.zsh
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#        source /etc/profile.d/vte.sh
+#fi
 antigen use oh-my-zsh
 
 #support for awscli and a few utilities to manage AWS profiles
@@ -32,7 +32,7 @@ antigen theme cloud
 #antigen theme gnzh
 #antigen theme miloshadzic
 #antigen theme xiong-chiamiov-plus
-antigen theme geometry-zsh/geometry
+#antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
 
 
@@ -45,7 +45,7 @@ export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export TERMINAL="stterm"
-export BROWSER="firefox"
+export BROWSER="surf"
 export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
@@ -55,8 +55,11 @@ export ONI_NEOVIM_PATH="/home/marius/.local/bin/nvim"
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export GIT_SSH_VARIANT=ssh
+export NVIM_COC_LOG_FILE=coc.log
+export XDG_RUNTIME_DIR=/tmp/psalmls
 
-export PYTHONPATH="$HOME/osm2city"
+#export PYTHONPATH="$HOME/osm2city"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/dotfiles/my-fzf.zsh ] && source ~/dotfiles/my-fzf.zsh
@@ -115,7 +118,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
-#alias cat='bat'
+alias cat='bat --theme GitHub'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
 #alias st='stterm -f "Iosevka Term:size=18"'
@@ -137,11 +140,13 @@ fi
 #OTHERS
 alias mysql='mysql --auto-rehash --auto-vertical-output'
 alias meteo='curl wttr.in/Ghimbav'
+alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
+alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
+alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 alias td='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
-alias today='head -n10 ~/Dropbox/Apps/vimwiki/todo.txt | bat --theme GitHub --language .env';
 alias space='ncdu -rr -x'
 alias du='ncdu -rr -x'
 alias help='tldr'
@@ -164,10 +169,19 @@ alias ww='nvim -c VimwikiIndex'
 url="https://wol.jw.org/ro/wol/dt/r34/lp-m/"
 today=$(date "+%Y/%m/%d")
 alias dt='w3m $url$today'
-alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
+alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce'
 alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
+alias phpr='psysh'
+alias dropboxu="rclone sync ~/Dropbox/Apps/vimwiki dropbox:Apps/vimwiki"
+#NF will always point to the newest file/directory in that current folder
+#e.g. tar xf NF //untar the newest file
+alias -g NF='./*(oc[1])'
+alias -s git='git clone'
+alias -s {jpg,jpeg,png}='feh -x -. -d --draw-exif --draw-tinted -B "black"'
+alias -s pdf='zathura'
+alias -s {mp4,mp3,flac,ogg,wav}='mpv'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -177,9 +191,87 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
 alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
 alias mm="mr&mh"
-#alias ruga="feh --auto-zoom --full-screen ~/Videos/program/rugaciune.jpg"
 alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
+
+
+
+# FUNCTIONS
+function kil {
+    kill -SIGTERM $(pidof $1)
+}
+function d {
+    w3m 'https://duckduckgo.com/?q='$1
+}
+## JUMP functionality
+export MARKPATH=$HOME/.marks
+function j {
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+	mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+	rm -i "$MARKPATH/$1"
+}
+function marks {
+	ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+function _completemarks {
+  reply=($(ls $MARKPATH))
+}
+
+## clockify scripts
+
+function clk {
+    curl --data "{\"start\": \"$(date -u +"%Y-%m-%dT%TZ")\", \"description\":\"$1\"}" -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X POST https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/time-entries | jq
+}
+
+function clks {
+    curl --data "{\"end\": \"$(date -u +"%Y-%m-%dT%TZ")\"}" -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X PATCH https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/user/5ec9089187cbcc1ab7f15b3a/time-entries | jq
+}
+
+function report {
+    curl --data "start=$(date -u +"%Y-%m-%dT00:00:00Z")&hydrated=true" --get -H "content-type: application/json" -H "X-Api-Key: X8fZTAMwBgJQNJGU" -X GET https://api.clockify.me/api/v1/workspaces/5ec9089187cbcc1ab7f15b3b/user/5ec9089187cbcc1ab7f15b3a/time-entries | jq '.[] | {project: .project.name, title: .description, duration: .timeInterval.duration} '
+}
+
+# Start a PHP server from a directory, optionally specifying the port
+# (Requires PHP 5.4.0+.)
+function phpserver() {
+	local port="${1:-4000}"
+	local ip=$(ipconfig getifaddr en0)
+	sleep 2 && open "http://${ip}:${port}/" &
+	php -S "${ip}:${port}"
+}
+
+
+# Docker
+function dssh() {
+   docker exec -it "$@" bash
+}
+
+# Create a new directory and enter it
+function mkd() {
+   mkdir -p "$@" && cd "$@"
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+	local port="${1:-9000}"
+	sleep 2 && open "http://localhost:${port}/" &
+	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+## Use keep.sh to transfer files
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://free.keep.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://free.keep.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+
+compctl -K _completemarks jump
+compctl -K _completemarks unmark
+
