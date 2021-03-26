@@ -97,7 +97,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* home/marius/.fonts/
 mv Meslo* home/marius/.fonts/
 mv Fura* home/marius/.fonts/
-wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip 02-iosevka-term-2.0.0.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
 fc-cache -vf home/marius/.fonts/
 
 #TOOLS

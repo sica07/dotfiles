@@ -21,18 +21,18 @@ colors:
 
 font:
   normal:
-    family: Iosevka Term Light
-    style: Regular
+    family: Iosevka Nerd Font Mono
+    style: Light
   bold:
-    family: Iosevka Term
-    style: Bold
+    family: Iosevka Nerd Font Mono
+    style: Regular
   italic:
-    family: Iosevka Term Italic
-    style: Italic
+    family: Iosevka Nerd Font Mono
+    style: Light Oblique
 
   size: 14
 
 shell:
-  program: /usr/bin/fish
+  program: /usr/bin/zsh
 
 background_opacity: 0.9
