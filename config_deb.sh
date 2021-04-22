@@ -161,6 +161,7 @@ ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
 rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
+tic dotfiles/tmux-256color.terminfo
 
 #Powerline Nerd fonts
 mkdir ~/.fonts/
