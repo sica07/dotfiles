@@ -5,9 +5,9 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass&&
+sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass &&
 sudo apt install jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict -y &&
-sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty fish newsboat -y
+sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat -y
 
 #install nodejs
 echo """"""""""""""""""""""""""""""""""""""""""""
@@ -42,11 +42,6 @@ cd /home/marius/.config && git clone https://github.com/sica07/nvim.git && nvim 
 
 #base16 colors for both VIM and shell
 git clone https://github.com/chriskempson/base16-shell.git /home/marius/.config/base16-shell
-#FISH configuration
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-cp config.fish ~/.config/fish/config.fish
-cp fish_plugins ~/.config/fish/fish_plugins
-fisher update
 #ZSH configuration
 mkdir /home/marius/.local/bin &&
 curl -L git.io/antigen > /home/marius/.local/bin/antigen.zsh && chmod +x /home/marius/.local/bin/antigen.zsh
