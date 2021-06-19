@@ -5,10 +5,11 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass &&
-sudo apt install jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict -y &&
-sudo apt install tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat -y
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass &&
+sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict &&
+sudo apt install -y tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
 
+sudo flatpak install -y postman slack dbeaver
 #install nodejs
 echo """"""""""""""""""""""""""""""""""""""""""""
 echo INSTALLING NODEJS...
@@ -50,6 +51,10 @@ sudo chsh -s $(which zsh)
 #install youtube-dl
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl &&
 sudo chmod a+rx /usr/local/bin/youtube-dl
+#install ulauncher
+sudo add-apt-repository ppa:agornostal/ulauncher &&
+sudo apt update &&
+sudo apt install gettext gir1.2-javascriptcoregtk-4.0 gir1.2-keybinder-3.0 gir1.2-webkit2-4.0 intltool libcroco3 libkeybinder-3.0-0 python3-distutils-extra python3-levenshtein python3-pyinotify python3-websocket ulauncher -y
 #install ranger
 sudo apt-get install ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight \
 && ranger --copy-config=all \
@@ -92,13 +97,14 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/R
 mv Menlo* home/marius/.fonts/
 mv Meslo* home/marius/.fonts/
 mv Fura* home/marius/.fonts/
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip 02-iosevka-term-2.0.0.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip Iosevka.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
 fc-cache -vf home/marius/.fonts/
 
 #TOOLS
 pip3 install --upgrade grip tmuxp litecli pgcli mycli glances
 
 #Dropbox
+sudo apt install libpango1.0-0
 wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 
 #PHP
