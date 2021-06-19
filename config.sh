@@ -16,7 +16,7 @@ echo INSTALLING NODEJS...
 echo """"""""""""""""""""""""""""""""""""""""""""
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
-sudo apt install nodejs
+sudo apt install -y nodejs
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -29,9 +29,10 @@ echo """"""""""""""""""""""""""""""""""""""""""""
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &&
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" &&
 sudo apt update
-sudo apt install docker-ce
+sudo apt install -y docker-ce
 sudo groupadd docker
 sudo usermod -aG docker ${USER}
+pip3 install docker --user
 
 #install docker-compose
 sudo curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose &&
@@ -54,9 +55,9 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 #install ulauncher
 sudo add-apt-repository ppa:agornostal/ulauncher &&
 sudo apt update &&
-sudo apt install gettext gir1.2-javascriptcoregtk-4.0 gir1.2-keybinder-3.0 gir1.2-webkit2-4.0 intltool libcroco3 libkeybinder-3.0-0 python3-distutils-extra python3-levenshtein python3-pyinotify python3-websocket ulauncher -y
+sudo apt install -y gettext gir1.2-javascriptcoregtk-4.0 gir1.2-keybinder-3.0 gir1.2-webkit2-4.0 intltool libcroco3 libkeybinder-3.0-0 python3-distutils-extra python3-levenshtein python3-pyinotify python3-websocket ulauncher -y
 #install ranger
-sudo apt-get install ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight \
+sudo apt-get install -y ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight \
 && ranger --copy-config=all \
 && sed -i 's/preview_images false/preview_images true/g' /home/marius/.config/ranger/rc.conf \
 && cp ranger/rifle.conf /home/marius/.config/ranger/rifle.conf \
