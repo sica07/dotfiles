@@ -28,10 +28,9 @@ antigen bundle battery
 antigen bundle systemadmin
 
 
-antigen theme cloud
-#antigen theme gnzh
+#antigen theme cloud
+antigen theme gnzh
 #antigen theme miloshadzic
-#antigen theme xiong-chiamiov-plus
 #antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
 
@@ -143,9 +142,10 @@ alias meteo='curl wttr.in/Ghimbav'
 alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
-alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
-alias today='bat --theme GitHub --language elixir -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
-alias td='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
+alias todo='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
+alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
+alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
+alias t='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias space='ncdu -rr -x'
 alias du='ncdu -rr -x'
 alias help='tldr'
@@ -168,7 +168,7 @@ alias ww='nvim -c VimwikiIndex'
 url="https://wol.jw.org/ro/wol/dt/r34/lp-m/"
 today=$(date "+%Y/%m/%d")
 alias dt='w3m $url$today'
-alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
+alias portainer='sudo docker run -d -p 7800:8000 -p 7900:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce'
 alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnail --metadata-from-title "%(artist)s - %(title)s"'
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
@@ -196,6 +196,10 @@ alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
 
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
+alias rescue="env -u SESSION_MANAGER rescuetime &"
+alias vpn="cd ~/Documents && sudo openvpn lynx.ovpn"
+alias cvpn="cd ~/Documents && sudo openvpn carnext.vpn"
+alias kanban="cd ~/Dropbox/Apps/vimwiki && nvim -O {todo,doing,done}.txt"
 
 
 
@@ -274,3 +278,6 @@ tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | s
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
 
+function gg() {
+        w3m 'https://duckduckgo.com/?q='$@
+}
