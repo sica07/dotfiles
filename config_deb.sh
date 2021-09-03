@@ -10,7 +10,7 @@ cd
 sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt-get install pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom locate -y &&
+sudo apt-get install pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom locate editorconfig -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass nmon -y
 #install nodejs
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
@@ -74,7 +74,7 @@ composer global require friendsofphp/php-cs-fixer
 
 
 #NEOVIM
-wget http://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage  &&
+wget http://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage  &&
 chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim && sudo ln -s ~/.local/bin/nvim /usr/bin/nvim
 
 pip3 install wheel neovim pynvim

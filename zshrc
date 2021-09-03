@@ -28,10 +28,9 @@ antigen bundle battery
 antigen bundle systemadmin
 
 
-antigen theme cloud
-#antigen theme gnzh
+#antigen theme cloud
+antigen theme gnzh
 #antigen theme miloshadzic
-#antigen theme xiong-chiamiov-plus
 #antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
 
@@ -57,8 +56,8 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
 export NVIM_COC_LOG_FILE=coc.log
-export XDG_RUNTIME_DIR=/tmp/psalmls
 
+#export XDG_RUNTIME_DIR=/tmp/psalmls
 #export PYTHONPATH="$HOME/osm2city"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -143,10 +142,9 @@ alias meteo='curl wttr.in/Ghimbav'
 alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
-alias todo='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
 alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
+alias note='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
 alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
-alias td='nvim ~/Dropbox/Apps/vimwiki/todo.txt';
 alias space='ncdu -rr -x'
 alias du='ncdu -rr -x'
 alias help='tldr'
@@ -188,15 +186,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
-alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
-alias mm="mr&mh"
-alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
-alias show="feh --auto-zoom --fullscreen "
-alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
 
-alias mntg="sudo mount /dev/sda5 /mnt"
-alias gog="cd /mnt/home/marius/ryuuma"
+alias show="feh --auto-zoom --fullscreen "
+alias kanban="cd ~/Dropbox/Apps/vimwiki && nvim -O {todo,doing,done}.txt"
+alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+alias t='nvim -o ~/Dropbox/Apps/vimwiki/todo.txt';
 
 
 
@@ -204,9 +198,7 @@ alias gog="cd /mnt/home/marius/ryuuma"
 function kil {
     kill -SIGTERM $(pidof $1)
 }
-function d {
-    w3m 'https://duckduckgo.com/?q='$1
-}
+
 ## JUMP functionality
 export MARKPATH=$HOME/.marks
 function j {
@@ -270,8 +262,11 @@ function server() {
 
 ## Use keep.sh to transfer files
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://free.keep.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://free.keep.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
 
+function gg() {
+        w3m 'https://duckduckgo.com/?q='$@
+}
