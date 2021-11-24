@@ -86,7 +86,7 @@ bindsym $mod+Shift+f exec firefox
 #bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
 bindsym $mod+Return exec alacritty
 #rofi -show run -modi calc:../Examples/rofi-calculator.sh
-bindsym $mod+space exec "rofi -mode drun,run,window,calc,ssh,script, -show drun -fuzzy -show-icons -icon-theme Faenza"
+bindsym $mod+space exec "rofi -mode drun,run,window,calc,ssh,script, -show drun -fuzzy -show-icons -icon-theme Papirus -theme arthur"
 bindsym $mod+e exec pcmanfm
 bindsym $mod+g exec nvim
 bindsym $mod+c exec "tty-clock -cr -C 4"
@@ -144,10 +144,13 @@ bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
 # Program Workspaces
-assign [class="Firefox"] $workspace1
-assign [class="Google Chrome"] $workspace9
-assign [class="Skype"] $workspace10
-assign [class="mpv"] $workspace5
+assign [class="firefox"] $workspace3
+assign [class="Vivaldi"] $workspace1
+assign [class="DBeaver"] $workspace4
+assign [class="geary"] $workspace9
+assign [class="gnome-calendar"] $workspace9
+assign [class="Slack"] $workspace10
+assign [class="mpv"] $workspace8
 
 # Floating
 for_window [class="Lxappearance"] floating enable
@@ -189,7 +192,10 @@ bindsym $mod+Shift+c exec --no-startup-id ~/dotfiles/scripts/calculator.sh
 bindsym $mod+Shift+d exec --no-startup-id ~/dotfiles/scripts/dict.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
-bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
+#bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
+bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+# start applications needed for work
+bindsym $mod+Shift+w exec "flatpak run com.slack.Slack"  exec "vivaldi" exec "firefox" exec  "geary" exec "gnome-calendar"
 #bindsym $mod+Shift+s exec --no-startup-id "rofi -show drun -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 ## scratchpad
@@ -226,13 +232,13 @@ bar {
         }
 }
 # Autostart
-#exec dropbox start &
+exec dropbox start &
 #exec pcloudcc -u nongeekboy@gmail.com -d
 exec export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP}:$i3
 exec dunst -config /home/marius/.config/dunst/dunstrc
-exec redshift
+exec "redshift -l 45.65:25.6 -t 6500:4500"
 exec nm-applet
-exec clipit
+exec greenclip daemon
 #exec "feh --bg-fill '/home/marius/pCloudDrive/Apps/Desktoppr/moon50k.png' &"
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"

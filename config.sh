@@ -5,7 +5,7 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass &&
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift &&
 sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon &&
 sudo apt install -y tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
 
@@ -52,6 +52,8 @@ sudo chsh -s $(which zsh)
 #install youtube-dl
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl &&
 sudo chmod a+rx /usr/local/bin/youtube-dl
+#install greenclip for rofi
+curl -L  > https://github.com/erebe/greenclip/releases/download/v4.2/greenclip && chmod +x /home/marius/.local/bin/antigen.zsh && chmod +x /home/marius/.local/bin/greenclip
 #install ulauncher
 sudo add-apt-repository ppa:agornostal/ulauncher &&
 sudo apt update &&
