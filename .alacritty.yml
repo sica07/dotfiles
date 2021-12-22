@@ -21,16 +21,17 @@ colors:
 
 font:
   normal:
-    family: Iosevka Nerd Font Mono
+    #family: Iosevka Nerd Font Mono
+    family: FuraMono Nerd Font
     style: Light
   bold:
     family: Iosevka Nerd Font Mono
-    style: Regular
+    style: Bold
   italic:
     family: Iosevka Nerd Font Mono
     style: Light Oblique
 
-  size: 14
+  size: 12
 
 shell:
   program: /usr/bin/zsh
@@ -39,3 +40,4 @@ background_opacity: 0.9
 
 env:
   TERM: xterm-256color
+  TERM_ITALICS: 'true'
