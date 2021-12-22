@@ -2,22 +2,25 @@
 set $mod Mod4
 
 # Set Xresources colors:
-set $darkblack #1E272B
+#set $darkblack #1E272B
+set $darkblack #57504a
 set $darkred #685742
 set $darkgreen #9D6A47
 set $darkyellow #B36D43
 set $darkblue #78824B
 set $darkmagenta #D99F57
 set $darkcyan #C9A554
-set $darkwhite #EAD49B
+#set $darkwhite #EAD49B
+set $darkwhite #F0f0f0
 set $black #666666
 set $red #685743
 set $green #9D6A47
 set $yellow #B36D43
 set $blue #78824B
 set $magenta #D99F57
-set $cyan #C9A554
-set $white #EAD49B
+set $cyan #888888
+set $lightwhite #EAD49B
+set $white #F0F0F0
 set $transparent  #000000
 set $workspace1 "1: "
 set $workspace2 "2: "
@@ -169,7 +172,7 @@ for_window [class="^.*"] border pixel 0
 #client.unfocused        $base02 $base02    $base03 $base0F
 #client.urgent           $base02 $base08    $base00 $base0F
 #                       BORDER        BACKGROUND TEXT     INDICATOR    CHILD_BORDER
-client.focused          $red          $red       $magenta $darkmagenta $darkblue
+client.focused          $red          $red       $magenta $darkmagenta $lightwhite
 client.unfocused        $transparent  $blue      $white   $darkblue    $darkblack
 client.focused_inactive $transparent  $blue      $white   $darkblue    $darkblack
 client.urgent           $darkred      $darkred      $black     $darkred $darkred
@@ -193,7 +196,7 @@ bindsym $mod+Shift+d exec --no-startup-id ~/dotfiles/scripts/dict.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 #bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
-bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme arthur
 # start applications needed for work
 bindsym $mod+Shift+w exec "flatpak run com.slack.Slack"  exec "vivaldi" exec "firefox" exec  "geary" exec "gnome-calendar"
 #bindsym $mod+Shift+s exec --no-startup-id "rofi -show drun -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
@@ -218,8 +221,8 @@ bar {
             background $darkblack
                 statusline $darkwhite
                 separator $cyan
-                focused_workspace  $blue $darkblue $darkblack
-                active_workspace   $blue $blue $darkwhite
+                focused_workspace  $lightwhite $lightwhite $darkblack
+                active_workspace   $darkred $darkred $darkwhite
                 inactive_workspace $darkblack $darkblack $white
                 urgent_workspace $darkblack $darkblack $white
 #separator $base03
