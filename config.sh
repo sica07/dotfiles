@@ -5,7 +5,7 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift &&
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
 sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon &&
 sudo apt install -y tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
 
