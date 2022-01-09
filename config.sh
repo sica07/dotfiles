@@ -7,7 +7,7 @@ echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
 sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon &&
-sudo apt install -y tig html-xml-utils ncdu python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
+sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
 
 sudo flatpak install -y postman slack dbeaver
 #install nodejs
@@ -20,7 +20,9 @@ sudo apt install -y nodejs
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn global add  diff-so-fancy tldr how-2 intelephense
+yarn global add  diff-so-fancy how-2 intelephense
+""TLDR""
+wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
 
 #install docker
 echo """"""""""""""""""""""""""""""""""""""""""""
@@ -59,10 +61,11 @@ sudo add-apt-repository ppa:agornostal/ulauncher &&
 sudo apt update &&
 sudo apt install -y gettext gir1.2-javascriptcoregtk-4.0 gir1.2-keybinder-3.0 gir1.2-webkit2-4.0 intltool libcroco3 libkeybinder-3.0-0 python3-distutils-extra python3-levenshtein python3-pyinotify python3-websocket ulauncher -y
 #install ranger
-sudo apt-get install -y ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight \
+sudo apt-get install -y ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight ffmpegthumbnailer odt2txt\
 && ranger --copy-config=all \
 && sed -i 's/preview_images false/preview_images true/g' /home/marius/.config/ranger/rc.conf \
 && cp ranger/rifle.conf /home/marius/.config/ranger/rifle.conf \
+&& cp ranger/scope.sh /home/marius/.config/ranger/scope.sh \
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
 
