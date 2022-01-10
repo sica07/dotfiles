@@ -6,7 +6,7 @@ echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
-sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon &&
+sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon exa &&
 sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake
 
 sudo flatpak install -y postman slack dbeaver
@@ -95,14 +95,14 @@ rm -f .tmux.conf && cp dotfiles/.tmux.conf .tmux.conf
 mkdir /home/marius/.fonts
 mkdir /home/marius/.config/fontconfig
 mkdir /home/marius/.config/fontconfig/conf.d
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 mv Menlo* home/marius/.fonts/
 mv Meslo* home/marius/.fonts/
-mv Fura* home/marius/.fonts/
+mv Fira* home/marius/.fonts/
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip Iosevka.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
 fc-cache -vf home/marius/.fonts/
 

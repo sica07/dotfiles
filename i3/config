@@ -87,14 +87,14 @@ bindsym $mod+Shift+z exec "lock -g -f Menlo-Regular-for-Powerline"
 bindsym $mod+Shift+f exec firefox
 #bindsym $mod+Return exec st -f "Iosevka Term:size=12" -e tmux
 #bindsym $mod+Return exec st -f "Iosevka Term:size=13:autohint:false"
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 #rofi -show run -modi calc:../Examples/rofi-calculator.sh
 bindsym $mod+space exec "rofi -mode drun,run,window,calc,ssh,script, -show drun -fuzzy -show-icons -icon-theme Papirus -theme arthur"
 bindsym $mod+e exec pcmanfm
 bindsym $mod+g exec nvim
 bindsym $mod+c exec "tty-clock -cr -C 4"
 #bindsym $mod+Shift+g exec google-chrome
-bindsym $mod+Shift+g exec flashpeak-slimjet
+bindsym $mod+Shift+g exec vivaldi
 bindsym  --release Print exec scrot -s -e 'mv $f ~/Pictures/'
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+s exec recoll
@@ -185,7 +185,7 @@ bindsym $mod+Ctrl+w exec --no-startup-id "vivaldi https://duckduckgo.com/?q=!w+$
 bindsym $mod+Ctrl+a exec --no-startup-id "vivaldi https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
 bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
 bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
-bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/p/r34/lp-m"
+bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
 
 
 ## rofi scripts
@@ -204,14 +204,14 @@ bindsym $mod+Shift+w exec "flatpak run com.slack.Slack"  exec "vivaldi" exec "fi
 ## scratchpad
 bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+slash scratchpad show
-bindsym $mod+BackSpace [class="st"] scratchpad show
-bindsym $mod+equal [class="surf"] scratchpad show
+bindsym $mod+BackSpace [class="kitty"] scratchpad show
+bindsym $mod+equal [class="firefox"] scratchpad show
 
 # Bar
 bar {
     font pango: Iosevka Term 11
-        status_command i3blocks
-        #status_command i3status
+        #status_command i3blocks
+        status_command i3status
         position top
 # strip_workspace_numbers yes
 #height 25

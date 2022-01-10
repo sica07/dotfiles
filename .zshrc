@@ -147,7 +147,7 @@ alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
 alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 alias t='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias space='duf --sort size'
-alias du='ncdu --sort size'
+alias du='duf --sort size'
 alias help='tldr'
 alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 alias moon="feh --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/moon50k.png'"
@@ -193,6 +193,7 @@ alias mm="mr&mh"
 alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+alias ls="exa --icons"
 
 alias mntg="sudo mount /dev/sda5 /mnt"
 alias gog="cd /mnt/home/marius/ryuuma"
