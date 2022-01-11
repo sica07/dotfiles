@@ -20,9 +20,13 @@ sudo apt install -y nodejs
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn global add  diff-so-fancy how-2 intelephense
+yarn global add  how-2 intelephense
+"Delta-git"
+wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
 ""TLDR""
 wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
+"xh"
+curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 #install docker
 echo """"""""""""""""""""""""""""""""""""""""""""
@@ -61,11 +65,11 @@ sudo add-apt-repository ppa:agornostal/ulauncher &&
 sudo apt update &&
 sudo apt install -y gettext gir1.2-javascriptcoregtk-4.0 gir1.2-keybinder-3.0 gir1.2-webkit2-4.0 intltool libcroco3 libkeybinder-3.0-0 python3-distutils-extra python3-levenshtein python3-pyinotify python3-websocket ulauncher -y
 #install ranger
-sudo apt-get install -y ranger caca-utils w3m-img libarchive-tools mediainfo poppler-utils highlight ffmpegthumbnailer odt2txt\
+sudo apt-get install -y ranger caca-utils libarchive-tools mediainfo poppler-utils highlight ffmpegthumbnailer odt2txt\
 && ranger --copy-config=all \
-&& sed -i 's/preview_images false/preview_images true/g' /home/marius/.config/ranger/rc.conf \
 && cp ranger/rifle.conf /home/marius/.config/ranger/rifle.conf \
 && cp ranger/scope.sh /home/marius/.config/ranger/scope.sh \
+&& cp ranger/rc.conf /home/marius/.config/ranger/rc.conf \
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
 

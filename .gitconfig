@@ -3,10 +3,24 @@
 	name = Marius Matei
 [core]
 	excludesfile = .git/gitignore_global
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta | less --tabs=4 -RFX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = /usr/bin/nvim
-	autocrlf = input
+	  autocrlf = input
+
+[delta]
+    features = decorations
+[delta "interactive"]
+    keep-plus-minus-markers = false
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
 [alias]
     a = "add --patch"
     c = "commit"
