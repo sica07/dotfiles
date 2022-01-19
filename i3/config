@@ -246,3 +246,4 @@ exec greenclip daemon
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
 exec compton --config ~/compton.conf
+exec polybar example 2>&1

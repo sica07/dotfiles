@@ -11,7 +11,7 @@ sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
 sudo apt-get install pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom locate editorconfig ncal -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass nmon -y
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass nmon  tint2 -y
 #install nodejs
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
@@ -145,17 +145,19 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb &
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git
 rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
-mkdir ~/.config/i3blocks
+#mkdir ~/.config/i3blocks
 mkdir ~/.config/dunst
+mkdir ~/.config/tint2
 cp dotfiles/dunstrc ~/.config/dunst/dunstrc
 cp dotfiles/_surf ~/.surf
+cp dotfiles/tint2rc ~/.config/tint2/tint2rc
 ln -s dotfiles/_xprofile ~/.xprofile
 ln -s dotfiles/sxkhd ~/.config/sxhkd
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
-ln -s dotfiles/.i3blocks.conf .i3blocks.conf
+#ln -s dotfiles/.i3blocks.conf .i3blocks.conf
 ln -s dotfiles/.xmodmaprc .xmodmaprc
-cp  dotfiles/i3blocks/* .config/i3blocks/*
+#cp  dotfiles/i3blocks/* .config/i3blocks/*
 cp  dotfiles/i3/* .config/i3/*
 ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
