@@ -45,12 +45,12 @@ hide_edge_borders both
 new_window none
 
 # Gaps
-#smart_gaps on
-#smart_borders on
+smart_gaps on
+smart_borders on
 #gaps inner 0
 #gaps outer 0
-#gaps inner 5
-#gaps outer 5
+gaps inner 5
+gaps outer 1
 
 # Window-Related Bindings
 bindsym $mod+q kill
@@ -62,10 +62,11 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+bindsym $mod+v split vertical
+bindsym $mod+s split horizontal
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+shift+v layout toggle split
 bindsym $mod+f fullscreen toggle
-bindsym $mod+v layout toggle split
-bindsym $mod+shift+v split vertical
 bindsym $mod+t exec "synclient TouchPadOff=1"
 bindsym $mod+Shift+t exec "synclient TouchPadOff=0"
 #bindsym $mod+h split h
@@ -97,7 +98,7 @@ bindsym $mod+c exec "tty-clock -cr -C 4"
 bindsym $mod+Shift+g exec vivaldi
 bindsym  --release Print exec scrot -s -e 'mv $f ~/Pictures/'
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+s exec recoll
+#bindsym $mod+s exec recoll
 
 # Volume & Media Bindings
 bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
@@ -181,10 +182,10 @@ client.background       $black
 bindsym $mod+Ctrl+o exec --no-startup-id "vivaldi https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+g exec --no-startup-id "vivaldi https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+s exec --no-startup-id "vivaldi https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+w exec --no-startup-id "vivaldi https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -i -p wikipedia: ) | sed 's/ /%20/g' )"
-bindsym $mod+Ctrl+a exec --no-startup-id "vivaldi https://wolframalpha.com/input/?i=+$(echo $(rofi -dmenu -i -p wolframalpha:) | sed 's/ /%20/g' )"
-bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(echo $(rofi -dmenu -i -p wol-m: ) | sed 's/ /%20/g' )"
-bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(echo $(rofi -dmenu -i -p wol-en: ) | sed 's/ /%20/g' )"
+bindsym $mod+Ctrl+w exec --no-startup-id "vivaldi https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
+bindsym $mod+Ctrl+a exec --no-startup-id "vivaldi https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
+bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
+bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
 bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
 
 
@@ -199,7 +200,6 @@ bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme arthur
 # start applications needed for work
 bindsym $mod+Shift+w exec "flatpak run com.slack.Slack"  exec "vivaldi" exec "firefox" exec  "geary" exec "gnome-calendar"
-#bindsym $mod+Shift+s exec --no-startup-id "rofi -show drun -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 ## scratchpad
 bindsym $mod+Shift+BackSpace move scratchpad
@@ -208,32 +208,24 @@ bindsym $mod+BackSpace [class="kitty"] scratchpad show
 bindsym $mod+equal [class="firefox"] scratchpad show
 
 # Bar
-bar {
-    font pango: Iosevka Term 11
-        #status_command i3blocks
-        status_command i3status
-        position top
-# strip_workspace_numbers yes
-#height 25
-        bindsym button4 nop
-        bindsym button5 nop
-        colors {
-            background $darkblack
-                statusline $darkwhite
-                separator $cyan
-                focused_workspace  $lightwhite $lightwhite $darkblack
-                active_workspace   $darkred $darkred $darkwhite
-                inactive_workspace $darkblack $darkblack $white
-                urgent_workspace $darkblack $darkblack $white
-#separator $base03
-#background $base01
-#statusline $base05
-#focused_workspace  $base01 $base01    $base07
-#active_workspace   $base01 $base02    $base03
-#inactive_workspace $base01 $base01    $base03
-#urgent_workspace   $base01 $base01    $base08
-        }
-}
+#bar {
+    #font pango: Iosevka Term 11
+        #status_command i3status
+        #position top
+        #mode hide
+        #workspace_buttons no
+        #bindsym button4 nop
+        #bindsym button5 nop
+        #colors {
+            #background $darkblack
+                #statusline $darkwhite
+                #separator $cyan
+                #focused_workspace  $lightwhite $lightwhite $darkblack
+                #active_workspace   $darkred $darkred $darkwhite
+                #inactive_workspace $darkblack $darkblack $white
+                #urgent_workspace $darkblack $darkblack $white
+        #}
+#}
 # Autostart
 exec dropbox start &
 #exec pcloudcc -u nongeekboy@gmail.com -d
@@ -246,4 +238,5 @@ exec greenclip daemon
 exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 #exec "feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/i3/' &"
 exec compton --config ~/compton.conf
-exec polybar example 2>&1
+#exec polybar example
+exec tint2
