@@ -182,10 +182,10 @@ client.background       $black
 bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+g exec --no-startup-id "luakit https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+s exec --no-startup-id "luakit https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+w exec --no-startup-id "luakit https://duckduckgo.com/?q=!w+$(rofi -dmenu -i -p wikipedia: )"
-bindsym $mod+Ctrl+a exec --no-startup-id "luakit https://wolframalpha.com/input/?i=+$(rofi -dmenu -i -p wolframalpha: )"
-bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(rofi -dmenu -i -p wol-m: )"
-bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(rofi -dmenu -i -p wol-en: )"
+bindsym $mod+Ctrl+a exec --no-startup-id "luakit https://wolframalpha.com/input/?i=+$(echo $(rofi -dmenu -i -p wolframalpha: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+h exec --no-startup-id "luakit https://github.com/search?q=+$(echo $(rofi -dmenu -i -p github: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(echo $(rofi -dmenu -i -p wol-m: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(echo $(rofi -dmenu -i -p wol-en: ) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
 
 
