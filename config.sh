@@ -6,7 +6,7 @@ echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
-sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig diodon exa &&
+sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig exa &&
 sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake tint2 luakit
 
 sudo flatpak install -y postman slack dbeaver
@@ -20,12 +20,13 @@ sudo apt install -y nodejs
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn global add  how-2 intelephense
-"Delta-git"
+yarn global add intelephense
+
+#Delta-git
 wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
-""TLDR""
+#TLDR
 wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
-"xh"
+#xh - httpie alternative
 curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 #install docker
@@ -111,7 +112,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zi
 fc-cache -vf home/marius/.fonts/
 
 #TOOLS
-pip3 install --upgrade grip tmuxp litecli pgcli mycli glances
+pip3 install --upgrade grip litecli pgcli mycli
 
 #Dropbox
 sudo apt install libpango1.0-0
