@@ -24,7 +24,7 @@ curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 yarn global add intelephense
 #Delta-git
-wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
+wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg -i git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
 #TLDR
 wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
 #install duf
@@ -55,12 +55,12 @@ cd ctags
 ./autogen.sh && ./configure && make && sudo make install
 
 #PHP
-sudo apt install php7.3 php7.3-cli php7.3-common php7.3-xml php7.3-mbstring &&
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php composer-setup.php --install-dir=/usr/bin --filename=composer
-composer global require phpmd/phpmd &&
-composer global require vimeo/psalm &&
-composer global require friendsofphp/php-cs-fixer
+#sudo apt install php7.3 php7.3-cli php7.3-common php7.3-xml php7.3-mbstring &&
+#php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+#php composer-setup.php --install-dir=/usr/bin --filename=composer
+#composer global require phpmd/phpmd &&
+#composer global require vimeo/psalm &&
+#composer global require friendsofphp/php-cs-fixer
 
 
 #NEOVIM
@@ -132,19 +132,19 @@ rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
 tic dotfiles/tmux-256color.terminfo
 
 #Powerline Nerd fonts
-mkdir /home/marius/.fonts
-mkdir /home/marius/.config/fontconfig
-mkdir /home/marius/.config/fontconfig/conf.d
+mkdir /home/marius/.fonts &&
+mkdir /home/marius/.config/fontconfig &&
+mkdir /home/marius/.config/fontconfig/conf.d &&
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
-mv Menlo* home/marius/.fonts/
-mv Meslo* home/marius/.fonts/
-mv Fira* home/marius/.fonts/
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip Iosevka.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
-fc-cache -vf home/marius/.fonts/
+mv Menlo* /home/marius/.fonts/
+mv Meslo* /home/marius/.fonts/
+mv Fira* /home/marius/.fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip Iosevka.zip -d /home/marius/.fonts/ && cp /home/marius/.fonts/ttf/* /home/marius/.fonts/
+fc-cache -vf /home/marius/.fonts/
 
 #Dropbox
 sudo apt install libpango1.0-0
