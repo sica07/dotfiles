@@ -10,22 +10,27 @@ cd
 sudo apt-get install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt-get install pcmanfm stterm zsh mc htop tmux compton python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras recoll xclip zram-tools earlyoom locate editorconfig ncal -y &&
-sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld googler zathura surf redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv webext-browserpass nmon  tint2 -y
+sudo apt-get install pcmanfm stterm zsh mc htop tmux compton ripgrep python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal -y &&
+sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
+
+sudo flatpak install -y postman slack dbeaver
 #install nodejs
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install nodejs npm
 
-sudo npm install -g diff-so-fancy tldr how-2
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-#enable earlyoom
-sudo systemctl enable earlyoom
-
-#enable fstrim (clean up ssd)
-sudo cp fstrim /etc/cron.weekly/fstrim
+yarn global add intelephense
+#Delta-git
+wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
+#TLDR
+wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
+#install duf
+wget https://github.com/muesli/duf/releases/download/v0.6.2/duf_0.6.2_linux_amd64.deb && sudo dpkg -i duf*
+#xh - httpie alternative
+curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 #install gaps
 sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
@@ -39,25 +44,10 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install docker-ce
+
 #install docker-compose
 sudo curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-#install st terminal
-sudo rm /usr/bin/stterm
-#git clone https://git.suckless.org/st
-#cd st
-#wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20180320-6ac8c8a.diff
-#git apply st-vertcenter-20180320-6ac8c8a.diff
-#wget https://st.suckless.org/patches/alpha/st-alpha-0.8.2.dif://st.suckless.org/patches/alpha/st-alpha-0.8.2.diff
-#git apply st-alpha-0.8.2.diff
-#echo "don't forget to apply colorscheme from: cp ~/dotfiles/config.def.h st/"
-cp -r ~/dotfiles/st ~/st
-cd ~/st
-make && sudo make clean install
-cd
-
-#install rclone
-curl https://rclone.org/install.sh | sudo bash
 
 #install universal-ctags
 git clone https://github.com/universal-ctags/ctags.git
@@ -74,7 +64,7 @@ composer global require friendsofphp/php-cs-fixer
 
 
 #NEOVIM
-wget http://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage  &&
+wget http://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage  &&
 chmod u+x nvim.appimage && cp nvim.appimage ~/.local/bin/nvim && sudo ln -s ~/.local/bin/nvim /usr/bin/nvim
 
 pip3 install wheel neovim pynvim
@@ -89,35 +79,14 @@ cp .vim/_vimrc .vimrc
 #nvim configuration
 cd ~/.config && git clone https://github.com/sica07/nvim.git && nvim +PlugInstall
 
-# qutebrowser
-#cp qutebrowser ~/.local/bin/qutebrowser
-
-
-
-#ZSH configuration
-curl -L git.io/antigen > ~/.local/bin/antigen.zsh && chmod +x ~/.local/bin/antigen.zsh
-ln -s  ~/dotfiles/zshrc ~/.zshrc
-chsh -s $(which zsh)
-#git clone https://github.com/sica07/.oh-my-zsh.git
-#git clone --recursive https://github.com/sica07/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" &&
-#sudo chsh -s /bin/zsh &&
-#cp ~/dotfiles/zshrc ~/.zprezto/runcoms/zshrc &&
-#cp ~/dotfiles/zpreztorc ~/.zprezto/runcoms/zpreztorc &&
-#cp ~/dotfiles/prompt* ~/.zprezto/modules/prompt/functions/
-
-#echo ' ========================='
-#echo 'this should be run in zsh:;'
-#echo '=========================='
-#echo 'setopt EXTENDED_GLOB'
-#echo 'for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do'
-#echo '  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"'
-#echo 'done'
-#echo '============END==========='
 
 #base16 colors for both VIM and shell
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-#echo 'BASE16_SHELL=$HOME/.config/base16-shell/
-#[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"' >> .zshrc
+git clone https://github.com/chriskempson/base16-shell.git /home/marius/.config/base16-shell
+#ZSH configuration
+mkdir /home/marius/.local/bin &&
+curl -L git.io/antigen > /home/marius/.local/bin/antigen.zsh && chmod +x /home/marius/.local/bin/antigen.zsh
+ln -s  /home/marius/dotfiles/zshrc ~/.zshrc
+sudo chsh -s $(which zsh)
 
 #install ranger
 sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils highlight \
@@ -127,10 +96,6 @@ sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils hi
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
 
-#install fzf and ripgrip
-cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-cd ~ && curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb && sudo dpkg -i ripgrep_0.10.0_amd64.deb
-
 #install bat
 wget https://github.com/sharkdp/bat/releases/download/v0.15.4.0/bat_0.15.4.0_amd64.deb && sudo dpkg -i bat*.deb
 
@@ -138,58 +103,54 @@ wget https://github.com/sharkdp/bat/releases/download/v0.15.4.0/bat_0.15.4.0_amd
 curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
 chmod +x prettyping && sudo cp prettyping /usr/sbin/
 
-#install fd (find on steroids)
-wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb && sudo dpkg -i fd_*.deb
+#install greenclip for rofi
+curl -L  > https://github.com/erebe/greenclip/releases/download/v4.2/greenclip && chmod +x /home/marius/.local/bin/antigen.zsh && chmod +x /home/marius/.local/bin/greenclip
 
 
 #Other configurations
 #git clone https://github.com/sica07/dotfiles.git
-rm -f .Xresources && ln -s dotfiles/.Xdefaults .Xresources
 #mkdir ~/.config/i3blocks
 mkdir ~/.config/dunst
 mkdir ~/.config/tint2
+
+cp dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 cp dotfiles/dunstrc ~/.config/dunst/dunstrc
-cp dotfiles/_surf ~/.surf
+#cp dotfiles/_surf ~/.surf
 cp dotfiles/tint2rc ~/.config/tint2/tint2rc
-ln -s dotfiles/_xprofile ~/.xprofile
-ln -s dotfiles/sxkhd ~/.config/sxhkd
+#ln -s dotfiles/_xprofile ~/.xprofile
+#ln -s dotfiles/sxkhd ~/.config/sxhkd
 ln -s dotfiles/compton.conf compton.conf
 ln -s dotfiles/.gitconfig .gitconfig
 #ln -s dotfiles/.i3blocks.conf .i3blocks.conf
 ln -s dotfiles/.xmodmaprc .xmodmaprc
 #cp  dotfiles/i3blocks/* .config/i3blocks/*
 cp  dotfiles/i3/* .config/i3/*
-ln -s dotfiles/.i3status.conf .i3status.conf
+#ln -s dotfiles/.i3status.conf .i3status.conf
 ln -s dotfiles/.commit-template.txt .commit-template.txt
 rm -f .zshrc && ln -s dotfiles/.zshrc .zshrc
 rm -f .tmux.conf && ln -s dotfiles/.tmux.conf .tmux.conf
 tic dotfiles/tmux-256color.terminfo
 
 #Powerline Nerd fonts
-mkdir ~/.fonts/
-mkdir ~/.config/ && mkdir ~/.config/fontconfig/
-mkdir ~/.config/fontconfig/conf.d/
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+mkdir /home/marius/.fonts
+mkdir /home/marius/.config/fontconfig
+mkdir /home/marius/.config/fontconfig/conf.d
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete.ttf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete%20Mono.otf
 wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/L/complete/Meslo%20LG%20L%20Regular%20for%20Powerline%20Nerd%20Font%20Complete%20Mono.otf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
-wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.otf
-mv Menlo* ~/.fonts/
-mv Meslo* ~/.fonts/
-mv Fura* ~/.fonts/
-wget  https://github.com/be5invis/Iosevka/releases/download/v2.0.0/02-iosevka-term-2.0.0.zip && unzip 02-iosevka-term-2.0.0.zip -d ~/.fonts/ && cp ~/.fonts/ttf/* ~/.fonts/
-fc-cache -vf ~/.fonts/
-
-#i3lock-fancy
-cd && git clone https://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.githttps://github.com/meskarune/i3lock-fancy.git
-cd i3lock-fancy/
-sudo cp lock /usr/local/bin
-sudo cp -R icons /usr/local/bin
+mv Menlo* home/marius/.fonts/
+mv Meslo* home/marius/.fonts/
+mv Fira* home/marius/.fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip && unzip Iosevka.zip -d home/marius/.fonts/ && cp home/marius/.fonts/ttf/* home/marius/.fonts/
+fc-cache -vf home/marius/.fonts/
 
 #Dropbox
+sudo apt install libpango1.0-0
+wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 
 
 #TOOLS
-pip install grip tmuxp litecli pgcli mycli glances haxor-news
+pip install grip litecli pgcli mycli
 
-wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i

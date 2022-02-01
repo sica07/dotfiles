@@ -23,13 +23,13 @@ antigen bundle vi-mode
 antigen bundle tmux
 antigen bundle git
 antigen bundle git-extras
-antigen bundle battery
+#antigen bundle battery
 # a series of aliases and functions which make a System Administrator's life easier
 antigen bundle systemadmin
 
 
-#antigen theme cloud
-antigen theme gnzh
+antigen theme cloud
+#antigen theme gnzh
 #antigen theme miloshadzic
 #antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
@@ -56,7 +56,7 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
 export NVIM_COC_LOG_FILE=coc.log
-export XDG_RUNTIME_DIR=/tmp/psalmls
+#export XDG_RUNTIME_DIR=/tmp
 
 #export PYTHONPATH="$HOME/osm2city"
 
@@ -262,7 +262,10 @@ function dssh() {
 function mkd() {
    mkdir -p "$@" && cd "$@"
 }
-
+# Make a pdf look like scanned
+function xerox() {
+  convert -density 150 "$@" -colorspace gray -blur 0x0.1 -sharpen 0x5.0 -level 10%,90% -rotate -0.5 -sharpen 0x1.2 xerox.pdf
+}
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-9000}"

@@ -7,7 +7,7 @@ echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
 sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig exa &&
-sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake tint2 luakit
+sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake tint2 luakit kitty
 
 sudo flatpak install -y postman slack dbeaver
 #install nodejs
@@ -88,7 +88,6 @@ chmod +x prettyping && sudo cp prettyping /usr/sbin/
 
 
 #Other configurations
-cp -r dotfiles/_surf /home/marius/.surf
 cp dotfiles/.alacritty.yml ~/.alacritty.yml
 ln -s dotfiles/.gitconfig .gitconfig
 sudo ln -s /usr/bin/fdfind /usr/bin/fd
