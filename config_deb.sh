@@ -7,10 +7,10 @@ cd
 #install infinality fonts ppa
 #sudo add-apt-repository ppa:no1wantdthisname/ppa
 #install node
-sudo apt-get install curl software-properties-common -y
+sudo apt install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt-get install pcmanfm stterm zsh mc htop tmux compton ripgrep python-dev python3-dev python-pip python3-pip python-setuptools python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal -y &&
+sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
 
 sudo flatpak install -y postman slack dbeaver
@@ -33,17 +33,21 @@ wget https://github.com/muesli/duf/releases/download/v0.6.2/duf_0.6.2_linux_amd6
 curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 #install gaps
-sudo apt-get install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
+sudo apt install meson dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev
+sudo purge i3
 git clone https://www.github.com/Airblader/i3 i3-gaps && cd i3-gaps
-autoreconf --force --install
 mkdir -p build && cd build/
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
+meson --prefix /usr/local
+ninja
+sudo ninja install
+#../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers && make && sudo make install
 #install docker
 sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install docker-ce
+sudo groupadd docker && sudo usermod -aG docker marius
 
 #install docker-compose
 sudo curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
