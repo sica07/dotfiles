@@ -10,7 +10,7 @@ cd
 sudo apt install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh -y &&
+sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
 
 sudo flatpak install -y postman slack dbeaver
@@ -154,6 +154,11 @@ fc-cache -vf /home/marius/.fonts/
 sudo apt install libpango1.0-0
 wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb && sudo dpkg -i download*.deb && dropbox start -i
 
+# Tiling windows in kde
+git clone https://github.com/kwin-scripts/kwin-tiling.git
+cd kwin-tiling/
+plasmapkg2 --type kwinscript -i .
+kcmshell5 kwinscripts
 
 #TOOLS
 pip install grip litecli pgcli mycli
