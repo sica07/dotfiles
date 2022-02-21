@@ -10,10 +10,12 @@ cd
 sudo apt install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot -y &&
+sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot bat -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
 
 sudo flatpak install -y postman slack dbeaver
+
+sudo ln -s /usr/sbin/batcat /usr/sbin/bat
 #install nodejs
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
@@ -99,9 +101,6 @@ sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils hi
 && cp ranger/rifle.conf ~/.config/ranger/rifle.conf \
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
-
-#install bat
-wget https://github.com/sharkdp/bat/releases/download/v0.15.4.0/bat_0.15.4.0_amd64.deb && sudo dpkg -i bat*.deb
 
 #install prettyping
 curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping

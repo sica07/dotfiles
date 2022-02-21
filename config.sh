@@ -5,11 +5,14 @@ echo Ubntu + KDE configuration specific
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal &&
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common zsh locate ripgrep fzf autoconf ssh-askpass redshift ncal bat&&
 sudo apt install -y jq htop tmux compton python python3 python3-dev python3-pip python3-setuptools sysstat git-extras dict editorconfig exa flameshot &&
 sudo apt install -y tig html-xml-utils duf python3-neovim meld zathura surf mpv fd-find alacritty newsboat network-manager-openvpn-gnome guake tint2 luakit kitty
 
 sudo flatpak install -y postman slack dbeaver
+
+sudo ln -s /usr/sbin/batcat /usr/sbin/bat
+
 #install nodejs
 echo """"""""""""""""""""""""""""""""""""""""""""
 echo INSTALLING NODEJS...
