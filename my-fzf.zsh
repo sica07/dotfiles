@@ -113,7 +113,7 @@ vv() {
 
   if [[ -n $files ]]
   then
-     vim -- $files
+     nvim -- $files
      print -l $files[1]
   fi
 }
@@ -154,14 +154,29 @@ fzf-locate-widget() {
 zle     -N    fzf-locate-widget
 bindkey '\ei' fzf-locate-widget
 
-# fv - open files in ~/.viminfo
-fv() {
+# fe - open files in ~/.viminfo
+fe() {
   local files
   files=$(grep '^>' ~/.viminfo | cut -c3- |
           while read line; do
             [ -f "${line/\~/$HOME}" ] && echo "$line"
-          done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
+          done | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
   zle redisplay
 }
 zle     -N   fv
 bindkey '^e' fv
+
+# fv - open files in ~/.viminfo
+fw() {
+  local files
+  files=$(fd -d 1 . '/home/marius/Dropbox/Apps/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
+  #if [[ -n $files ]]
+  #then
+     #nvim -- $files
+     #print -l $files[1]
+  #fi
+
+  zle redisplay
+}
+zle     -N   fv
+bindkey '^w' fv

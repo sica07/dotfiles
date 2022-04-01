@@ -16,6 +16,7 @@ sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit v
 sudo flatpak install -y postman slack dbeaver
 
 sudo ln -s /usr/sbin/batcat /usr/sbin/bat
+sudo ln -s /usr/bin/fdfind /usr/bin/fd
 #install nodejs
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh

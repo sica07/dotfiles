@@ -12,7 +12,7 @@ Activate Next Tab=Ctrl+PgDown; Ctrl+]
 Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Back; Alt+Left
+Back=Alt+Left; Back
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -22,7 +22,7 @@ ConfigureNotifications=
 ConfigureToolbars=
 Copy=Ctrl+C; Ctrl+Ins
 CreateFolder=F10
-Cut=Ctrl+X; Shift+Del
+Cut=Shift+Del; Ctrl+X
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -39,7 +39,7 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Forward; Alt+Right
+Forward=Alt+Right; Forward
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
@@ -64,7 +64,7 @@ PrintPreview=
 Prior=PgUp
 Quit=Ctrl+Q
 Redo=Ctrl+Shift+Z
-Reload=F5; Refresh
+Reload=Refresh; F5
 RenameFile=F2
 Replace=Ctrl+R
 ReportBug=
@@ -75,7 +75,7 @@ Save=Ctrl+S
 SaveAs=Ctrl+Shift+S
 SaveOptions=
 SelectAll=Ctrl+A
-ShowHideHiddenFiles=Alt+.; Ctrl+H
+ShowHideHiddenFiles=Ctrl+H; Alt+.
 ShowMenubar=Ctrl+M
 ShowStatusbar=
 ShowToolbar=
@@ -88,7 +88,7 @@ Undo=Ctrl+Z
 Up=Alt+Up
 WhatsThis=Shift+F1
 Zoom=
-ZoomIn=Ctrl+=; Ctrl++
+ZoomIn=Ctrl++; Ctrl+=
 ZoomOut=Ctrl+-
 
 [chromium.desktop][Global Shortcuts]
@@ -103,16 +103,17 @@ Toggle Screen Reader On and Off=Meta+Alt+S
 [kcm_touchpad][Global Shortcuts]
 Disable Touchpad=Touchpad Off
 Enable Touchpad=Touchpad On
-Toggle Touchpad=Touchpad Toggle; Meta+Shift+T
+Toggle Touchpad=Meta+Shift+T; Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=Ctrl+Esc
-display=Meta+P; Display
+display=Display; Meta+P
 
 [khotkeys][Global Shortcuts]
 {1b8a957d-8e34-49b1-b06f-fe93eb4da6ea}=Shift+Print
 {6756fa97-9677-4a4d-b47b-f54e52d7fa92}=Print
-{9585236d-3c1e-4a56-9280-93b646acb1bc}=Meta+Ctrl+O
+{9585236d-3c1e-4a56-9280-93b646acb1bc}=Meta+Ctrl+/
+{b9eaaee5-a6b6-4cae-ae51-b71e8d7f93a1}=Meta+Ctrl+O
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search
 {e65e8106-6a66-4e7e-a85f-dcf94d542ef6}=
 
@@ -129,7 +130,7 @@ mute=Volume Mute
 
 [krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Alt+F2; Meta+Space; Alt+Space
+_launch=Meta+Space; Alt+F2; Alt+Space
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
@@ -144,7 +145,7 @@ Cube=Ctrl+F11
 Cylinder=
 Decrease Opacity=
 Expose=Ctrl+F9
-ExposeAll=Ctrl+F10; Launch (C)
+ExposeAll=Launch (C); Ctrl+F10
 ExposeClass=Ctrl+F7
 FlipSwitchAll=
 FlipSwitchCurrent=
@@ -169,8 +170,8 @@ Switch One Desktop to the Left=
 Switch One Desktop to the Right=
 Switch Window Down=Meta+Alt+Down; Meta+J
 Switch Window Left=Meta+Alt+Left; Meta+H
-Switch Window Right=Meta+L; Meta+Alt+Right
-Switch Window Up=Meta+Alt+Up; Meta+K
+Switch Window Right=Meta+Alt+Right; Meta+L
+Switch Window Up=Meta+K; Meta+Alt+Up
 Switch to Desktop 1=Meta+1
 Switch to Desktop 10=Meta+0
 Switch to Desktop 11=
@@ -269,11 +270,11 @@ Window Pack Down=
 Window Pack Left=
 Window Pack Right=
 Window Pack Up=
-Window Quick Tile Bottom=Meta+Down; Meta+Shift+J
+Window Quick Tile Bottom=Meta+Shift+J; Meta+Down
 Window Quick Tile Bottom Left=
 Window Quick Tile Bottom Right=
 Window Quick Tile Left=Meta+Left
-Window Quick Tile Right=Meta+Right; Meta+Shift+L
+Window Quick Tile Right=Meta+Shift+L; Meta+Right
 Window Quick Tile Top=Meta+Up; Meta+Shift+K
 Window Quick Tile Top Left=
 Window Quick Tile Top Right=
@@ -367,7 +368,11 @@ activate task manager entry 6=
 activate task manager entry 7=
 activate task manager entry 8=
 activate task manager entry 9=
+activate widget 118=
+activate widget 158=Meta+Shift+Space
 activate widget 3=Alt+F1
+activate widget 76=
+activate widget 97=
 clear-history=
 clipboard_action=Ctrl+Alt+X
 cycleNextAction=
@@ -379,7 +384,7 @@ previous activity=Meta+Shift+Tab
 repeat_action=Ctrl+Alt+R
 show dashboard=Ctrl+F12
 show-barcode=
-show-on-mouse-pos=
+show-on-mouse-pos=Meta+Shift+P
 stop current activity=Meta+S
 switch to next activity=
 switch to previous activity=
