@@ -163,8 +163,8 @@ fe() {
           done | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
   zle redisplay
 }
-zle     -N   fv
-bindkey '^e' fv
+zle     -N   fe
+bindkey '^e' fe
 
 # fv - open files in ~/.viminfo
 fw() {
@@ -178,5 +178,5 @@ fw() {
 
   zle redisplay
 }
-zle     -N   fv
-bindkey '^w' fv
+zle     -N   fw
+bindkey '^w' fw

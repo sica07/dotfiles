@@ -23,13 +23,13 @@ antigen bundle vi-mode
 antigen bundle tmux
 antigen bundle git
 antigen bundle git-extras
-antigen bundle battery
+#antigen bundle battery
 # a series of aliases and functions which make a System Administrator's life easier
 antigen bundle systemadmin
 
 
-#antigen theme cloud
-antigen theme gnzh
+antigen theme cloud
+#antigen theme gnzh
 #antigen theme miloshadzic
 #antigen theme geometry-zsh/geometry
 #RPROMPT='🔋 $(battery_pct_prompt)'
@@ -56,8 +56,8 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
 export NVIM_COC_LOG_FILE=coc.log
+#export XDG_RUNTIME_DIR=/tmp
 
-#export XDG_RUNTIME_DIR=/tmp/psalmls
 #export PYTHONPATH="$HOME/osm2city"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -117,6 +117,7 @@ alias h='history'
 alias myip="curl ipinfo.io/ip"
 alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
 alias v='nvim'
+alias lynx='lx'
 alias cat='bat --theme GitHub'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
@@ -142,11 +143,12 @@ alias meteo='curl wttr.in/Ghimbav'
 alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
+alias todo='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
-alias note='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
 alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
-alias space='ncdu -rr -x'
-alias du='ncdu -rr -x'
+alias t='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
+alias space='duf --sort size'
+alias du='duf --sort size'
 alias help='tldr'
 alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
 alias moon="feh --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/moon50k.png'"
@@ -172,6 +174,7 @@ alias peggo='youtube-dl -x --audio-quality 0 --audio-format mp3 --embed-thumbnai
 alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
 alias phpr='psysh'
+alias phpsh='psysh'
 alias dropboxu="rclone sync ~/Dropbox/Apps/vimwiki dropbox:Apps/vimwiki"
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
@@ -186,11 +189,24 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
+alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
+alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
+alias mm="mr&mh"
+alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
-alias kanban="cd ~/Dropbox/Apps/vimwiki && nvim -O {todo,doing,done}.txt"
 alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
-alias t='nvim -o ~/Dropbox/Apps/vimwiki/todo.txt';
+alias ls="exa --icons"
+
+alias '?'="duck"
+
+alias mntg="sudo mount /dev/sda5 /mnt"
+alias gog="cd /mnt/home/marius/ryuuma"
+alias rescue="env -u SESSION_MANAGER rescuetime &"
+alias vpn="cd ~/Documents && sudo openvpn lynx.ovpn"
+alias cvpn="cd ~/Documents && sudo openvpn carnext.vpn"
+alias kanban="cd ~/Dropbox/Apps/vimwiki && nvim -O {todo,doing,done}.txt"
+
+alias abi='ssh -t abi "tmux a -t 0"'
 
 
 
@@ -198,7 +214,6 @@ alias t='nvim -o ~/Dropbox/Apps/vimwiki/todo.txt';
 function kil {
     kill -SIGTERM $(pidof $1)
 }
-
 ## JUMP functionality
 export MARKPATH=$HOME/.marks
 function j {
@@ -241,6 +256,23 @@ function phpserver() {
 }
 
 
+# Search on duckduckgo
+function duck() {
+    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
+}
+
+function g() {
+    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!g $*"
+}
+
+function so() {
+    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!so $*"
+}
+
+function w() {
+    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!w $*"
+}
+
 # Docker
 function dssh() {
    docker exec -it "$@" bash
@@ -250,7 +282,13 @@ function dssh() {
 function mkd() {
    mkdir -p "$@" && cd "$@"
 }
-
+# Make a pdf look like scanned
+function xerox() {
+  convert -density 150 "$@" -colorspace gray -blur 0x0.1 -sharpen 0x5.0 -level 10%,90% -rotate -0.5 -sharpen 0x1.2 xerox.pdf
+}
+function pdftojpg() {
+    convert -density 600 "$@" planificare.jpg
+}
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-9000}"
@@ -260,13 +298,32 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
+function lx() {
+lynxpath=/usr/bin/lynx
+[[ ! -x $lynxpath ]] && lynxpath=/usr/local/bin/lynx
+
+useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 Lynx"
+
+if [ -e "$HOME/.config/lynx/lynx.cfg" ];then
+  export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
+fi
+
+if [ -e "$HOME/.config/lynx/lynx.lss" ];then
+  export LYNX_LSS="$HOME/.config/lynx/lynx.lss"
+fi
+
+if [ ! -x "$lynxpath" ]; then
+  echo "Doesn't look like lynx is installed."
+  exit 1
+fi
+
+exec "$lynxpath" --useragent="$useragent" -accept_all_cookies "$@"
+}
+
 ## Use keep.sh to transfer files
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+transfer() { if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n  transfer <file|directory>\n  ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
 
-function gg() {
-        w3m 'https://duckduckgo.com/?q='$@
-}
+
