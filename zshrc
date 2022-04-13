@@ -258,19 +258,23 @@ function phpserver() {
 
 # Search on duckduckgo
 function duck() {
-    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
 }
 
 function g() {
-    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!g $*"
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!g $*"
 }
 
 function so() {
-    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!so $*"
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!so $*"
 }
 
 function w() {
-    lynx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!w $*"
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!w $*"
+}
+
+function dphp() {
+    lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!php $*"
 }
 
 # Docker
@@ -320,8 +324,24 @@ fi
 exec "$lynxpath" --useragent="$useragent" -accept_all_cookies "$@"
 }
 
+function reader() {
+    pandocpath=/usr/bin/pandoc
+    [[ ! -x $pandocpath ]] && pandocpath=/usr/local/bin/pandoc
+
+    echo "$@"
+    exec "$pandocpath" -f html -t plain  "$@"  | bat -p --theme='TwoDark'
+}
+
 ## Use keep.sh to transfer files
 transfer() { if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n  transfer <file|directory>\n  ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
+
+copy(){
+    cat | xclip -selection clipboard
+}
+
+paste(){
+    xclip -selection clipboard -o
+}
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
