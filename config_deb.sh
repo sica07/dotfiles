@@ -10,7 +10,7 @@ cd
 sudo apt install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot bat pandoc lynx -y &&
+sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot bat pandoc lynx xclip -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
 
 sudo flatpak install -y postman slack dbeaver
