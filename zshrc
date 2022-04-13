@@ -39,6 +39,7 @@ antigen apply
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=/usr/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 export LANG="en_US.utf8"
 export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
@@ -145,7 +146,7 @@ alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
 alias todo='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
-alias today='bat --theme GitHub --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
+alias today='bat --theme TwoDark -p --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
 alias t='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias space='duf --sort size'
 alias du='duf --sort size'
@@ -343,6 +344,12 @@ paste(){
     xclip -selection clipboard -o
 }
 
+
+f() {
+    local file
+    #files=$(rg "$*" --vimgrep . | fzf-tmux) && nvim ${files | cut -d':' -f1}
+    file=$(rg "$*" --color never --vimgrep . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)
+}
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
 

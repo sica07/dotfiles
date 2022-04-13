@@ -10,7 +10,7 @@ cd
 sudo apt install curl software-properties-common -y
 #curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 #sudo apt install nodejs -y
-sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras locate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot bat pandoc lynx xclip -y &&
+sudo apt install pcmanfm zsh mc htop tmux compton ripgrep python3-dev python3-pip python3-setuptools sysstat git-extras mlocate dict editorconfig ncal exa fzf autoconf ssh-askpass ncal feh flameshot bat pandoc lynx xclip -y &&
 sudo apt-get install dunst tig html-xml-utils ncdu grc rofi i3 i3status clipit vim-nox meld zathura redshift qutebrowser pass qtpass geoclue-2.0 redshift translate-shell mpv  nmon  tint2 fd-find kitty luakit network-manager-openvpn-gnome -y
 
 sudo flatpak install -y postman slack dbeaver
@@ -25,11 +25,11 @@ sudo apt install nodejs npm
 #install yarn
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn global add intelephense
+#yarn global add intelephense
 #Delta-git
 wget https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb && sudo dpkg -i git-delta_0.11.3_amd64 && rm git-delta_0.11.3_amd64
 #TLDR
-wget https://gitlab.com/pepa65/tldr-bash-client/raw/master/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
+wget https://4e4.win/tldr && chmod +x tldr && mv tldr ~/.local/bin/tldr
 #install duf
 wget https://github.com/muesli/duf/releases/download/v0.6.2/duf_0.6.2_linux_amd64.deb && sudo dpkg -i duf*
 #xh - httpie alternative
@@ -102,7 +102,9 @@ sudo apt-get install ranger caca-utils w3m-img bsdtar mediainfo poppler-utils hi
 && cp ranger/rifle.conf ~/.config/ranger/rifle.conf \
 && git clone git@github.com:alexanderjeurissen/ranger_devicons.git \
 && cd ranger_devicons && make install
-
+#install bottom (btm)
+curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb \
+&& sudo dpkg -i bottom_0.6.8_amd64.deb
 #customize lynx
 cp ~/dotfiles/lynx ~/.config/lynx
 
