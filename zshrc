@@ -325,11 +325,20 @@ fi
 exec "$lynxpath" --useragent="$useragent" -accept_all_cookies "$@"
 }
 
+function txt()
+{
+    exec pandoc -t plain  "$@" | bat -p
+}
+
+function book()
+{
+    exec pandoc -t markdown  "$@" | nvim -c "set ft=markdown"
+}
+
 function reader() {
     pandocpath=/usr/bin/pandoc
     [[ ! -x $pandocpath ]] && pandocpath=/usr/local/bin/pandoc
 
-    echo "$@"
     exec "$pandocpath" -f html -t plain  "$@"  | bat -p --theme='TwoDark'
 }
 
@@ -349,6 +358,22 @@ f() {
     local file
     #files=$(rg "$*" --vimgrep . | fzf-tmux) && nvim ${files | cut -d':' -f1}
     file=$(rg "$*" --color never --vimgrep . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)
+}
+
+timer() {
+runtime="$@ minute"
+endtime=$(date -ud "$runtime" +%s)
+
+echo "Starting the $@ minutes timer..."
+notify-send -a "Timer" "Starting the $@ minutes timer..."
+while [[ $(date -u +%s) -le $endtime ]]
+do
+    sleep 1m
+done
+
+echo "The $@ minutes time is up!"
+notify-send -a "Timer" "The $@ minutes time is up!"
+mpv /usr/share/sounds/Fresh_and_Clean/stereo/system-ready.ogg
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark

@@ -5,6 +5,15 @@ export FZF_DEFAULT_OPTS="--height 70% --reverse --extended --no-inline-info
 --prompt '➥ '
 --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
 --color info:150,prompt:168,spinner:150,pointer:167,marker:174"
+
+# If current selection is a text file shows its content,
+# if it's a directory shows its content, the rest is ignore
+FZF_CTRL_T_OPTS="--preview-window wrap --preview '
+if [[ -f {} ]]; then
+    file --mime {} | grep -q \"text\/.*;\" && bat --color \"always\" {} || (tput setaf 1; file --mime {})
+elif [[ -d {} ]]; then
+    ls -l --color=auto {}
+fi'"
 #Jellyx
 #--prompt '➤ ➥ ➢ ➠ ➜ ➛'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
