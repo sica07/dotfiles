@@ -148,7 +148,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
         bindsym $mod+Left resize shrink width 10 px or 10 ppt
         bindsym $mod+Up resize grow height 10 px or 10 ppt
         bindsym $mod+Down resize shrink height 10 px or 10 ppt
-        bindsym $mog+Right resize grow width 10 px or 10 ppt
+        bindsym $mod+Right resize grow width 10 px or 10 ppt
 
 # same bindings, but for the arrow keys
 #	bindsym Left resize shrink width 10 px or 10 ppt
@@ -184,10 +184,10 @@ bindsym $mod+equal [class="luakit"] scratchpad show
 # lock with a picture:
 #bindsym $mod+l exec i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
 # lock by blurring the screen:
-bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
+#bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to update i3)
 bindsym $mod+Shift+r restart
@@ -209,14 +209,16 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
 #bindsym $mod+Shift+b move up
 #bindsym $mod+Shift+o move right
 
@@ -227,7 +229,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -238,13 +240,13 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+i layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -275,8 +277,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+f exec /usr/bin/firefox
-bindsym $mod+g exec /usr/bin/chromium
+bindsym $mod+Shift+f exec /usr/bin/firefox
+bindsym $mod+Shift+g exec /usr/bin/chromium
 bindsym $mod+e exec /usr/bin/pcmanfm
 #bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
@@ -365,6 +367,7 @@ exec dropbox start &
 exec "redshift -l 45.65:25.6 -t 6500:4500"
 exec nm-applet
 exec greenclip daemon
+exec compton --config ~/compton.conf
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
@@ -381,31 +384,31 @@ exec --no-startup-id numlockx on
 #exec --no-startup-id ~/.screenlayout/monitor.sh
 set $monitor1 "DP-4"
 set $monitor2 "HDMI3"
-exec xrandr --output HDMI3 --auto --right -of DP-4
+exec xrandr --output DP-4 --auto --left-of HDMI3
 
 # Workspace Monitors
-workspace $workspace1 output $monitor1
-workspace $workspace2 output $monitor1
-workspace $workspace3 output $monitor1
-workspace $workspace4 output $monitor1
-workspace $workspace5 output $monitor1
-workspace $workspace6 output $monitor2
-workspace $workspace7 output $monitor2
-workspace $workspace9 output $monitor2
-workspace $workspace10 output $monitor2
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor1
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor2
+workspace $ws7 output $monitor2
+workspace $ws9 output $monitor2
+workspace $ws10 output $monitor2
 
 # Move focused workspace between monitors
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
 # Program Workspaces
-assign [class="firefox"] $workspace3
-assign [class="chromium"] $workspace1
-assign [class="DBeaver"] $workspace4
-#assign [class="geary"] $workspace9
-assign [class="bluemail"] $workspace9
-assign [class="Slack"] $workspace10
-assign [class="mpv"] $workspace8
+assign [class="firefox"] $ws3
+assign [class="chromium"] $ws1
+assign [class="DBeaver"] $ws4
+#assign [class="geary"] $ws9
+assign [class="bluemail"] $ws9
+assign [class="Slack"] $ws10
+assign [class="mpv"] $ws8
 
 # set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
@@ -451,9 +454,10 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec --no-startup-id blueberry-tray
 
 # networkmanager-applet
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # clipman-applet
+#exec --no-startup-id xfce4-clipman
 #exec --no-startup-id xfce4-clipman
 
 ##################
@@ -521,7 +525,7 @@ bar {
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    tray_output primary
+		    tray_output DP-4
 		    tray_padding 0
 
 # When strip_workspace_numbers is set to yes,
@@ -577,14 +581,14 @@ strip_workspace_numbers yes
 # Application menu handled by rofi: #
 #####################################
 # rofi bindings
-bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+g exec --no-startup-id "luakit https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+s exec --no-startup-id "luakit https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+w exec --no-startup-id "luakit https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -i -p wikipedia: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+a exec --no-startup-id "luakit https://wolframalpha.com/input/?i=+$(echo $(rofi -dmenu -i -p wolframalpha: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+h exec --no-startup-id "luakit https://github.com/search?q=+$(echo $(rofi -dmenu -i -p github: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(echo $(rofi -dmenu -i -p wol-m: ) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(echo $(rofi -dmenu -i -p wol-en: ) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+g exec --no-startup-id "luakit https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+s exec --no-startup-id "luakit https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+w exec --no-startup-id "luakit https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -i -p wikipedia: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+a exec --no-startup-id "luakit https://wolframalpha.com/input/?i=+$(echo $(rofi -dmenu -i -p wolframalpha: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+h exec --no-startup-id "luakit https://github.com/search?q=+$(echo $(rofi -dmenu -i -p github: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(echo $(rofi -dmenu -i -p wol-m: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(echo $(rofi -dmenu -i -p wol-en: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
 
 ## rofi scripts
@@ -609,7 +613,7 @@ bindsym $mod+space exec rofi -modi drun -show drun \
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+w exec rofi -show window \
+bindsym $mod+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec rofi -show window \

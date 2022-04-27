@@ -44,7 +44,7 @@ export LANG="en_US.utf8"
 export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-export TERMINAL="stterm"
+export TERMINAL="kitty"
 export BROWSER="surf"
 export READER="zathura"
 export EDITOR="nvim"
@@ -130,10 +130,11 @@ if [ $UID -ne 0 ]; then
     alias reboot='sudo reboot'
     alias shutdown='sudo shutdown -h now'
     alias off='sudo shutdown -h now'
-    alias update='sudo apt update'
-    alias upgrade='sudo apt upgrade'
-    alias purge='sudo apt purge'
-    alias install='sudo apt install'
+    alias update='sudo pacman -Syy'
+    alias upgrade='sudo pacman -Syu'
+    alias purge='yay -Rns '
+    alias uninstall='yay -Rs '
+    alias install='yay -S '
     alias root='sudo su'
     alias _='sudo'
 fi

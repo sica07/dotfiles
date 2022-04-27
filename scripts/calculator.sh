@@ -12,10 +12,10 @@ then
     mkdir -p "$(dirname "${ROFI_CALC_HISTORY_FILE}")"
 fi
 
-FORMULA=$(echo -e "" | rofi -dmenu -p "Calculator")
+FORMULA=$(echo -e "" | rofi -dmenu -p "Calculator" -config ~/.config/rofi/rofidmenu.rasi)
 if [ -z $FORMULA ]
 then
-    $(rofi -demnu -p "Result" -mesg "$(cat ${ROFI_CALC_HISTORY_FILE})")
+    $(rofi -demnu -p "Result" -mesg "$(cat ${ROFI_CALC_HISTORY_FILE})" -config ~/.config/rofi/rofidmenu.rasi)
 else
     if [ -n "${FORMULA}" ]
     then
@@ -31,7 +31,7 @@ else
         then
             echo "$(head -n ${ROFI_CALC_HISTORY_MAXCOUNT} ${ROFI_CALC_HISTORY_FILE})" > ${ROFI_CALC_HISTORY_FILE}
         fi
-        $(rofi -dmenu -p "Result" -mesg "$(cat ${ROFI_CALC_HISTORY_FILE})")
+        $(rofi -dmenu -p "Result" -mesg "$(cat ${ROFI_CALC_HISTORY_FILE})" -config ~/.config/rofi/rofidmenu.rasi)
 
     fi
 fi
