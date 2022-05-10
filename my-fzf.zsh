@@ -178,7 +178,7 @@ bindkey '^e' fe
 # fv - open files in ~/.viminfo
 fw() {
   local files
-  files=$(fd -d 1 . '/home/marius/Dropbox/Apps/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
+  files=$(fd -d 1 . '/home/marius/Documents/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
   #if [[ -n $files ]]
   #then
      #nvim -- $files

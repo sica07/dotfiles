@@ -1,13 +1,23 @@
 cd
-#sudo yay -Syu zsh ripgrep  git-extras dict exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd \
-#tig ncdu meld zathura redshift geoclue mpv transalte-shell kitty pcmanfm chromium luakit most \
-#postman slack dbeaver dropbox \
+#sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd libreoffice-still \
+#tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip \
+#postman slack-desktop dbeaver skypeforlinux-stable-bin \
 #nodejs-lts-gallium nvm npm \
-#git-delta tldr duf xh lazydocker \
+#python-neovim neovim
+#composer \
+#git-delta tldr duf xh lazydocker syncthing syncthing-gtk-python3 \
 #docker docker-compose \
 #universal-ctags prettyping bottom bluemail \
 #ranger w3m highlight mediainfo ranger_devicons-git odt2txt \
-#nerd-fonts-iosevka otf-nerd-fonts-fira-code
+#nerd-fonts-iosevka otf-nerd-fonts-fira-code \
+#ttf-dejavu ttf-liberation noto-fonts
+
+# font configuration
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d  &&
+sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d &&
+sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d &&
+sudo sed 's/#export/export/g' /etc/profile.d/freetype2.sh  &&
+sudo cp fonts_local.conf /etc/fonts/local.conf
 
 #nvim configuration
 cd ~/.config && git clone https://github.com/sica07/nvim.git && nvim +PlugInstall

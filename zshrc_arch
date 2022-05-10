@@ -116,7 +116,7 @@ alias k='clear'
 alias bc='bc -l'
 alias h='history'
 alias myip="curl ipinfo.io/ip"
-alias tm='cd ~/Dropbox/Apps/tmuxp && tmuxp load'
+alias tm='cd ~/Sync/tmuxp && tmuxp load'
 alias v='nvim'
 alias lynx='lx'
 alias cat='bat --theme GitHub'
@@ -130,11 +130,13 @@ if [ $UID -ne 0 ]; then
     alias reboot='sudo reboot'
     alias shutdown='sudo shutdown -h now'
     alias off='sudo shutdown -h now'
-    alias update='sudo pacman -Syy'
-    alias upgrade='sudo pacman -Syu'
+    alias upgrade='sudo pacman -Syuw & sudo pacman -Syu'
+    alias update=''
     alias purge='yay -Rns '
     alias uninstall='yay -Rs '
     alias install='yay -S '
+    #Alias to remove orphaned packages
+    alias orphan='sudo pacman -Rsn $(pacman -Qqdt)'
     alias root='sudo su'
     alias _='sudo'
 fi
@@ -145,15 +147,15 @@ alias meteo='curl wttr.in/Ghimbav'
 alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
 alias r='ranger'
-alias todo='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
-alias n='nvim ~/Dropbox/Apps/vimwiki/Scratch.md';
-alias today='bat --theme TwoDark -p --language swift -r 1:10 ~/Dropbox/Apps/vimwiki/todo.txt';
-alias t='nvim -o ~/Dropbox/Apps/vimwiki/{todo.txt,doing.txt,done.txt}';
+alias todo='nvim -o ~/Documents/vimwiki/{todo.txt,doing.txt,done.txt}';
+alias n='nvim ~/Documents/vimwiki/Scratch.md';
+alias today='bat --theme TwoDark -p --language swift -r 1:10 ~/Documents/vimwiki/todo.txt';
+alias t='nvim -o ~/Documents/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias space='duf --sort size'
 alias du='duf --sort size'
 alias help='tldr'
-alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/' &"
-alias moon="feh --bg-fill '/home/marius/Dropbox/Apps/Desktoppr/moon50k.png'"
+alias wallpaper="feh --recursive --randomize --bg-fill '/home/marius/Sync/Desktoppr/' &"
+alias moon="feh --bg-fill '/home/marius/Sync/Desktoppr/moon50k.png'"
 alias pig='ping google.ro'
 alias fboff="sudo -- sh -c -e 'echo '127.0.0.1' facebook.com >> /etc/hosts'"
 alias fbon="sudo -- sh -c -e 'sed --in-place '/facebook/d' /etc/hosts'"
@@ -177,7 +179,7 @@ alias mobi='kindlegen'
 alias random='shuf -n 1 -i'
 alias phpr='psysh'
 alias phpsh='psysh'
-alias dropboxu="rclone sync ~/Dropbox/Apps/vimwiki dropbox:Apps/vimwiki"
+alias dropboxu="rclone sync ~/Sync/vimwiki dropbox:Apps/vimwiki"
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
 alias -g NF='./*(oc[1])'
@@ -196,7 +198,7 @@ alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
 alias mm="mr&mh"
 alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
 alias show="feh --auto-zoom --fullscreen "
-alias todo="nvim ~/Dropbox/Apps/vimwiki/todo.txt"
+alias todo="nvim ~/Sync/vimwiki/todo.txt"
 alias ls="exa --icons"
 
 alias '?'="duck"
@@ -206,7 +208,7 @@ alias gog="cd /mnt/home/marius/ryuuma"
 alias rescue="env -u SESSION_MANAGER rescuetime &"
 alias vpn="cd ~/Documents && sudo openvpn lynx.ovpn"
 alias cvpn="cd ~/Documents && sudo openvpn carnext.vpn"
-alias kanban="cd ~/Dropbox/Apps/vimwiki && nvim -O {todo,doing,done}.txt"
+alias kanban="cd ~/Sync/vimwiki && nvim -O {todo,doing,done}.txt"
 
 alias abi='ssh -t abi "tmux a -t 0"'
 
@@ -354,6 +356,10 @@ paste(){
     xclip -selection clipboard -o
 }
 
+zet(){
+    nvim "+Zet $*"
+}
+
 
 f() {
     local file
@@ -378,5 +384,3 @@ mpv /usr/share/sounds/Fresh_and_Clean/stereo/system-ready.ogg
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
-
-

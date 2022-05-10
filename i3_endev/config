@@ -281,6 +281,7 @@ bindsym $mod+Shift+f exec /usr/bin/firefox
 bindsym $mod+Shift+g exec /usr/bin/chromium
 bindsym $mod+e exec /usr/bin/pcmanfm
 #bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec /usr/bin/flameshot gui
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -312,11 +313,12 @@ set $ws10 "10: "
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Thunar"] $ws3
-assign [class="Thunderbird"] $ws4
-assign [class="TelegramDesktop"] $ws5
+assign [class="chromium"] $ws1
+assign [class="(?i)firefox"] $ws3
+assign [class="dbeaver"] $ws4
+assign [class="geary"] $ws9
+assign [class="gnome-calendar"] $ws9
+assign [class="slack-desktop"] $ws10
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Xfce4-terminal] focus
@@ -368,6 +370,7 @@ exec "redshift -l 45.65:25.6 -t 6500:4500"
 exec nm-applet
 exec greenclip daemon
 exec compton --config ~/dotfiles/compton.conf
+exec syncthing serve --no-browser
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
@@ -381,10 +384,10 @@ exec --no-startup-id numlockx on
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-#exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/monitor.sh
 set $monitor1 "DP-1"
-set $monitor2 "HDMI3"
-exec xrandr --output HDMI3 --auto --right-of DP-1
+set $monitor2 "HDMI1"
+#exec --no-startup-id xrandr --output HDMI1 --auto --right-of DP-1
 
 # Workspace Monitors
 workspace $ws1 output $monitor1
@@ -400,16 +403,6 @@ workspace $ws10 output $monitor2
 # Move focused workspace between monitors
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
-
-# Program Workspaces
-assign [class="firefox"] $ws3
-assign [class="chromium"] $ws1
-assign [class="DBeaver"] $ws4
-assign [class="geary"] $ws9
-assign [class="calendar"] $ws9
-#assign [class="bluemail"] $ws9
-assign [class="Slack-desktop"] $ws10
-assign [class="mpv"] $ws8
 
 # set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
@@ -472,6 +465,7 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
@@ -582,7 +576,7 @@ strip_workspace_numbers yes
 # Application menu handled by rofi: #
 #####################################
 # rofi bindings
-#bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+g exec --no-startup-id "luakit https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+s exec --no-startup-id "luakit https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+w exec --no-startup-id "luakit https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -i -p wikipedia: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
@@ -603,7 +597,7 @@ bindsym $mod+Shift+o exec --no-startup-id ~/dotfiles/scripts/bangs.sh
 #bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
 #bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme arthur
 # start applications needed for work
-bindsym $mod+Shift+w exec "slack"  exec "chromium" exec "firefox" exec  "bluemail"
+bindsym $mod+Shift+w exec "slack-desktop"  exec "chromium" exec "firefox" exec  "geary" exec "gnome-calendar"
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
@@ -623,6 +617,7 @@ bindsym $mod+Tab exec rofi -show window \
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 
+exec --no-startup-id flameshot
 exec --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 		-config ~/.config/rofi/rofidmenu.rasi
