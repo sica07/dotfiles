@@ -57,6 +57,7 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
 export NVIM_COC_LOG_FILE=coc.log
+export DISABLE_AUTO_TITLE="true"
 #export XDG_RUNTIME_DIR=/tmp
 
 #export PYTHONPATH="$HOME/osm2city"
@@ -122,6 +123,7 @@ alias lynx='lx'
 alias cat='bat --theme GitHub'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
+alias mpv='mpv --hwdec=auto'
 #alias st='stterm -f "Iosevka Term:size=18"'
 
 # privileged access
@@ -193,21 +195,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias mh="mpv --pause --video-zoom=.3 --volume=0 ~/Videos/program/H/"
-alias mr="mpv --pause --video-zoom=.3 ~/Videos/program/M/"
-alias mm="mr&mh"
-alias ruga="feh --bg-fill ~/Videos/program/ruga3.jpg"
-alias show="feh --auto-zoom --fullscreen "
 alias todo="nvim ~/Sync/vimwiki/todo.txt"
 alias ls="exa --icons"
+alias la="exa --icons -la"
+alias ll="exa --icons -l"
 
 alias '?'="duck"
 
-alias mntg="sudo mount /dev/sda5 /mnt"
-alias gog="cd /mnt/home/marius/ryuuma"
 alias rescue="env -u SESSION_MANAGER rescuetime &"
-alias vpn="cd ~/Documents && sudo openvpn lynx.ovpn"
-alias cvpn="cd ~/Documents && sudo openvpn carnext.vpn"
 alias kanban="cd ~/Sync/vimwiki && nvim -O {todo,doing,done}.txt"
 
 alias abi='ssh -t abi "tmux a -t 0"'
@@ -277,7 +272,7 @@ function w() {
     lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!w $*"
 }
 
-function dphp() {
+function k() {
     lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!php $*"
 }
 
@@ -363,8 +358,7 @@ zet(){
 
 f() {
     local file
-    #files=$(rg "$*" --vimgrep . | fzf-tmux) && nvim ${files | cut -d':' -f1}
-    file=$(rg "$*" --color never --vimgrep . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)
+    file=$(rg "$*" --color never -n . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)
 }
 
 timer() {

@@ -1,6 +1,6 @@
 cd
-#sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd libreoffice-still \
-#tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip \
+#sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd libreoffice-still python-pip \
+#tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip ripgrep-all \
 #postman slack-desktop dbeaver skypeforlinux-stable-bin \
 #nodejs-lts-gallium nvm npm \
 #python-neovim neovim
@@ -18,6 +18,9 @@ sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d &&
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d &&
 sudo sed 's/#export/export/g' /etc/profile.d/freetype2.sh  &&
 sudo cp fonts_local.conf /etc/fonts/local.conf
+
+
+su && wget https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts && cat hosts >> /etc/hosts && su marius
 
 #nvim configuration
 cd ~/.config && git clone https://github.com/sica07/nvim.git && nvim +PlugInstall

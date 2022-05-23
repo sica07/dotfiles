@@ -161,7 +161,7 @@ fzf-locate-widget() {
   zle redisplay
 }
 zle     -N    fzf-locate-widget
-bindkey '\ei' fzf-locate-widget
+bindkey '^n' fzf-locate-widget
 
 # fe - open files in ~/.viminfo
 fe() {
@@ -175,7 +175,7 @@ fe() {
 zle     -N   fe
 bindkey '^e' fe
 
-# fv - open files in ~/.viminfo
+# fv - open files in vimwiki
 fw() {
   local files
   files=$(fd -d 1 . '/home/marius/Documents/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
@@ -189,3 +189,20 @@ fw() {
 }
 zle     -N   fw
 bindkey '^w' fw
+
+# F search all
+rga-fzf() {
+	# local file
+	RG_PREFIX="rga --files-with-matches"
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 3 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+	echo "opening $file" &&
+	xdg-open "$file"
+}
+zle     -N   rga-fzf
+bindkey '^f' rga-fzf

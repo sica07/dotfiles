@@ -7,6 +7,8 @@ elif [ $ACTION == "google" ]; then
     luakit -u https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')
 elif [ $ACTION == "stackoverflow" ]; then
     luakit -u https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')
+elif [ $ACTION == "devdocs.io" ]; then
+    luakit -u https://duckduckgo.com/?q=!devdocs+$(echo $(rofi -dmenu -p stackoverflow: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')
 elif [ $ACTION == "wikipedia" ]; then
     luakit -u https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -p google: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')
 elif [ $ACTION == "github" ]; then
