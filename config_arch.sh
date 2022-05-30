@@ -1,7 +1,7 @@
 cd
 #sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd libreoffice-still python-pip \
 #tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip ripgrep-all \
-#postman slack-desktop dbeaver skypeforlinux-stable-bin \
+#postman slack-desktop dbeaver skypeforlinux-stable-bin picom \
 #nodejs-lts-gallium nvm npm \
 #python-neovim neovim
 #composer \
