@@ -361,6 +361,10 @@ f() {
     file=$(rg "$*" --color never -n . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)
 }
 
+spell() {
+  wget -q -U Mozilla -O - https://translate.google.com.vn/translate_tts\?ie\=UTF-8\&q\=$*\&tl\=en\&client\=tw-ob | mpg123 -
+}
+
 timer() {
 runtime="$@ minute"
 endtime=$(date -ud "$runtime" +%s)
