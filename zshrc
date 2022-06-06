@@ -58,6 +58,11 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export GIT_SSH_VARIANT=ssh
 export NVIM_COC_LOG_FILE=coc.log
 export DISABLE_AUTO_TITLE="true"
+
+export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/marius/.luarocks/share/lua/5.4/?.lua;/home/marius/.luarocks/share/lua/5.4/?/init.lua'
+export LUA_CPATH='/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/marius/.luarocks/lib/lua/5.4/?.so'
+export PATH='/home/marius/.luarocks/bin:/home/marius/.yarn/bin:/home/marius/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/aws:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/cp:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/composer:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker-compose:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/fzf:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/npm:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker:/home/marius/.antigen/bundles/djui/alias-tips:/home/marius/.antigen/bundles/webyneter/docker-aliases:/home/marius/.antigen/bundles/zsh-users/zsh-syntax-highlighting:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/vi-mode:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git-extras:/home/marius/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/systemadmin:/home/mariusm/.config/composer/vendor/bin:/home/marius/.local/bin:/home/marius/.config/composer/vendor/bin:/home/marius/.fzf/bin'
+
 #export XDG_RUNTIME_DIR=/tmp
 
 #export PYTHONPATH="$HOME/osm2city"
