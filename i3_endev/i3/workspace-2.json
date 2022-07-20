@@ -1,0 +1,55 @@
+[{
+    "layout": "splitv",
+    "percent": 0.2,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "name": "irssi",
+            "percent": 0.6,
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^kitty$",
+                    "instance": "^irssi$"
+                }
+            ]
+        },
+        {
+                    "border": "none",
+                    "name": "notmuch",
+                    "percent": 0.4,
+                    "type": "con",
+                    "swallows": [
+                        {
+                            "class": "^ffplay$"
+                        }
+                    ]
+        }
+    ]
+},
+{
+    "layout": "stacked",
+    "percent": 0.8,
+    "type": "con",
+    "nodes": [
+        {
+            "name": "kitty",
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^kitty$"
+                }
+            ]
+        },
+        {
+            "name": "luakit",
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^luakit$"
+                }
+            ]
+        }
+    ]
+}]

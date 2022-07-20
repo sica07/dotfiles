@@ -128,7 +128,10 @@ alias lynx='lx'
 alias cat='bat --theme GitHub'
 alias ping='prettyping --nolegend'
 alias find='/usr/bin/fd'
-alias mpv='mpv --hwdec=auto'
+alias mpv='mpv --video-sync=display-resample --hwdec=auto'
+alias audiompv='mpv  --ytdl-format="bestaudio/best"'
+alias stream='mpv  -vo=gpu --hwdec=vaapi'
+alias keymap='setxkbmap -layout'
 #alias st='stterm -f "Iosevka Term:size=18"'
 
 # privileged access
@@ -137,7 +140,7 @@ if [ $UID -ne 0 ]; then
     alias reboot='sudo reboot'
     alias shutdown='sudo shutdown -h now'
     alias off='sudo shutdown -h now'
-    alias upgrade='sudo pacman -Syuw & sudo pacman -Syu'
+    alias upgrade='sudo pacman -Syu'
     alias update=''
     alias purge='yay -Rns '
     alias uninstall='yay -Rs '
@@ -384,6 +387,35 @@ done
 echo "The $@ minutes time is up!"
 notify-send -a "Timer" "The $@ minutes time is up!"
 mpv /usr/share/sounds/Fresh_and_Clean/stereo/system-ready.ogg
+}
+
+setoen()
+{
+from=se
+to=en  # de, fr, es, etc.
+browser=xdg-open
+
+text=$(xclip c -o | sed 's/\//\\\//g' | sed 's/|/\\|/g' | sed ':loop; N; $!b loop; s/\n//g' | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n')
+$browser "https://www.deepl.com/translator#${from}/${to}/${text}"
+}
+entoro()
+{
+from=en
+to=ro  # de, fr, es, etc.
+browser=xdg-open
+
+text=$(xclip c -o | sed 's/\//\\\//g' | sed 's/|/\\|/g' | sed ':loop; N; $!b loop; s/\n//g' | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n')
+$browser "https://www.deepl.com/translator#${from}/${to}/${text}"
+}
+
+rotoen()
+{
+from=ro
+to=en  # de, fr, es, etc.
+browser=xdg-open
+
+text=$(xclip c -o | sed 's/\//\\\//g' | sed 's/|/\\|/g' | sed ':loop; N; $!b loop; s/\n//g' | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n')
+$browser "https://www.deepl.com/translator#${from}/${to}/${text}"
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark

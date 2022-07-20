@@ -573,6 +573,7 @@ bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 bindsym $mod+Shift+o exec --no-startup-id ~/dotfiles/scripts/bangs.sh
 bindsym $mod+Shift+s exec --no-startup-id  "wget -q -U Mozilla -O - https://translate.google.com.vn/translate_tts\?ie\=UTF-8\&q\=$(xclip -selection c -o)\&tl\=en\&client\=tw-ob | mpg123 -"
+bindsym $mod+Shift+y exec --no-startup-id  "mpv $(xclip -selection c -o)"
 #bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
 #bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme arthur
 # start applications needed for work
