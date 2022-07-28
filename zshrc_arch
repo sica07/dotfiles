@@ -1,41 +1,51 @@
-source ~/.local/bin/antigen.zsh
-#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#        source /etc/profile.d/vte.sh
-#fi
-antigen use oh-my-zsh
 
-#support for awscli and a few utilities to manage AWS profiles
-antigen bundle aws
-#This plugin defines a cpv function that uses rsync so that you get the features and security of this command.
-antigen bundle cp
-#alias cp='cpv'
-#completion for composer, as well as aliases
-antigen bundle composer
-# provides completion for docker-compose as well as some aliases
-antigen bundle docker-compose
-antigen bundle fzf
-antigen bundle npm
-antigen bundle docker
-antigen bundle djui/alias-tips
-antigen bundle webyneter/docker-aliases.git
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle vi-mode
-antigen bundle tmux
-antigen bundle git
-antigen bundle git-extras
-#antigen bundle battery
-# a series of aliases and functions which make a System Administrator's life easier
-antigen bundle systemadmin
+autoload -U compinit colors vcs_info
+colors
+compinit
 
+# Report command running time if it is more than 3 seconds
+REPORTTIME=3
+# Keep a lot of history
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+# Add commands to history as they are entered, don't wait for shell to exit
+setopt INC_APPEND_HISTORY
+# Do not keep duplicate commands in history
+setopt HIST_IGNORE_ALL_DUPS
+# Do not remember commands that start with a whitespace
+setopt HIST_IGNORE_SPACE
+# Correct spelling of all arguments in the command line
+setopt CORRECT_ALL
+# Enable autocompletion
+zstyle ':completion:*' completer _complete _correct _approximate
 
-antigen theme cloud
-#antigen theme gnzh
-#antigen theme miloshadzic
-#antigen theme geometry-zsh/geometry
-#RPROMPT='🔋 $(battery_pct_prompt)'
+# PROMPT STYLE
+zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%F{cyan}%b%f %u%c"
 
+_setup_ps1() {
+  vcs_info
+  GLYPH="☁"
+  [ "x$KEYMAP" = "xvicmd" ] && GLYPH="▼"
+  PS1=" %(?.%F{blue}.%F{red})$GLYPH%f %(1j.%F{cyan}[%j]%f .)%F{green}%1~%f %(!.%F{red}#%f .)"
+  RPROMPT="$vcs_info_msg_0_"
+}
+_setup_ps1
 
-antigen apply
+# Vi mode
+zle-keymap-select () {
+ _setup_ps1
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+zle-line-init () {
+  zle -K viins
+}
+zle -N zle-line-init
+bindkey -v
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=/usr/sbin:$PATH
@@ -377,3 +387,9 @@ mpv /usr/share/sounds/Fresh_and_Clean/stereo/system-ready.ogg
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
+
+source ~/.local/bin/antigen.zsh
+
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
