@@ -174,6 +174,20 @@ fe() {
 }
 zle     -N   fe
 bindkey '^e' fe
+# search and open file
+fo() {
+  local files
+  files=$(fd . '.' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
+  #if [[ -n $files ]]
+  #then
+     #nvim -- $files
+     #print -l $files[1]
+  #fi
+
+  zle redisplay
+}
+zle     -N   fo
+bindkey '^o' fo
 
 # fv - open files in vimwiki
 fw() {
@@ -202,7 +216,7 @@ rga-fzf() {
 				--preview-window="70%:wrap"
 	)" &&
 	echo "opening $file" &&
-	xdg-open "$file"
+	nvim "$file"
 }
 zle     -N   rga-fzf
 bindkey '^f' rga-fzf

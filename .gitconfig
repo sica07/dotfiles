@@ -25,6 +25,7 @@
     a = "add --patch"
     c = "commit"
     co = "checkout"
+    sw = "switch"
     df =  "diff --word-diff"
     st = "status -sb"
     pu = "!git fetch hub && !git rebase -p hub/master"

@@ -21,17 +21,18 @@ setopt CORRECT_ALL
 zstyle ':completion:*' completer _complete _correct _approximate
 
 # PROMPT STYLE
-zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%F{cyan}%b%f %u%c"
+#zstyle ':vcs_info:*' stagedstr '%F{green}●%f'
+#zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f'
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git*' formats "%F{green}[%f%F{cyan}%b%f %u%c%F{green}]%f "
+zstyle ':vcs_info:git*' formats "%F{green}[%f%F{cyan}%b%f%F{green}]%f "
 
 _setup_ps1() {
   vcs_info
   GLYPH="☁"
   [ "x$KEYMAP" = "xvicmd" ] && GLYPH="▼"
-  PS1=" %(?.%F{blue}.%F{red})$GLYPH%f %(1j.%F{cyan}[%j]%f .)%F{green}%1~%f %(!.%F{red}#%f .)"
-  RPROMPT="$vcs_info_msg_0_"
+  PS1=" %(?.%F{blue}.%F{red})$GLYPH%f %(1j.%F{cyan}[%j]%f .)%F{green}%1~%f %(!.%F{red}#%f .)$vcs_info_msg_0_"
+  #RPROMPT="$vcs_info_msg_0_"
 }
 _setup_ps1
 
@@ -157,7 +158,10 @@ alias mysql='mysql --auto-rehash --auto-vertical-output'
 alias meteo='curl wttr.in/Ghimbav'
 alias cutremur='curl https://secure.geonames.org/earthquakesJSON\?north\=48.26\&south\=43.62\&east\=29.71\&west\=20.26\&date\='2020-06-04'\&username=sica07 | jq ".earthquakes[0]"'
 alias alias-edit='nvim ~/.zshrc'
+alias g='git'
 alias r='ranger'
+alias d='docker'
+alias dc='docker compose'
 alias todo='nvim -o ~/Documents/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias n='nvim ~/Documents/vimwiki/Scratch.md';
 alias today='bat --theme TwoDark -p --language swift -r 1:10 ~/Documents/vimwiki/todo.txt';
@@ -269,7 +273,7 @@ function duck() {
     lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$*"
 }
 
-function g() {
+function gg() {
     lx "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=!g $*"
 }
 
@@ -332,22 +336,6 @@ fi
 exec "$lynxpath" --useragent="$useragent" -accept_all_cookies "$@"
 }
 
-function txt()
-{
-    exec pandoc -t plain  "$@" | bat -p
-}
-
-function book()
-{
-    exec pandoc -t markdown  "$@" | nvim -c "set ft=markdown"
-}
-
-function reader() {
-    pandocpath=/usr/bin/pandoc
-    [[ ! -x $pandocpath ]] && pandocpath=/usr/local/bin/pandoc
-
-    exec "$pandocpath" -f html -t plain  "$@"  | bat -p --theme='TwoDark'
-}
 
 ## Use keep.sh to transfer files
 transfer() { if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n  transfer <file|directory>\n  ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
@@ -360,11 +348,12 @@ paste(){
     xclip -selection clipboard -o
 }
 
+# create a Zettelkasten note
 zet(){
     nvim "+Zet $*"
 }
 
-
+#find in files with fzf
 f() {
     local file
     file=$(rg "$*" --color never -n . | fzf) && nvim -c $(echo "/$*") +$(echo $file | /usr/bin/cut -d':' -f2) $(echo $file | /usr/bin/cut -d':' -f1)

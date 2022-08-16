@@ -1,16 +1,16 @@
 cd
-#sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat pandoc lynx xclip rofi-greenclip fd libreoffice-still python-pip \
-#tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip ripgrep-all \
-#postman slack-desktop dbeaver skypeforlinux-stable-bin picom \
-#nodejs-lts-gallium nvm npm \
-#python-neovim neovim
-#composer \
-#git-delta tldr duf xh lazydocker syncthing syncthing-gtk-python3 \
-#docker docker-compose \
-#universal-ctags prettyping bottom bluemail \
-#ranger w3m highlight mediainfo ranger_devicons-git odt2txt \
-#nerd-fonts-iosevka otf-nerd-fonts-fira-code \
-#ttf-dejavu ttf-liberation noto-fonts
+sudo yay -Syu zsh ripgrep  git-extras dictd exa feh flameshot bat lynx xclip rofi-greenclip fd libreoffice-still python-pip \
+tig ncdu meld zathura zathura-pdf-mupdf redshift geoclue mpv youtube-dl transalte-shell kitty pcmanfm chromium luakit most gimp cups hplip ripgrep-all \
+postman slack-desktop dbeaver skypeforlinux-stable-bin picom \
+nodejs-lts-gallium nvm npm \
+python-neovim neovim
+composer \
+git-delta tldr duf xh lazydocker syncthing syncthing-gtk-python3 \
+docker docker-compose \
+universal-ctags prettyping bottom bluemail \
+ranger w3m highlight mediainfo ranger_devicons-git odt2txt \
+nerd-fonts-iosevka otf-nerd-fonts-fira-code \
+ttf-dejavu ttf-liberation noto-fonts
 
 # font configuration
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d  &&
