@@ -554,7 +554,8 @@ strip_workspace_numbers yes
 # Application menu handled by rofi: #
 #####################################
 # rofi bindings
-bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+f exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(echo $(rofi -dmenu -p search: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+o exec --no-startup-id "luakit $(echo $(rofi -dmenu -p url: -config ~/.config/rofi/rofidmenu.rasi))"
 #bindsym $mod+Ctrl+g exec --no-startup-id "luakit https://duckduckgo.com/?q=!g+$(echo $(rofi -dmenu -p google: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+s exec --no-startup-id "luakit https://duckduckgo.com/?q=!stackoverflow+$(echo $(rofi -dmenu -p stackoverflow: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+w exec --no-startup-id "luakit https://duckduckgo.com/?q=!w+$(echo $(rofi -dmenu -i -p wikipedia: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
@@ -562,7 +563,8 @@ bindsym $mod+Ctrl+o exec --no-startup-id "luakit https://duckduckgo.com/?q=+$(ec
 #bindsym $mod+Ctrl+h exec --no-startup-id "luakit https://github.com/search?q=+$(echo $(rofi -dmenu -i -p github: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+p exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/s/r34/lp-m?q=+$(echo $(rofi -dmenu -i -p wol-m: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 #bindsym $mod+Ctrl+i exec --no-startup-id "firefox --new-tab https://wol.jw.org/en/wol/s/r1/lp-e?q=+$(echo $(rofi -dmenu -i -p wol-en: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
-bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
+#bindsym $mod+Ctrl+d exec --no-startup-id "firefox --new-tab https://wol.jw.org/ro/wol/h/r34/lp-m"
+bindsym $mod+Ctrl+d exec --no-startup-id "luakit https://devdocs.io/#q=$(echo $(rofi -dmenu -p devdocs: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 
 ## rofi scripts
 bindsym $mod+Shift+x exec ~/.config/i3/scripts/powermenu
@@ -573,7 +575,7 @@ bindsym $mod+Shift+b exec --no-startup-id ~/dotfiles/scripts/bookmarks.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/dotfiles/scripts/pomodoro.sh
 bindsym $mod+Shift+o exec --no-startup-id ~/dotfiles/scripts/bangs.sh
 bindsym $mod+Shift+s exec --no-startup-id  "wget -q -U Mozilla -O - https://translate.google.com.vn/translate_tts\?ie\=UTF-8\&q\=$(xclip -selection c -o)\&tl\=en\&client\=tw-ob | mpg123 -"
-bindsym $mod+Shift+y exec --no-startup-id  "mpv $(xclip -selection c -o)"
+bindsym $mod+Shift+y exec --no-startup-id  "mpv -vo=gpu --hwdec=vaapi $(xclip -selection c -o)"
 #bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/pass.sh
 #bindsym $mod+Shift+p exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme arthur
 # start applications needed for work
@@ -599,7 +601,7 @@ bindsym $mod+Tab exec rofi -show window \
 
 exec --no-startup-id flameshot
 exec --no-startup-id greenclip daemon>/dev/null
-exec xmodmap ~/dotfiles/.Xmodmap
+exec --no-startup-id xmodmap ~/dotfiles/.Xmodmap
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 		-config ~/.config/rofi/rofidmenu.rasi
 
