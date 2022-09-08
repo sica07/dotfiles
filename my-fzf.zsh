@@ -192,7 +192,7 @@ bindkey '^o' fo
 # fv - open files in vimwiki
 fw() {
   local files
-  files=$(fd -d 1 . '/home/marius/Documents/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
+  files=$(fd -d 1 . '/home/marius/MEGA/vimwiki/' | fzf-tmux -d -m -q "$*" -1) && nvim ${files//\~/$HOME}
   #if [[ -n $files ]]
   #then
      #nvim -- $files
