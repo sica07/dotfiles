@@ -153,7 +153,7 @@ bindsym $mod+q kill
 bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+slash scratchpad show
 bindsym $mod+BackSpace [class="kitty"] scratchpad show
-bindsym $mod+equal [class="luakit"] scratchpad show
+bindsym $mod+equal [class="qutebrowser"] scratchpad show
 
 
 # Lock the system
@@ -551,8 +551,8 @@ strip_workspace_numbers yes
 #####################################
 # rofi bindings
 bindsym $mod+Tab exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
-bindsym $mod+Ctrl+o exec --no-startup-id "luakit $(echo $(rofi -dmenu -p url: -config ~/.config/rofi/rofidmenu.rasi))"
-bindsym $mod+Ctrl+d exec --no-startup-id "luakit https://devdocs.io/#q=$(echo $(rofi -dmenu -p devdocs: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
+bindsym $mod+Ctrl+o exec --no-startup-id "qutebrowser $(echo $(rofi -dmenu -p url: -config ~/.config/rofi/rofidmenu.rasi))"
+bindsym $mod+Ctrl+d exec --no-startup-id "qutebrowser https://devdocs.io/#q=$(echo $(rofi -dmenu -p devdocs: -config ~/.config/rofi/rofidmenu.rasi) | sed 's/ /%20/g')"
 
 ## rofi scripts
 bindsym $mod+Shift+x exec ~/.config/i3/scripts/powermenu

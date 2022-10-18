@@ -56,7 +56,7 @@ export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export TERMINAL="kitty"
-export BROWSER="surf"
+export BROWSER="qutebrowser"
 export READER="zathura"
 export EDITOR="nvim"
 export FILE="ranger"
@@ -195,6 +195,7 @@ alias random='shuf -n 1 -i'
 alias phpr='psysh'
 alias phpsh='psysh'
 alias dropboxu="rclone sync ~/Sync/vimwiki dropbox:Apps/vimwiki"
+alias t='~/dotfiles/scripts/t.sh'
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
 alias -g NF='./*(oc[1])'
