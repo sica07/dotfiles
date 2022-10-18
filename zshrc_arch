@@ -195,6 +195,7 @@ alias phpr='psysh'
 alias phpsh='psysh'
 alias dropboxu="rclone sync ~/Sync/vimwiki dropbox:Apps/vimwiki"
 alias t='~/dotfiles/scripts/t.sh'
+alias ztl='~/dotfiles/scripts/ztl.sh'
 #NF will always point to the newest file/directory in that current folder
 #e.g. tar xf NF //untar the newest file
 alias -g NF='./*(oc[1])'
