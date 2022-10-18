@@ -7,6 +7,7 @@ function add() {
   if [ -z $2 ]; then
     read -p "Task description: " task
   else
+    #remove first word ("add")
     #task=$(echo "$@" | sed 's/add//')
     task=$(echo "$@" | cut -d" " -f2- )
   fi
@@ -35,7 +36,7 @@ function add() {
 function list(){
   echo ""
   echo ""
-  cat $FILE | nl -w2 -s"| "
+  bat --style grid,numbers --theme TwoDark --language swift $FILE
   echo ""
   echo ""
 }
@@ -84,15 +85,15 @@ function help() {
 }
 
 case $1 in
-  "ls"|"list")
-    list;;
   "add")
     add $@;;
   "done"|"x")
     mark_done $2;;
   "remove"|"rm")
     remove $2;;
-  *)
+  "help")
     help;;
+  *)
+    list;;
 esac
 

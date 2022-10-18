@@ -165,7 +165,6 @@ alias dc='docker compose'
 alias todo='nvim -o ~/MEGA/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias n='nvim ~/MEGA/vimwiki/Scratch.md';
 alias today='bat --theme TwoDark -p --language swift -r 1:10 ~/MEGA/vimwiki/todo.txt';
-alias t='nvim -o ~/MEGA/vimwiki/{todo.txt,doing.txt,done.txt}';
 alias space='duf --sort size'
 alias du='duf --sort size'
 alias help='tldr'
@@ -209,7 +208,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias todo="nvim ~/Sync/vimwiki/todo.txt"
 alias ls="exa --icons"
 alias la="exa --icons -la"
 alias ll="exa --icons -l"
