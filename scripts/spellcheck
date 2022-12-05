@@ -1,0 +1,3 @@
+#!/bin/bash
+WORD=$(echo -e "" | rofi -dmenu -p "Spellcheck " -config ~/.config/rofi/rofidmenu.rasi)
+$(rofi -dmenu -p "Spellcheck" -mesg "$(echo $WORD | ispell -a | tail +2 | sed 's/&//g')" -config ~/.config/rofi/rofidmenu.rasi)
